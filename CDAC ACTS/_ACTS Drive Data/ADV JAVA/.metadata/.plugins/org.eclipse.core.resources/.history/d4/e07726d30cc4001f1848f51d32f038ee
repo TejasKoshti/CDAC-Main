@@ -1,0 +1,15 @@
+package fi.microcategoryservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = {"fi.microcategoryservice.controllers",
+		"fi.microcategoryservice.services"})
+})
+public class MicrocategoryserviceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicrocategoryserviceApplication.class, args);
+	}
+
+}

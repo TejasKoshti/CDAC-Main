@@ -1,0 +1,8 @@
+1) Create a user form with the following fields: 
+First Name, Last Name, Address, City, State, and Email. The form should include proper 
+validations: First Name and Last Name should only accept alphabetic characters (letters), and the Email should be validated to ensure it follows the correct email format. 
+Upon submission, the data should be saved in a database.
+
+2) After submitting all the data, it should be retrieved and displayed in another component (the List component). The data in the List component should be shown in a tabular format. When we click on the 'Edit' button next to a specific entry, a dialog should open for that specific ID. After making the necessary edits, the dialog will close, and the page should remain on the List component with the updated data visible. same like delete functionality 
+
+3)Add a search filter to the grid. The search filter should allow filtering based on First Name and Email only. The user should be able to type in either the First Name or Email, and the grid will dynamically display matching results.

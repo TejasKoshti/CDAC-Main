@@ -1,0 +1,15 @@
+package fi.resthiberapp.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import fi.resthiberapp.entity.Users;
+import jakarta.persistence.Query;
+
+@Repository
+public interface UsersRepository extends JpaRepository<Users, String> {
+	
+	
+	public Users getUser();
+
+}

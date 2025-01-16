@@ -1,0 +1,5 @@
+package fi.firstrestapp.controllers;
+
+public class WelcomeController {
+
+}

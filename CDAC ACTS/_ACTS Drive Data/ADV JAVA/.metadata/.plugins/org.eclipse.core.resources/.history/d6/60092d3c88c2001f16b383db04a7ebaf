@@ -1,0 +1,88 @@
+package fi.resthiberapp.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fi.resthiberapp.dto.CategoryDTO;
+import fi.resthiberapp.entity.Category;
+import fi.resthiberapp.repositories.CategoryRepository;
+
+@Service
+public class CategoryServiceImpl implements CategoryService 
+{
+	@Autowired
+	CategoryRepository repository;
+	
+	@Override
+	public boolean addNewCategory(CategoryDTO dto) 
+	{
+		Category entityCategory = new Category();
+		BeanUtils.copyProperties(dto, entityCategory);
+		
+		try(Session hibernateSession = hibernateFactory.openSession())
+		{
+			hibernateSession.beginTransaction();
+			hibernateSession.persist(entityCategory);
+			hibernateSession.getTransaction().commit();
+		}
+		return true;
+	}
+
+	@Override
+	public CategoryDTO getCategoryById(int categoryId) {
+		
+		try(Session hibernateSession = hibernateFactory.openSession())
+		{
+			Category entityCategory =(Category)hibernateSession.get(Category.class, categoryId);
+			CategoryDTO dto = new CategoryDTO();
+			BeanUtils.copyProperties(entityCategory, dto);
+			return dto;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> allCategories() {
+		
+		try(Session hibernateSession = hibernateFactory.openSession())
+		{
+			Query<Category> qrCategory = hibernateSession.createQuery("from Category",Category.class);
+			List<Category> list = qrCategory.getResultList();
+			
+			ArrayList<CategoryDTO> finalList = new ArrayList<>();
+			for(Category eCategory : list)
+			{
+				CategoryDTO dto = new CategoryDTO();
+				BeanUtils.copyProperties(eCategory, dto);
+				finalList.add(dto);
+			}
+			return finalList;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}
+
+
+
+
+
+
+
+
+

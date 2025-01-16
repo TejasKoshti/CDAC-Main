@@ -1,0 +1,5 @@
+package fi.firstbootmvc.controllers;
+
+public class UsersController {
+
+}

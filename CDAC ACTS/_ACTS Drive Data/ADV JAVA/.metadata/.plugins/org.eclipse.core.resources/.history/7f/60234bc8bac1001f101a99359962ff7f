@@ -1,0 +1,5 @@
+package fi.firstbootapp.beans;
+
+public class Users {
+
+}

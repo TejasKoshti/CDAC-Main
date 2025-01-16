@@ -1,0 +1,25 @@
+PG-DAC CPP-LabAssement1 - 40Marks.
+
+Q1. Write a program that calculates the average marks of all subjects. The numbers of subjects 'n' is accepted from the user. Allocate memory dynamically for 'n' integers. Free the memory  when not in use.
+
+Q2. Write a program which accepts two integers in main().Pass these as arguments to function max().In max(),find the maximum of these two numbers and using a return statement, return the address of the maximum number and print it in main().
+
+Q3. Write a program to count number of objects created for above class Complex. Use static data member and member function.
+
+Q4. Accept n numbers from users and store them in to dynamically allocated array, Write a function to sort and display sorted array.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Write a program to convert user entered character into its opposite case. Program should also flash an error message if the character entered by the user is not an alphabet.
+
+Q6. A positive integer is entered through the keyboard, write a function to find binary equivalent of this recursion. 
+	1. without using recursion. 
+	2. using recursion.
+
+Q7. Accept five integers in an array and use separate functions to:
+	a. Find maximum and minimum of the integers. Do not sort the array. 
+	b. Multiply each element of the array by 5 and store it in another array and display it.
+
+Q8. Write a program to accept and display 3 by 3 matrix. Write Accept() and Display() functions to perform the tasks. 
+	a. Find the transpose of a matrix and print the transpose using display() function.
+	b. Accept another matrix of same dimensions. Find the addition of two matrices and print the resultant matrix.

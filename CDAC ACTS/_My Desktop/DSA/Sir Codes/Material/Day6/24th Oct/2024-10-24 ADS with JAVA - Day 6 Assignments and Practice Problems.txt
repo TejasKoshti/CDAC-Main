@@ -1,0 +1,39 @@
+Assignments 1 (Recursion)
+
+1. Write recursive algorithm to find quotient after dividing two numbers.
+   Using above definition, implement following function to return quotient after dividing two numbers (a / b).
+int quotient(int a, int b);
+   Follow up: Modify implementation/Implement wrapper function to handle both positive and negative numbers.
+
+2. Write recursive algorithm to find remainder after dividing two numbers.
+   Using above definition, implement following function to return remainder after dividing two numbers (a % b).
+int remainder(int a, int b);
+   Follow up: Modify implementation/Implement wrapper function to handle both positive and negative numbers.
+
+3. Implement following funtion to "optimally" multiple two numbers, recursively. Handle both negative and positive numbers.
+int multiply(int a, int b);
+
+_______________________________________________________________________________________________________________________________
+Assignments 2 (BinaryTree  )
+
+4. In the "BinaryTree" class implemented today in class, add following methods to print tree contents using preorder and postorder traversal.
+void printUsingPreorder();
+void printUsingPostorder();
+
+5. Implement the following function to return number of nodes in a binary tree.
+int CountNodes();
+
+6. Implement the following function to return number of leaf nodes in a binary tree.
+int CountLeafNodes();
+
+7. Implement the following function to return number of nodes in a binary tree, with specific value in it.
+int CountNodesWithValue(int value);
+
+
+
+
+_______________________________________________________________________________________________________________________________
+
+Practice
+1. Invert Binary Tree
+https://leetcode.com/problems/invert-binary-tree/

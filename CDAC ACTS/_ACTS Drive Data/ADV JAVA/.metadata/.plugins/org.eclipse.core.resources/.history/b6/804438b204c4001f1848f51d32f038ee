@@ -1,0 +1,28 @@
+package fi.microusersservice.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fi.microusersservice.dto.UsersDTO;
+import fi.microusersservice.repository.UsersRepository;
+
+public class UsersServiceImpl implements UsersService 
+{
+	@Autowired
+	UsersRepository usersRepository;
+	
+	
+	@Override
+	public UsersDTO getUserDetails(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UsersDTO> allUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

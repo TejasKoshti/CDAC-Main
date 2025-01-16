@@ -1,0 +1,5 @@
+package fi.springjdbc.config;
+
+public class ApplicationConfiguration {
+
+}

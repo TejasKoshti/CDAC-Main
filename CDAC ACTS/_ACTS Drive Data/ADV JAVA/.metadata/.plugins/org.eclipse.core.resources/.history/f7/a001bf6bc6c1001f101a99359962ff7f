@@ -1,0 +1,5 @@
+package fi.firstbootmvc.entity;
+
+public class Users {
+
+}

@@ -1,0 +1,12 @@
+package fi.firstrestapp.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class WelcomeController 
+{
+	public String welcome()
+	{
+		return "Welcome to the First REST application in Spring";
+	}
+}

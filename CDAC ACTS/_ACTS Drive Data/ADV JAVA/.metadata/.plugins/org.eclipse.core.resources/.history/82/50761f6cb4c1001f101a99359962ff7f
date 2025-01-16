@@ -1,0 +1,5 @@
+package fi.springmvc.aop;
+
+public class LoginAuditorAspect {
+
+}

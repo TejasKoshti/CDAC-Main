@@ -1,0 +1,15 @@
+package fi.springmvc.aop;
+
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class LoginAuditorAspect 
+{
+
+	public void begunAuthentication(JoinPoint point)
+	{
+		
+	}
+	
+	
+}

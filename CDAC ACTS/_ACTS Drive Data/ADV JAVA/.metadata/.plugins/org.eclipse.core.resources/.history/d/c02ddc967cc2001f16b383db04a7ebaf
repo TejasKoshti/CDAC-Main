@@ -1,0 +1,10 @@
+package fi.resthiberapp.services;
+
+import fi.resthiberapp.dto.CategoryDTO;
+
+public interface CategoryService 
+{
+	public boolean addNewCategory(CategoryDTO dto);
+	public CategoryDTO getCategoryById(int categoryId);
+	public List<CategoryDTO> allCategories();
+}

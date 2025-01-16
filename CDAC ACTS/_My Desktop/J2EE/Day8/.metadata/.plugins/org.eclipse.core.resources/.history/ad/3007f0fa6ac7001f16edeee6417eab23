@@ -1,0 +1,5 @@
+package fi.springjdbc.dao;
+
+public interface UsersDAO {
+
+}

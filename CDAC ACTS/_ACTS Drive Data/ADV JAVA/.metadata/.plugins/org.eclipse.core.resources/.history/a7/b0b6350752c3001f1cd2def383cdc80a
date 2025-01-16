@@ -1,0 +1,5 @@
+package fi.bootsecuredform;
+
+public class WelcomeController {
+
+}

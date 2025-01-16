@@ -1,0 +1,33 @@
+package fi.restclientmvc.controllers;
+
+import java.net.URI;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
+
+import jakarta.annotation.PostConstruct;
+
+@Controller
+public class UsersMVCController 
+{
+	URI uri;
+	
+	RestTemplate restTemplate;
+	
+	@PostConstruct
+	public void initializeRestClient()
+	{
+		
+	}
+	
+	
+	@RequestMapping("/showusers")
+	public void showAllUsers(Model data)
+	{
+		
+	}
+	
+	
+}

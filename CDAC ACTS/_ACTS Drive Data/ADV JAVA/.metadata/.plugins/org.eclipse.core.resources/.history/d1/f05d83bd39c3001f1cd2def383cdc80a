@@ -1,0 +1,5 @@
+package fi.resthiberapp.controllers;
+
+public class UsersController {
+
+}

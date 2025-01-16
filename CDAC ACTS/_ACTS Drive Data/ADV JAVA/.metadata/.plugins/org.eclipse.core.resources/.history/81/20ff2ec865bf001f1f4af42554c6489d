@@ -1,0 +1,7 @@
+package fi.springjdbc.dao;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class UsersRowMapper implements RowMapper<T> {
+
+}

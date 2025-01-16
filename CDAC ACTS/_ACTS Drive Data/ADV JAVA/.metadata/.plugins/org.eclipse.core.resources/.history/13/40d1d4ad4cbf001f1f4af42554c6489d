@@ -1,0 +1,21 @@
+package fi.secondspringapp.config;
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import fi.secondspringapp.beans.Users;
+
+@Configuration
+public class ApplicationConfiguration 
+{
+	@Bean
+	@Scope(scopeName = "prototype")
+	public Users objUser()
+	{
+		return new Users("fi","cdac");
+	}
+	
+	
+}

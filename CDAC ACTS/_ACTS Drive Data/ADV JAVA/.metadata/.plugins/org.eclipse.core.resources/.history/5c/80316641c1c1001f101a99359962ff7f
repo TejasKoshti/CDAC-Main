@@ -1,0 +1,5 @@
+package fi.firstboothiberapp.entity;
+
+public class Users {
+
+}

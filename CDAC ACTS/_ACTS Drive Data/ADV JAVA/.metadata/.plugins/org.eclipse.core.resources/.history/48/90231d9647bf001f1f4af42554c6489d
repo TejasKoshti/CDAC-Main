@@ -1,0 +1,10 @@
+package fi.secondspringapp;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = {"fi.secondspringapp"})
+public class ApplicationConfiguration {
+
+}

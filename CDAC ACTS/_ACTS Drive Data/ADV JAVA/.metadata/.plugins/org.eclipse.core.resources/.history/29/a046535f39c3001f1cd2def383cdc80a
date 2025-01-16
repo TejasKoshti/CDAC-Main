@@ -1,0 +1,33 @@
+package fi.resthiberapp.services;
+
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fi.resthiberapp.dto.UsersDTO;
+import fi.resthiberapp.entity.Users;
+import fi.resthiberapp.repositories.UsersRepository;
+
+@Service
+public class UsersServiceImpl implements UsersService 
+{
+	@Autowired
+	UsersRepository usersRepo;
+	
+	@Override
+	public UsersDTO getUsersByName(String userName) {
+		Users entityUsers = usersRepo.findById(userName).get();
+		UsersDTO dto = new UsersDTO();
+		BeanUtils.copyProperties(entityUsers, dto);
+		return dto;
+	}
+
+	@Override
+	public List<UsersDTO> allUsers(int pageNo, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

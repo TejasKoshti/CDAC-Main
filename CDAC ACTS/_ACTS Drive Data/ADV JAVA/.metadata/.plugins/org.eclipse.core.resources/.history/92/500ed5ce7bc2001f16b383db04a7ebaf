@@ -1,0 +1,27 @@
+package fi.resthiberapp.services;
+
+import java.util.List;
+
+import fi.resthiberapp.dto.CategoryDTO;
+
+public class CategoryServiceImpl implements CategoryService {
+
+	@Override
+	public boolean addNewCategory(CategoryDTO dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public CategoryDTO getCategoryById(int categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> allCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

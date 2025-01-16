@@ -1,0 +1,4 @@
+default.username=cdac
+default.password=test@123
+
+jdbc.driver=com.mysql.cj

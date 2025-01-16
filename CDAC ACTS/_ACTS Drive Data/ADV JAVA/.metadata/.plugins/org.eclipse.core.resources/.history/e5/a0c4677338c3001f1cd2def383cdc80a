@@ -1,0 +1,7 @@
+package fi.resthiberapp.services;
+
+public interface UsersService 
+{
+	public Users getUsersByName(String userName);
+	public List<Users> allUsers(int pageNo, int pageSize);
+}

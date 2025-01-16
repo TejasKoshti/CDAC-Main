@@ -1,0 +1,21 @@
+package fi.microusersservice.services;
+
+import java.util.List;
+
+import fi.microusersservice.dto.UsersDTO;
+
+public class UsersServiceImpl implements UsersService {
+
+	@Override
+	public UsersDTO getUserDetails(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UsersDTO> allUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
