@@ -1,0 +1,45 @@
+package com.cdac.acts.tester;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class demoas {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> hashmap = new HashMap<>();
+		
+		hashmap.put(1,"Onre");
+		hashmap.put(2, "Two");
+		hashmap.put(1, "jhihj");
+		
+		System.out.println(hashmap);
+		
+		
+		hashmap.putIfAbsent(7, "shdfj");
+		hashmap.putIfAbsent(7, "ikhyj");
+		
+		System.out.println(hashmap);
+		
+		hashmap.remove(7);
+		
+		System.out.println(hashmap);
+		
+		System.out.println("Value of Key "+hashmap.get(4));
+		
+		Set<Integer> keys = hashmap.keySet();
+		System.err.println("Key setr" +keys);
+		
+		 for(Integer key : keys) {
+			 String val = hashmap.get(key);
+			 System.out.println("key"+key+" , "+val+"val");
+		 }
+		
+		
+		
+		
+		
+	}
+}

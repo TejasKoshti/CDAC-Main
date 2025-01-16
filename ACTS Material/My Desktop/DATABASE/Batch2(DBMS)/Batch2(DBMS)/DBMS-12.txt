@@ -1,0 +1,247 @@
+
+1. Create a view emp_view having following columns
+    empno,ename,deptno,sal, comm
+
+create view emp_view as 
+select empno,ename,deptno,sal, comm 
+from emp;
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from emp_view;
++-------+--------+--------+---------+---------+
+| empno | ename  | deptno | sal     | comm    |
++-------+--------+--------+---------+---------+
+|  7369 | SMITH  |     20 |  968.00 |    NULL |
+|  7499 | ALLEN  |     30 | 1936.00 |  300.00 |
+|  7521 | WARD   |     30 | 1375.00 |  500.00 |
+|  7566 | JONES  |     20 | 3272.50 |    NULL |
+|  7654 | MARTIN |     30 | 1512.50 | 1400.00 |
+|  7698 | BLAKE  |     30 | 3135.00 |    NULL |
+|  7782 | CLARK  |     10 | 2695.00 |    NULL |
+|  7788 | SCOTT  |     20 | 3630.00 |    NULL |
+|  7839 | KING   |     10 | 5500.00 |    NULL |
+|  7844 | TURNER |     30 | 1650.00 |    0.00 |
+|  7876 | ADAMS  |     20 | 1331.00 |    NULL |
+|  7900 | JAMES  |     30 | 1045.00 |    NULL |
+|  7902 | FORD   |     20 | 3300.00 |    NULL |
+|  7934 | MILLER |   NULL | 1573.00 |    NULL |
++-------+--------+--------+---------+---------+
+14 rows in set (0.00 sec)
+
+
+
+ 2. Insert new employee having following information in the view
+    (1111,'Geeta',20,10000,300)
+    check the data inserted in the view as well as the base table. 
+
+ insert into emp_view
+ values(1111,'Geeta',20,10000,300);
+ Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_view;
++-------+--------+--------+----------+---------+
+| empno | ename  | deptno | sal      | comm    |
++-------+--------+--------+----------+---------+
+|  7369 | SMITH  |     20 |   968.00 |    NULL |
+|  7499 | ALLEN  |     30 |  1936.00 |  300.00 |
+|  7521 | WARD   |     30 |  1375.00 |  500.00 |
+|  7566 | JONES  |     20 |  3272.50 |    NULL |
+|  7654 | MARTIN |     30 |  1512.50 | 1400.00 |
+|  7698 | BLAKE  |     30 |  3135.00 |    NULL |
+|  7782 | CLARK  |     10 |  2695.00 |    NULL |
+|  7788 | SCOTT  |     20 |  3630.00 |    NULL |
+|  7839 | KING   |     10 |  5500.00 |    NULL |
+|  7844 | TURNER |     30 |  1650.00 |    0.00 |
+|  7876 | ADAMS  |     20 |  1331.00 |    NULL |
+|  7900 | JAMES  |     30 |  1045.00 |    NULL |
+|  7902 | FORD   |     20 |  3300.00 |    NULL |
+|  7934 | MILLER |   NULL |  1573.00 |    NULL |
+|  1111 | Geeta  |     20 | 10000.00 |  300.00 |
++-------+--------+--------+----------+---------+
+15 rows in set (0.00 sec)
+
+
+ 3. Create a view for deptno 20 as emp_v20 having following cloumns. This view should contain rows from dept20 only.
+    empno,ename,deptno,job.
+
+create  view emp_view20 as select
+empno,ename,deptno,job
+from emp where deptno=20;
+
+    -> from emp where deptno=20;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from emp_view20;
++-------+-------+--------+---------+
+| empno | ename | deptno | job     |
++-------+-------+--------+---------+
+|  7369 | SMITH |     20 | CLERK   |
+|  7566 | JONES |     20 | MANAGER |
+|  7788 | SCOTT |     20 | ANALYST |
+|  7876 | ADAMS |     20 | CLERK   |
+|  7902 | FORD  |     20 | ANALYST |
+|  1111 | Geeta |     20 | NULL    |
++-------+-------+--------+---------+
+
+
+ 4. Insert new employee  in view emp_v20 having following information (2222,'Raj',40,'Analyst') 
+    check the data inserted in the base table emp and also in the view.
+
+  insert into emp_view20
+  values(2222,'Raj',40,'Analyst');
+	
+  Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_view20;
++-------+-------+--------+---------+
+| empno | ename | deptno | job     |
++-------+-------+--------+---------+
+|  7369 | SMITH |     20 | CLERK   |
+|  7566 | JONES |     20 | MANAGER |
+|  7788 | SCOTT |     20 | ANALYST |
+|  7876 | ADAMS |     20 | CLERK   |
+|  7902 | FORD  |     20 | ANALYST |
+|  1111 | Geeta |     20 | NULL    |
++-------+-------+--------+---------+
+6 rows in set (0.00 sec) 
+
+
+ 5. Create a view for deptno 20 as new_emp_v20 having following cloumns
+    empno,ename,deptno,job with constraint 'check option' .
+
+create  view emp_view_20 as select
+empno,ename,deptno,job
+from emp where  deptno=20
+with check option;
+
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from emp_view_20;
++-------+-------+--------+---------+
+| empno | ename | deptno | job     |
++-------+-------+--------+---------+
+|  7369 | SMITH |     20 | CLERK   |
+|  7566 | JONES |     20 | MANAGER |
+|  7788 | SCOTT |     20 | ANALYST |
+|  7876 | ADAMS |     20 | CLERK   |
+|  7902 | FORD  |     20 | ANALYST |
+|  1111 | Geeta |     20 | NULL    |
++-------+-------+--------+---------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+ 6. Insert below data in new_emp_v20 having following information(2222,'Raj',40,'Analyst')
+    check the data inserted in the base table emp and also in the view.
+
+  insert into emp_view_20
+  values(2222,'Raj',20,'Analyst');
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp_view_20;
++-------+-------+--------+---------+
+| empno | ename | deptno | job     |
++-------+-------+--------+---------+
+|  7369 | SMITH |     20 | CLERK   |
+|  7566 | JONES |     20 | MANAGER |
+|  7788 | SCOTT |     20 | ANALYST |
+|  7876 | ADAMS |     20 | CLERK   |
+|  7902 | FORD  |     20 | ANALYST |
+|  1111 | Geeta |     20 | NULL    |
+|  2222 | Raj   |     20 | Analyst |
++-------+-------+--------+---------+
+7 rows in set (0.00 sec)
+
+
+
+ 7. Check the views created.
+
+
+mysql> select * from emp_view_20;
++-------+-------+--------+---------+
+| empno | ename | deptno | job     |
++-------+-------+--------+---------+
+|  7369 | SMITH |     20 | CLERK   |
+|  7566 | JONES |     20 | MANAGER |
+|  7788 | SCOTT |     20 | ANALYST |
+|  7876 | ADAMS |     20 | CLERK   |
+|  7902 | FORD  |     20 | ANALYST |
+|  1111 | Geeta |     20 | NULL    |
+|  2222 | Raj   |     20 | Analyst |
++-------+-------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from emp_view;
++-------+--------+--------+----------+---------+
+| empno | ename  | deptno | sal      | comm    |
++-------+--------+--------+----------+---------+
+|  7369 | SMITH  |     20 |   968.00 |    NULL |
+|  7499 | ALLEN  |     30 |  1936.00 |  300.00 |
+|  7521 | WARD   |     30 |  1375.00 |  500.00 |
+|  7566 | JONES  |     20 |  3272.50 |    NULL |
+|  7654 | MARTIN |     30 |  1512.50 | 1400.00 |
+|  7698 | BLAKE  |     30 |  3135.00 |    NULL |
+|  7782 | CLARK  |     10 |  2695.00 |    NULL |
+|  7788 | SCOTT  |     20 |  3630.00 |    NULL |
+|  7839 | KING   |     10 |  5500.00 |    NULL |
+|  7844 | TURNER |     30 |  1650.00 |    0.00 |
+|  7876 | ADAMS  |     20 |  1331.00 |    NULL |
+|  7900 | JAMES  |     30 |  1045.00 |    NULL |
+|  7902 | FORD   |     20 |  3300.00 |    NULL |
+|  7934 | MILLER |   NULL |  1573.00 |    NULL |
+|  1111 | Geeta  |     20 | 10000.00 |  300.00 |
+|  2222 | Raj    |     40 |     NULL |    NULL |
+|  2222 | Raj    |     20 |     NULL |    NULL |
++-------+--------+--------+----------+---------+
+17 rows in set (0.00 sec)
+
+
+
+ 8. Create a view with columns as empno,ename, deptno and dname.
+    empno,ename, deptno and dname.
+    Check if you can enter the data in the above view.
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from emp_dept_view;
++--------+-------+--------+------------+
+| ename  | empno | deptno | dname      |
++--------+-------+--------+------------+
+| SMITH  |  7369 |     20 | RESEARCH   |
+| ALLEN  |  7499 |     30 | SALES      |
+| WARD   |  7521 |     30 | SALES      |
+| JONES  |  7566 |     20 | RESEARCH   |
+| MARTIN |  7654 |     30 | SALES      |
+| BLAKE  |  7698 |     30 | SALES      |
+| CLARK  |  7782 |     10 | ACCOUNTING |
+| SCOTT  |  7788 |     20 | RESEARCH   |
+| KING   |  7839 |     10 | ACCOUNTING |
+| TURNER |  7844 |     30 | SALES      |
+| ADAMS  |  7876 |     20 | RESEARCH   |
+| JAMES  |  7900 |     30 | SALES      |
+| FORD   |  7902 |     20 | RESEARCH   |
+| Geeta  |  1111 |     20 | RESEARCH   |
+| Raj    |  2222 |     40 | OPERATIONS |
+| Raj    |  2222 |     20 | RESEARCH   |
++--------+-------+--------+------------+
+16 rows in set (0.00 sec)
+
+
+mysql> INSERT INTO emp_dept_view (empno, ename, deptno, dname)
+    -> VALUES (123, 'John Doe', 10, 'Marketing');
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'batch2.emp_dept_view'
+mysql> INSERT INTO dept (deptno, dname)
+    -> VALUES (10, 'Marketing');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp (empno, ename, deptno)
+    -> VALUES (123, 'John Doe', 10);
+Query OK, 1 row affected (0.00 sec)
+
+
+

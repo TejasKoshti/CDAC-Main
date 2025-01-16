@@ -1,0 +1,5 @@
+package com.cdac.acts.book.enums;
+
+public enum BookType {
+
+}

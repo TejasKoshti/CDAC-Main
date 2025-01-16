@@ -1,0 +1,14 @@
+package fi.MicroUsersService;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = {"fi.microusersservice.controllers",
+"fi.microusersservice.services"})
+public class MicroUsersServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroUsersServiceApplication.class, args);
+	}
+
+}

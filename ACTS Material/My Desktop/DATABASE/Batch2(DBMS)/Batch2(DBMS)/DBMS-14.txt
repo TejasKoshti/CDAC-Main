@@ -1,0 +1,125 @@
+1. Write a stored procedure which will display all employees working in dept 30.
+
+delimiter //
+create procedure display1()
+begin
+select *
+from emp
+where deptno=30;
+end //
+delimiter ;
+call display1();
+
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  968.00 | NULL |     20 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 3272.50 | NULL |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1331.00 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+5 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+2. Write a stored procedure which will display count of all analysts in the emp table.
+
+delimiter //
+create procedure display_Count()
+begin
+select count(*) 
+from emp
+where job='analyst';
+end //
+delimiter ;
+call display_Count();
+
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+3.Write a stored procedure which will find avg salary for any deptno passed to it.  Pass deptno as     in parameter  .
+
+delimiter //
+create procedure display_avg_sal(in mno int)
+begin
+select  avg(sal)
+from emp
+where sal is not null;
+end //
+delimiter ;
+call display_avg_sal(20);
+
+
++-------------+
+| avg(sal)    |
++-------------+
+| 2351.642857 |
++-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
+
+4. Pass empno,ename,sal to the procedure and insert it into the table.    
+
+mysql> delimiter //
+mysql> drop procedure if exists insert_data ;
+    -> create  procedure insert_data(in mno int, in mname varchar(15), in msal decimal(7,2))
+    -> begin
+    -> insert into edemo
+    -> values(mno,mname,msal);
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call insert_data(7319,'vinit' , 1200);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from edemo;
++-------+--------+---------+
+| EMPNO | ENAME  | SAL     |
++-------+--------+---------+
+|  7369 | SMITH  |  968.00 |
+|  7499 | ALLEN  | 1936.00 |
+|  7521 | WARD   | 1375.00 |
+|  7566 | JONES  | 3272.50 |
+|  7654 | MARTIN | 1512.50 |
+|  7698 | BLAKE  | 3135.00 |
+|  7782 | CLARK  | 2695.00 |
+|  7788 | SCOTT  | 3630.00 |
+|  7839 | KING   | 5500.00 |
+|  7844 | TURNER | 1650.00 |
+|  7876 | ADAMS  | 1331.00 |
+|  7900 | JAMES  | 1045.00 |
+|  7902 | FORD   | 3300.00 |
+|  7934 | MILLER | 1573.00 |
+|  7319 | vinit  | 1200.00 |
++-------+--------+---------+
+15 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+package com.cdac.acts.tester;
+
+import java.util.HashMap;
+
+public class demo2 {
+	
+	HashMap<String, String> hashMap = new HashMap<>();
+	
+	 hashmap.pu      
+	
+
+}

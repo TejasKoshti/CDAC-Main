@@ -1,0 +1,572 @@
+-------------------------------------------- Restricting and Sorting Data -------------------------------------------
+The HR department needs your assistance in creating some queries.
+
+1. Because of budget issues, the HR department needs a report that displays the last name and salary of employees earning more than $12,000.
+
+mysql> select last_name, salary from employees
+    -> where salary > 12000;
++-----------+----------+
+| last_name | salary   |
++-----------+----------+
+| King      | 24000.00 |
+| Kochhar   | 17000.00 |
+| De Haan   | 17000.00 |
+| Russell   | 14000.00 |
+| Partners  | 13500.00 |
+| Hartstein | 13000.00 |
++-----------+----------+
+
+
+2. Open a new SQL Worksheet. Create a report that displays the last name and department number for employee number 176.
+
+mysql> select last_name, department_id from employees
+    -> where employee_id = 176;
++-----------+---------------+
+| last_name | department_id |
++-----------+---------------+
+| Taylor    |            80 |
++-----------+---------------+
+
+
+3. The HR department needs to find high-salary and low-salary employees. Modify lab_03_01.sql to display the last name and salary for all employees whose salary is not in the range
+   $5,000 through $12,000.
+ 
+mysql> select last_name, salary from employees
+    -> where salary not between 5000 and 12000;
++-------------+----------+
+| last_name   | salary   |
++-------------+----------+
+| King        | 24000.00 |
+| Kochhar     | 17000.00 |
+| De Haan     | 17000.00 |
+| Austin      |  4800.00 |
+| Pataballa   |  4800.00 |
+| Lorentz     |  4200.00 |
+| Khoo        |  3100.00 |
+| Baida       |  2900.00 |
+| Tobias      |  2800.00 |
+| Himuro      |  2600.00 |
+| Colmenares  |  2500.00 |
+| Nayer       |  3200.00 |
+| Mikkilineni |  2700.00 |
+| Landry      |  2400.00 |
+| Markle      |  2200.00 |
+| Bissot      |  3300.00 |
+| Atkinson    |  2800.00 |
+| Marlow      |  2500.00 |
+| Olson       |  2100.00 |
+| Mallin      |  3300.00 |
+| Rogers      |  2900.00 |
+| Gee         |  2400.00 |
+| Philtanker  |  2200.00 |
+| Ladwig      |  3600.00 |
+| Stiles      |  3200.00 |
+| Seo         |  2700.00 |
+| Patel       |  2500.00 |
+| Rajs        |  3500.00 |
+| Davies      |  3100.00 |
+| Matos       |  2600.00 |
+| Vargas      |  2500.00 |
+| Russell     | 14000.00 |
+| Partners    | 13500.00 |
+| Taylor      |  3200.00 |
+| Fleaur      |  3100.00 |
+| Sullivan    |  2500.00 |
+| Geoni       |  2800.00 |
+| Sarchand    |  4200.00 |
+| Bull        |  4100.00 |
+| Dellinger   |  3400.00 |
+| Cabrio      |  3000.00 |
+| Chung       |  3800.00 |
+| Dilly       |  3600.00 |
+| Gates       |  2900.00 |
+| Perkins     |  2500.00 |
+| Bell        |  4000.00 |
+| Everett     |  3900.00 |
+| McCain      |  3200.00 |
+| Jones       |  2800.00 |
+| Walsh       |  3100.00 |
+| Feeney      |  3000.00 |
+| OConnell    |  2600.00 |
+| Grant       |  2600.00 |
+| Whalen      |  4400.00 |
+| Hartstein   | 13000.00 |
++-------------+----------+
+
+4. Modify above query  to list the last name and salary of employees who earn between $5,000 and $12,000, and are in department 20 or 50. Label the columns Employee and Monthly Salary, 
+   respectively.
+
+
+
+5. Modify lab_03_03.sql to list the last name and salary of employees who earn between $5,000 and $12,000, and are in department 20 or 50. Label the columns Employee and Monthly Salary, 
+   respectively.
+
+6. Create a report to display the last name, job ID, and hire date for employees with the last names of Matos and Taylor. Order the query in ascending order by hire date.
+
+mysql> SELECT last_name, department_id, job_id,hire_date from employees
+    -> where last_name in('matos','taylor')
+    -> order by hire_date;
++-----------+---------------+----------+------------+
+| last_name | department_id | job_id   | hire_date  |
++-----------+---------------+----------+------------+
+| Taylor    |            50 | SH_CLERK | 1998-01-24 |
+| Matos     |            50 | ST_CLERK | 1998-03-15 |
+| Taylor    |            80 | SA_REP   | 1998-03-24 |
++-----------+---------------+----------+------------+
+
+
+7. Display the last name and department ID of all employees in departments 20 or 50 in ascending alphabetical order by last_name.
+
+mysql> SELECT last_name, department_id from employees
+    -> where  department_id in (20,50)
+    -> order by last_name;
++-------------+---------------+
+| last_name   | department_id |
++-------------+---------------+
+| Atkinson    |            50 |
+| Bell        |            50 |
+| Bissot      |            50 |
+| Bull        |            50 |
+| Cabrio      |            50 |
+| Chung       |            50 |
+| Davies      |            50 |
+| Dellinger   |            50 |
+| Dilly       |            50 |
+| Everett     |            50 |
+| Fay         |            20 |
+| Feeney      |            50 |
+| Fleaur      |            50 |
+| Fripp       |            50 |
+| Gates       |            50 |
+| Gee         |            50 |
+| Geoni       |            50 |
+| Grant       |            50 |
+| Hartstein   |            20 |
+| Jones       |            50 |
+| Kaufling    |            50 |
+| Ladwig      |            50 |
+| Landry      |            50 |
+| Mallin      |            50 |
+| Markle      |            50 |
+| Marlow      |            50 |
+| Matos       |            50 |
+| McCain      |            50 |
+| Mikkilineni |            50 |
+| Mourgos     |            50 |
+| Nayer       |            50 |
+| OConnell    |            50 |
+| Olson       |            50 |
+| Patel       |            50 |
+| Perkins     |            50 |
+| Philtanker  |            50 |
+| Rajs        |            50 |
+| Rogers      |            50 |
+| Sarchand    |            50 |
+| Seo         |            50 |
+| Stiles      |            50 |
+| Sullivan    |            50 |
+| Taylor      |            50 |
+| Vargas      |            50 |
+| Vollman     |            50 |
+| Walsh       |            50 |
+| Weiss       |            50 |
++-------------+---------------+
+47 rows in set (0.00 sec)
+
+8. The HR department needs a report that displays the last name and hire date of all employees who were hired in 2006. 
+
+mysql> SELECT last_name, hire_date from employees
+    -> where year(hire_date) = 2006;
+Empty set (0.00 sec)
+
+mysql> SELECT last_name, hire_date from employees
+    -> where year(hire_date) = 2000;
++------------+------------+
+| last_name  | hire_date  |
++------------+------------+
+| Markle     | 2000-03-08 |
+| Philtanker | 2000-02-06 |
+| Zlotkey    | 2000-01-29 |
+| Marvins    | 2000-01-24 |
+| Lee        | 2000-02-23 |
+| Ande       | 2000-03-24 |
+| Banda      | 2000-04-21 |
+| Kumar      | 2000-04-21 |
+| Johnson    | 2000-01-04 |
+| Geoni      | 2000-02-03 |
+| Grant      | 2000-01-13 |
++------------+------------+
+
+
+9. Create a report to display the last name and job title of all employees who do not have a manager.
+
+mysql> select e.last_name, j.job_title from employees e, jobs j
+    -> where manager_id is null and e.job_id = j.job_id;
++-----------+-----------+
+| last_name | job_title |
++-----------+-----------+
+| King      | President |
++-----------+-----------+
+1 row in set (0.00 sec)
+
+ 
+10. Create a report to display the last name, salary, and commission for all employees who earn commissions. Sort data in descending order of salary and commissions. 
+    Use the column’s numeric position in the ORDER BY clause.
+
+solution::   SELECT	last_name, salary, commission_pct 
+             FROM	employees
+             WHERE	commission_pct IS NOT NULL
+             ORDER BY 2 DESC, 3 DESC;
+
+mysql> select last_name, salary, commission_pct
+    -> from employees
+    -> where commission_pct is not null
+    -> order by salary desc, commission_pct desc;
++------------+----------+----------------+
+| last_name  | salary   | commission_pct |
++------------+----------+----------------+
+| Russell    | 14000.00 |           0.40 |
+| Partners   | 13500.00 |           0.30 |
+| Errazuriz  | 12000.00 |           0.30 |
+| Ozer       | 11500.00 |           0.25 |
+| Cambrault  | 11000.00 |           0.30 |
+| Abel       | 11000.00 |           0.30 |
+| Vishney    | 10500.00 |           0.25 |
+| Zlotkey    | 10500.00 |           0.20 |
+| King       | 10000.00 |           0.35 |
+| Tucker     | 10000.00 |           0.30 |
+| Bloom      | 10000.00 |           0.20 |
+| Fox        |  9600.00 |           0.20 |
+| Sully      |  9500.00 |           0.35 |
+| Bernstein  |  9500.00 |           0.25 |
+| Greene     |  9500.00 |           0.15 |
+| McEwen     |  9000.00 |           0.35 |
+| Hall       |  9000.00 |           0.25 |
+| Hutton     |  8800.00 |           0.25 |
+| Taylor     |  8600.00 |           0.20 |
+| Livingston |  8400.00 |           0.20 |
+| Smith      |  8000.00 |           0.30 |
+| Olsen      |  8000.00 |           0.20 |
+| Doran      |  7500.00 |           0.30 |
+| Cambrault  |  7500.00 |           0.20 |
+| Smith      |  7400.00 |           0.15 |
+| Bates      |  7300.00 |           0.15 |
+| Marvins    |  7200.00 |           0.10 |
+| Sewall     |  7000.00 |           0.25 |
+| Tuvault    |  7000.00 |           0.15 |
+| Grant      |  7000.00 |           0.15 |
+| Lee        |  6800.00 |           0.10 |
+| Ande       |  6400.00 |           0.10 |
+| Banda      |  6200.00 |           0.10 |
+| Johnson    |  6200.00 |           0.10 |
+| Kumar      |  6100.00 |           0.10 |
++------------+----------+----------------+
+35 rows in set (0.00 sec)
+
+
+11. Display the last names of all employees where the third letter of the name is “a.”
+
+mysql> SELECT last_name
+    -> FROM employees
+    -> WHERE last_name REGEXP '^..a';
++-----------+
+| last_name |
++-----------+
+| Grant     |
+| Grant     |
+| Whalen    |
++-----------+
+
+mysql> select last_name from employees
+    -> where last_name like '__a%';
++-----------+
+| last_name |
++-----------+
+| Grant     |
+| Grant     |
+| Whalen    |
++-----------+
+
+
+12. Display the last names of all employees who have both an “a” and an “e” in their last name.
+
+mysql> SELECT last_name
+    -> FROM employees
+    -> WHERE last_name REGEXP 'a' AND last_name REGEXP 'e';
++------------+
+| last_name  |
++------------+
+| De Haan    |
+| Faviet     |
+| Raphaely   |
+| Colmenares |
+| Nayer      |
+| Markle     |
+| Philtanker |
+| Patel      |
+| Davies     |
+| Partners   |
+| Errazuriz  |
+| Sewall     |
+| Ande       |
+| Bates      |
+| Abel       |
+| Fleaur     |
+| Gates      |
+| Whalen     |
+| Hartstein  |
+| Baer       |
++------------+
+20 rows in set (0.00 sec)
+
+
+13. Display the last name, job, and salary for all employees whose job is that of a sales representative or a stock clerk, and whose salary is not equal to $2,500, $3,500, or $7,000.
+
+mysql> select last_name, job_title, salary from employees e, jobs j
+    -> where job_title in('sales representative','stock clerk')
+    -> and salary not in(2500,3500,7000) and e.job_id = j.job_id;
++-------------+----------------------+----------+
+| last_name   | job_title            | salary   |
++-------------+----------------------+----------+
+| Tucker      | Sales Representative | 10000.00 |
+| Bernstein   | Sales Representative |  9500.00 |
+| Hall        | Sales Representative |  9000.00 |
+| Olsen       | Sales Representative |  8000.00 |
+| Cambrault   | Sales Representative |  7500.00 |
+| King        | Sales Representative | 10000.00 |
+| Sully       | Sales Representative |  9500.00 |
+| McEwen      | Sales Representative |  9000.00 |
+| Smith       | Sales Representative |  8000.00 |
+| Doran       | Sales Representative |  7500.00 |
+| Vishney     | Sales Representative | 10500.00 |
+| Greene      | Sales Representative |  9500.00 |
+| Marvins     | Sales Representative |  7200.00 |
+| Lee         | Sales Representative |  6800.00 |
+| Ande        | Sales Representative |  6400.00 |
+| Banda       | Sales Representative |  6200.00 |
+| Ozer        | Sales Representative | 11500.00 |
+| Bloom       | Sales Representative | 10000.00 |
+| Fox         | Sales Representative |  9600.00 |
+| Smith       | Sales Representative |  7400.00 |
+| Bates       | Sales Representative |  7300.00 |
+| Kumar       | Sales Representative |  6100.00 |
+| Abel        | Sales Representative | 11000.00 |
+| Hutton      | Sales Representative |  8800.00 |
+| Taylor      | Sales Representative |  8600.00 |
+| Livingston  | Sales Representative |  8400.00 |
+| Johnson     | Sales Representative |  6200.00 |
+| Nayer       | Stock Clerk          |  3200.00 |
+| Mikkilineni | Stock Clerk          |  2700.00 |
+| Landry      | Stock Clerk          |  2400.00 |
+| Markle      | Stock Clerk          |  2200.00 |
+| Bissot      | Stock Clerk          |  3300.00 |
+| Atkinson    | Stock Clerk          |  2800.00 |
+| Olson       | Stock Clerk          |  2100.00 |
+| Mallin      | Stock Clerk          |  3300.00 |
+| Rogers      | Stock Clerk          |  2900.00 |
+| Gee         | Stock Clerk          |  2400.00 |
+| Philtanker  | Stock Clerk          |  2200.00 |
+| Ladwig      | Stock Clerk          |  3600.00 |
+| Stiles      | Stock Clerk          |  3200.00 |
+| Seo         | Stock Clerk          |  2700.00 |
+| Davies      | Stock Clerk          |  3100.00 |
+| Matos       | Stock Clerk          |  2600.00 |
++-------------+----------------------+----------+
+43 rows in set (0.00 sec)
+
+14.	Display the last name, salary, and commission for all employees whose commission amount is 20%. 
+
+mysql> select last_name, salary, commission_pct from employees
+    -> where commission_pct = 0.20;
++------------+----------+----------------+
+| last_name  | salary   | commission_pct |
++------------+----------+----------------+
+| Zlotkey    | 10500.00 |           0.20 |
+| Olsen      |  8000.00 |           0.20 |
+| Cambrault  |  7500.00 |           0.20 |
+| Bloom      | 10000.00 |           0.20 |
+| Fox        |  9600.00 |           0.20 |
+| Taylor     |  8600.00 |           0.20 |
+| Livingston |  8400.00 |           0.20 |
++------------+----------+----------------+
+7 rows in set (0.00 sec)
+
+
+----------------------------------------------- Aggregate Function -------------------------------------
+The HR department needs the following reports:
+1. Find the highest, lowest, sum, and average salary of all employees. Label the columns Maximum, Minimum, Sum, and Average, respectively. Round your results to the nearest whole number.
+
+mysql> select round(max(salary)) as Maximum, round(min(salary)) as Minimum, round(sum(salary)) as Sum,
+ round(avg(salary)) as Average from employees;
++---------+---------+--------+---------+
+| Maximum | Minimum | Sum    | Average |
++---------+---------+--------+---------+
+|   24000 |    2100 | 691400 |    6462 |
++---------+---------+--------+---------+
+1 row in set (0.00 sec)
+
+2. Create a query that displays employees’ last names, and indicates the amounts of their salaries with asterisks. Each asterisk signifies a thousand dollars. Sort the data in descending order of salary. Label the column EMPLOYEES_AND_THEIR_SALARIES.
+
+mysql> SELECT last_name,
+    ->        REPEAT('*', FLOOR(salary / 1000)) AS EMPLOYEES_AND_THEIR_SALARIES
+    -> FROM employees
+    -> ORDER BY salary DESC;
++-------------+------------------------------+
+| last_name   | EMPLOYEES_AND_THEIR_SALARIES |
++-------------+------------------------------+
+| King        | ************************     |
+| Kochhar     | *****************            |
+| De Haan     | *****************            |
+| Russell     | **************               |
+| Partners    | *************                |
+| Hartstein   | *************                |
+| Greenberg   | ************                 |
+| Errazuriz   | ************                 |
+| Higgins     | ************                 |
+| Ozer        | ***********                  |
+| Raphaely    | ***********                  |
+| Cambrault   | ***********                  |
+| Abel        | ***********                  |
+| Zlotkey     | **********                   |
+| Vishney     | **********                   |
+| Tucker      | **********                   |
+| King        | **********                   |
+| Bloom       | **********                   |
+| Baer        | **********                   |
+| Fox         | *********                    |
+| Bernstein   | *********                    |
+| Sully       | *********                    |
+| Greene      | *********                    |
+| Hunold      | *********                    |
+| Faviet      | *********                    |
+| Hall        | *********                    |
+| McEwen      | *********                    |
+| Hutton      | ********                     |
+| Taylor      | ********                     |
+| Livingston  | ********                     |
+| Gietz       | ********                     |
+| Chen        | ********                     |
+| Fripp       | ********                     |
+| Weiss       | ********                     |
+| Olsen       | ********                     |
+| Smith       | ********                     |
+| Kaufling    | *******                      |
+| Urman       | *******                      |
+| Sciarra     | *******                      |
+| Cambrault   | *******                      |
+| Doran       | *******                      |
+| Smith       | *******                      |
+| Bates       | *******                      |
+| Marvins     | *******                      |
+| Tuvault     | *******                      |
+| Sewall      | *******                      |
+| Grant       | *******                      |
+| Popp        | ******                       |
+| Lee         | ******                       |
+| Vollman     | ******                       |
+| Mavris      | ******                       |
+| Ande        | ******                       |
+| Banda       | ******                       |
+| Johnson     | ******                       |
+| Kumar       | ******                       |
+| Ernst       | ******                       |
+| Fay         | ******                       |
+| Mourgos     | *****                        |
+| Austin      | ****                         |
+| Pataballa   | ****                         |
+| Whalen      | ****                         |
+| Lorentz     | ****                         |
+| Sarchand    | ****                         |
+| Bull        | ****                         |
+| Bell        | ****                         |
+| Everett     | ***                          |
+| Chung       | ***                          |
+| Ladwig      | ***                          |
+| Dilly       | ***                          |
+| Rajs        | ***                          |
+| Dellinger   | ***                          |
+| Bissot      | ***                          |
+| Mallin      | ***                          |
+| Nayer       | ***                          |
+| Stiles      | ***                          |
+| Taylor      | ***                          |
+| McCain      | ***                          |
+| Khoo        | ***                          |
+| Davies      | ***                          |
+| Fleaur      | ***                          |
+| Walsh       | ***                          |
+| Cabrio      | ***                          |
+| Feeney      | ***                          |
+| Baida       | **                           |
+| Rogers      | **                           |
+| Gates       | **                           |
+| Tobias      | **                           |
+| Atkinson    | **                           |
+| Geoni       | **                           |
+| Jones       | **                           |
+| Mikkilineni | **                           |
+| Seo         | **                           |
+| Himuro      | **                           |
+| Matos       | **                           |
+| OConnell    | **                           |
+| Grant       | **                           |
+| Colmenares  | **                           |
+| Marlow      | **                           |
+| Patel       | **                           |
+| Vargas      | **                           |
+| Sullivan    | **                           |
+| Perkins     | **                           |
+| Landry      | **                           |
+| Gee         | **                           |
+| Markle      | **                           |
+| Philtanker  | **                           |
+| Olson       | **                           |
++-------------+------------------------------+
+107 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

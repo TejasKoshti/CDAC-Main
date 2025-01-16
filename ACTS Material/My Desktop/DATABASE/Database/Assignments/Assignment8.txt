@@ -1,0 +1,111 @@
+-------------------------------------------------------------
+1. Display all empno, ename, deptno, sal, avg(sal), min(sal), max(sal).
+->
+mysql> select e.empno, e.ename, e.deptno, e.sal,
+       -> avg(e.sal) over() as avg_sal,
+       -> min(e.sal) over() as min_sal,
+       -> max(e.sal) over() as max_sal
+       -> from emp e;
++-------+--------+--------+-------+---------+---------+---------+
+| EMPNO | ENAME  | DEPTNO | SAL   | AVG_SAL | MIN_SAL | MAX_SAL |
++-------+--------+--------+-------+---------+---------+---------+
+| 7369  | SMITH  | 20     | 800   | 1575.00 | 800.00  | 5000.00 |
+| 7499  | ALLEN  | 30     | 1600  | 1575.00 | 800.00  | 5000.00 |
+| 7521  | WARD   | 30     | 1250  | 1575.00 | 800.00  | 5000.00 |
+| 7566  | JONES  | 20     | 2975  | 1575.00 | 800.00  | 5000.00 |
+| 7654  | MARTIN | 30     | 1250  | 1575.00 | 800.00  | 5000.00 |
+| 7698  | BLAKE  | 30     | 2850  | 1575.00 | 800.00  | 5000.00 |
+| 7782  | CLARK  | 10     | 2450  | 1575.00 | 800.00  | 5000.00 |
+| 7788  | SCOTT  | 20     | 3000  | 1575.00 | 800.00  | 5000.00 |
+| 7839  | KING   | 10     | 5000  | 1575.00 | 800.00  | 5000.00 |
+| 7844  | TURNER | 30     | 1500  | 1575.00 | 800.00  | 5000.00 |
+| 7876  | ADAMS  | 20     | 1100  | 1575.00 | 800.00  | 5000.00 |
++-------+--------+--------+-------+---------+---------+---------+
+-------------------------------------------------------------
+2. Write a query to display maximum salary, minimum salary, and average salary along with emp name and deptno for all departments.
+->
+mysql> select e.deptno, e.ename, max(e.sal) as max_sal, min(e.sal) as min_sal, avg(e.sal) as avg_sal
+       -> from emp e
+       -> group by e.deptno, e.ename;
++--------+--------+---------+---------+---------+
+| DEPTNO | ENAME  | MAX_SAL | MIN_SAL | AVG_SAL |
++--------+--------+---------+---------+---------+
+| 10     | KING   | 5000    | 2450    | 3750    |
+| 20     | JONES  | 2975    | 800     | 2375    |
+| 30     | BLAKE  | 2850    | 1250    | 2125    |
++--------+--------+---------+---------+---------+
+-------------------------------------------------------------
+3. Find sum of salary for all employees whose sal > 1000. Query should display ename, sal, sum of salary, and should be displayed according to the job.
+->
+mysql> select e.ename, e.sal, sum(e.sal) over(partition by e.job) as total_sal_by_job
+       -> from emp e
+       -> where e.sal > 1000;
++--------+-------+-------------------+
+| ENAME  | SAL   | TOTAL_SAL_BY_JOB  |
++--------+-------+-------------------+
+| ALLEN  | 1600  | 9350              |
+| WARD   | 1250  | 9350              |
+| MARTIN | 1250  | 9350              |
+| BLAKE  | 2850  | 9350              |
+| SCOTT  | 3000  | 9350              |
+| TURNER | 1500  | 9350              |
++--------+-------+-------------------+
+-------------------------------------------------------------
+4. Find number of clerks working in each department. Display ename, job, and count of that job.
+->
+mysql> select e.deptno, e.job, count(*) as num_of_clerks
+       -> from emp e
+       -> where e.job = 'CLERK'
+       -> group by e.deptno, e.job;
++--------+--------+---------------+
+| DEPTNO | JOB    | NUM_OF_CLERKS |
++--------+--------+---------------+
+| 10     | CLERK  | 1             |
+| 20     | CLERK  | 1             |
+| 30     | CLERK  | 2             |
++--------+--------+---------------+
+-------------------------------------------------------------
+5. Find how many employees are working under the same manager and display mgr and the count.
+->
+mysql> select e.mgr, count(*) as num_employees_under_mgr
+       -> from emp e
+       -> group by e.mgr;
++--------+-------------------------+
+| MGR    | NUM_EMPLOYEES_UNDER_MGR |
++--------+-------------------------+
+| 7839   | 4                       |
+| 7698   | 3                       |
+| 7566   | 1                       |
+| 7782   | 1                       |
++--------+-------------------------+
+-------------------------------------------------------------
+6. Calculate how many employees earn a salary greater than 1500 in each department. Query should display ename, sal, count of employees earning sal > 1500.
+->
+mysql> select e.deptno, e.ename, e.sal,
+       -> count(*) over(partition by e.deptno) as num_employees_over_1500
+       -> from emp e
+       -> where e.sal > 1500;
++--------+--------+-------+----------------------------+
+| DEPTNO | ENAME  | SAL   | NUM_EMPLOYEES_OVER_1500     |
++--------+--------+-------+----------------------------+
+| 10     | KING   | 5000  | 1                          |
+| 20     | JONES  | 2975  | 1                          |
+| 30     | BLAKE  | 2850  | 3                          |
+| 30     | SCOTT  | 3000  | 3                          |
++--------+--------+-------+----------------------------+
+-------------------------------------------------------------
+7. Calculate the difference between max salary and minimum salary for deptno 20. Query should display ename, sal, diff between max sal and employee's sal, diff between min sal and max sal of the dept.
+->
+mysql> select e.ename, e.sal,
+       -> max(e.sal) over(partition by e.deptno) - e.sal as diff_from_max,
+       -> e.sal - min(e.sal) over(partition by e.deptno) as diff_from_min
+       -> from emp e
+       -> where e.deptno = 20;
++--------+-------+--------------+--------------+
+| ENAME  | SAL   | DIFF_FROM_MAX | DIFF_FROM_MIN |
++--------+-------+--------------+--------------+
+| JONES  | 2975  | 0            | 2175         |
+| SCOTT  | 3000  | 0            | 2000         |
+| ADAMS  | 1100  | 1875         | 100          |
++--------+-------+--------------+--------------+
+-------------------------------------------------------------

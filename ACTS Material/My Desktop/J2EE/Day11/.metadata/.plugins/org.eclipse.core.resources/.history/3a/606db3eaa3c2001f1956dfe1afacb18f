@@ -1,0 +1,5 @@
+package fi.resthiberapp.services;
+
+public interface CategoryService {
+
+}

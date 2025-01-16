@@ -1,0 +1,40 @@
+package com.cdac.acts.array_list;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Array_List {
+	
+	public static ArrayList getInput() {
+		ArrayList<Double> arrList = new ArrayList<Double>(6);
+		Scanner sc = new Scanner(System.in);
+		char ch = 'n';
+		do {
+			System.out.println("Enter numbers to add");
+			arrList.add(sc.nextDouble());
+			ch = sc.next().charAt(0);
+			
+		} while (ch == 'n');
+		arrList.add(10.10);
+		arrList.add(20.20);
+		arrList.add(30.30);
+		arrList.add(40.40);
+		arrList.add(50.50);
+		arrList.add(60.60);
+		return arrList;
+	}
+
+	public static void main(String[] args) {
+		
+		ArrayList<Double> arrList = getInput();
+		
+		arrList.forEach(System.out::println);
+		
+		double sum = 0;
+		for (double value : arrList) {
+			sum += value;
+		}
+		System.out.println("Sum = " + sum);
+	}
+
+}

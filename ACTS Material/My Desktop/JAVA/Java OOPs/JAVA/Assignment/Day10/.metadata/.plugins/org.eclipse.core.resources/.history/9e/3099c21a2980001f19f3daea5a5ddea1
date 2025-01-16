@@ -1,0 +1,16 @@
+
+public class Main {
+	//Load class adn execute static block
+//			Class.forName("A");
+			
+			//Load class run static block , run non-static block and create object
+			
+			 public static void main(String[] args) throws ClassNotFoundException {
+				Class.forName("A");
+
+//				A a = new A();
+			
+//			 C c = new C();
+			 
+			}
+}

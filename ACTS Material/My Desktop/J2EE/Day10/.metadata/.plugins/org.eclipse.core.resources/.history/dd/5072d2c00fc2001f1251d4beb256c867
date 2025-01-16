@@ -1,0 +1,37 @@
+package fi.SpringBootHiberApp;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import fi.SpringBootHiberApp.entity.Users;
+import jakarta.websocket.Session;
+
+@SpringBootApplication
+@EntityScan(basePackages = {"fi.SpringBootHiberApp.entity"})
+public class SpringBootHiberAppApplication implements CommandLineRunner{
+
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public static void main(String[] args) {
+	SpringApplication.run(SpringBootHiberAppApplication.class, args);
+	}
+	
+	public void run(String... args) throws Exception{
+		
+		try(Session session = (Session) sessionFactory.openSession())
+		{
+			users objUser = (Users)session.get(Users.class, "admin");
+			System.out.println(objUser);
+		}
+	}
+
+
+	
+	
+}

@@ -1,0 +1,60 @@
+package com.cdac.acts.tester;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class demoas {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> hashmap = new HashMap<>();
+		
+		hashmap.put(1,"Onre");
+		hashmap.put(2, "Two");
+		hashmap.put(1, "jhihj");
+		
+		System.out.println(hashmap);
+		
+		
+		hashmap.putIfAbsent(7, "shdfj");
+		hashmap.putIfAbsent(7, "ikhyj");
+		
+		System.out.println(hashmap);
+		
+		hashmap.remove(7);
+		
+		System.out.println(hashmap);
+		
+		System.out.println("Value of Key "+hashmap.get(4));
+		
+		Set<Integer> keys = hashmap.keySet();
+		System.err.println("Key setr" +keys);
+		
+		 for(Integer key : keys) {
+			 String val = hashmap.get(key);
+			 System.out.println("key"+key+" , "+val+"val");
+		 }
+		 
+		 // Valu8e
+		 System.out.println("Values collextiin "+hashmap.values());
+		 Collection<String> values = hashmap.values();
+		 System.out.println("Values"+values);
+		for(String val : values) {
+			System.out.println(val);
+			}
+		
+		
+			Set<Map.Entry<Integer, String>> entries = hashmap.entrySet() ;
+			
+		
+		
+		
+		
+		
+		
+	}
+}

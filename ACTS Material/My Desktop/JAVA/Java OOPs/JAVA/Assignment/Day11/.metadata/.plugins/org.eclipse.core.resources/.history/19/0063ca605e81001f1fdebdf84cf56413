@@ -1,0 +1,40 @@
+package com.acts.pojo;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class DataUtils {
+
+	public static List<Account> getAccountList() {
+		
+		List<Account> list = new ArrayList<>();
+		
+		LocalDate validDob1 = ValidationUtils.validateDob("2000-01-01");
+		LocalDate validDob2 = ValidationUtils.validateDob("2001-01-01");
+
+		Address address1 = new Address("Pashan", "Pune", "411007");
+		Address address2 = new Address("Pimpri", "Pune", "411061");
+		
+		list.add(new Account(124, "Ganesh", validDob1, validCourse1, address1));
+		list.add(new Account(123, "Dinesh", validDob1, validCourse2, address1));
+		list.add(new Account(126, "Rupesh", validDob2, validCourse1, address1));
+		list.add(new Account(125, "Deepali", validDob2, validCourse2, address2));
+		list.add(new Account(127, "Rupali", validDob2, validCourse1, address2));
+		return list;
+		
+	}
+	
+public static Account findByRollNo(List<Account> list, Integer rollNo) {
+		
+		for(Account s : list) {
+			if( rollNo.equals(s.getaccNo())) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	
+}

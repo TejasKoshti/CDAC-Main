@@ -1,0 +1,36 @@
+package com.cdac.acts.book.io;
+
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+
+import com.cdac.acts.book.Book;
+import com.cdac.acts.book.enums.BookType;
+
+public class FileInputOutput {
+	private FileInputOutput() {
+	}
+
+//	isbn;
+//	private String title;
+//	private String author;
+//	private BookType bookType;
+//	private LocalDate publishDate;
+//	private transient Double price;
+
+	public static void writeToFile(Book obj) throws FileNotFoundException, IOException {
+		try (DataOutputStream dout = new DataOutputStream(new FileOutputStream("book.txt"))) {
+			dout.writeUTF(obj.getIsbn());
+			dout.writeUTF(obj.getAuthor());
+			dout.writeUTF(obj.getBookType().name());
+			dout.writeUTF(obj.getPublishDate().toString());
+			dout.writeDouble(obj.getPrice());
+		} catch (FileNotFoundException fnfe) {
+			System.err.println(fnfe.getMessage());
+		} catch (IOException ioe) {
+			System.err.println(ioe.getMessage());
+		}
+	}
+}

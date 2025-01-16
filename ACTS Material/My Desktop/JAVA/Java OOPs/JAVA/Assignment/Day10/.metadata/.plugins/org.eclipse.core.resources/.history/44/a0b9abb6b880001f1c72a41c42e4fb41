@@ -1,0 +1,7 @@
+
+public class MyUnCheckException extends RuntimeException {
+		
+	public MyUnCheckException(String x) {
+		super(x);
+	}
+}

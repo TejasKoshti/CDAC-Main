@@ -1,0 +1,65 @@
+package com.cdac.acts.data_utils;
+
+import static java.time.LocalDate.parse;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.cdac.acts.operations.Operation;
+import com.cdac.acts.printer.Printer;
+import com.cdac.acts.printer_type.PrinterType;
+import static com.cdac.acts.printer_type.PrinterType.CONTINOUS_INK;
+import static com.cdac.acts.printer_type.PrinterType.DOT_MATRIX;
+import static com.cdac.acts.printer_type.PrinterType.INKJET;
+import static com.cdac.acts.printer_type.PrinterType.LASER;
+import static com.cdac.acts.printer_type.PrinterType.LED;
+import static com.cdac.acts.printer_type.PrinterType.SOLID_INK;
+
+public class DataUtils {
+
+	private DataUtils() {}
+	
+	public static Map<Integer, Printer> getData() {
+		
+		Map<Integer, Printer> map = new HashMap<>();
+
+		Printer p1 = new Printer("C_123", 1500.0, CONTINOUS_INK, parse("2022-02-09"));
+		map.put(p1.getSerialNo(), p1);
+		
+//        Printer p2 = new Printer("I_124", 2000.0, INKJET, parse("2021-05-15"));
+//        map.put(p2.getSerialNo(), p2);
+//        
+//        Printer p3 = new Printer("L_125", 2500.0, LASER, parse("2023-01-22"));
+//        map.put(p3.getSerialNo(), p3);
+//        
+//        Printer p4 = new Printer("D_126", 1800.0, DOT_MATRIX, parse("2020-11-30"));
+//        map.put(p4.getSerialNo(), p4);
+//        
+//        Printer p5 = new Printer("L_127", 2200.0, LED, parse("2021-07-25"));
+//        map.put(p5.getSerialNo(), p5);
+//        
+//        Printer p6 = new Printer("S_128", 1600.0, SOLID_INK, parse("2022-03-10"));
+//        map.put(p6.getSerialNo(), p6);
+//        
+//        Printer p7 = new Printer("C_129", 1700.0, CONTINOUS_INK, parse("2022-09-05"));
+//        map.put(p7.getSerialNo(), p7);
+//        
+//        Printer p8 = new Printer("I_130", 2100.0, INKJET, parse("2020-12-01"));
+//        map.put(p8.getSerialNo(), p8);
+        
+        Printer p9 = new Printer("L_131", 1900.0, LASER, parse("2021-03-20"));
+        map.put(p9.getSerialNo(), p9);
+		Operation.addToFile(p9);
+
+        
+        Printer p10 = new Printer("L_132", 2400.0, LED, parse("2023-04-18"));
+        map.put(p10.getSerialNo(), p10);
+		Operation.addToFile(p10);
+
+		return map;
+	}
+	
+	//	public Printer(String modelNo, Double price, PrinterType p_type, LocalDate manufacturingDate) {
+
+}

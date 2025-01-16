@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day2\ValueTypes1\bin\Debug\net8.0\ValueTypes1.exe
+E:\MS.Net\MyCode\Day2\ValueTypes1\bin\Debug\net8.0\ValueTypes1.deps.json
+E:\MS.Net\MyCode\Day2\ValueTypes1\bin\Debug\net8.0\ValueTypes1.runtimeconfig.json
+E:\MS.Net\MyCode\Day2\ValueTypes1\bin\Debug\net8.0\ValueTypes1.dll
+E:\MS.Net\MyCode\Day2\ValueTypes1\bin\Debug\net8.0\ValueTypes1.pdb
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.dll
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\refint\ValueTypes1.dll
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.pdb
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ValueTypes1.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day2\ValueTypes1\obj\Debug\net8.0\ref\ValueTypes1.dll

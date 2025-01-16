@@ -1,0 +1,728 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 38
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch2             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| prn029             |
+| rutu               |
+| sakila             |
+| sys                |
+| tejas              |
+| vehicle            |
+| world              |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> use vehicle;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_vehicle |
++-------------------+
+| bonus             |
+| customer          |
+| customer1         |
+| customer2         |
+| dept              |
+| dummy             |
+| emp               |
+| salesman          |
+| salesman1         |
+| salgrade          |
+| vehicle           |
+| vehicles          |
++-------------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> create table new_emp
+    -> as select * from emp;
+Query OK, 14 rows affected (0.02 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from new_emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> create table emp10
+    -> select * from emp;
+Query OK, 14 rows affected (0.02 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp10;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> create table emp100 like emp;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe emp100;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   |     | NULL    |       |
+| ENAME    | varchar(12)  | YES  |     | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  |     | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> insert into emp100
+    -> select * from emp;
+Query OK, 14 rows affected (0.01 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> create table emp20 like emp;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into emp20
+    -> (
+    -> select empno, ename, sal from emp
+    -> where deptno = 20
+    -> );
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into emp20
+    -> (
+    -> select * from emp
+    -> where deptno = 20
+    -> );
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp20;
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  800.00 | NULL |     20 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> delete from emp10
+    -> where deptno = (select deptno
+    -> from emp10
+    -> where ename = 'allen');
+ERROR 1093 (HY000): You can't specify target table 'emp10' for update in FROM clause
+mysql> delete
+    -> from emp10
+    -> where deptno = (select deptno from
+    -> (select deptno from emp10 where ename= 'allen') tmp);
+Query OK, 6 rows affected (0.01 sec)
+
+mysql> select * from emp10;
++-------+--------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+-----------+------+------------+---------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 | NULL |     20 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 | NULL |     10 |
++-------+--------+-----------+------+------------+---------+------+--------+
+8 rows in set (0.00 sec)
+
+mysql> update emp10
+    -> set deptno = (select deptno
+    -> from emp10 where ename = 'smith');
+ERROR 1093 (HY000): You can't specify target table 'emp10' for update in FROM clause
+mysql> set deptno = (select deptno from
+    -> (select deptno from emp10 where ename = 'smith') x);
+ERROR 1193 (HY000): Unknown system variable 'deptno'
+mysql> update emp10
+    -> set deptno = (select deptno from
+    -> (select deptno from emp10 where ename = 'smith') x);
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 8  Changed: 3  Warnings: 0
+
+mysql> select * from emp10;
++-------+--------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+-----------+------+------------+---------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 | NULL |     20 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     20 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 | NULL |     20 |
++-------+--------+-----------+------+------------+---------+------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp100;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select distinct deptno from emp100
+    -> ^C
+mysql> show tables;
++-------------------+
+| Tables_in_vehicle |
++-------------------+
+| bonus             |
+| customer          |
+| customer1         |
+| customer2         |
+| dept              |
+| dummy             |
+| emp               |
+| emp10             |
+| emp100            |
+| emp20             |
+| new_emp           |
+| salesman          |
+| salesman1         |
+| salgrade          |
+| vehicle           |
+| vehicles          |
++-------------------+
+16 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct deptno from emp100
+    -> where deptno in(select deptno from dept);
++--------+
+| deptno |
++--------+
+|     20 |
+|     30 |
+|     10 |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct deptno from emp100
+    -> where deptno not in(select deptno from dept);
+Empty set (0.00 sec)
+
+mysql> select deptno from dept
+    -> where deptno not in (select deptno from emp100);
++--------+
+| deptno |
++--------+
+|     40 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp100
+    -> where sal > (select avg(sal) from emp100);
++-------+-------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp100 e1
+    -> where e1.sal > (select avg(sal) from emp100 e2
+    -> where e1.deptno = e2.deptno);
++-------+-------+-----------+------+------------+---------+--------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
++-------+-------+-----------+------+------------+---------+--------+--------+
+|  7499 | ALLEN | SALESMAN  | 7698 | 1981-02-20 | 1600.00 | 300.00 |     30 |
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 |   NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 |   NULL |     30 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3000.00 |   NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 |   NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 |   NULL |     20 |
++-------+-------+-----------+------+------------+---------+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> create table books
+    -> (bid int auto_increment,
+    ->  bname varchar(40),
+    ->  constraint pk_bikd primary key(bid)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into books(bname)
+    -> values('Java'),
+    ->       ('Roots'),
+    ->        ('Shiva triology');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from books;
++-----+----------------+
+| bid | bname          |
++-----+----------------+
+|   1 | Java           |
+|   2 | Roots          |
+|   3 | Shiva triology |
++-----+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into books
+    -> values(0,'HP');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> alter table books auto_increment = 100;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from books;
++-----+----------------+
+| bid | bname          |
++-----+----------------+
+|   1 | Java           |
+|   2 | Roots          |
+|   3 | Shiva triology |
+|   4 | HP             |
++-----+----------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into books
+    -> (bname)values('HPc');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from books;
++-----+----------------+
+| bid | bname          |
++-----+----------------+
+|   1 | Java           |
+|   2 | Roots          |
+|   3 | Shiva triology |
+|   4 | HP             |
+| 100 | HPc            |
++-----+----------------+
+5 rows in set (0.00 sec)
+
+mysql> drop table books;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table books (bid int auto_increment=100, bname varchar(40), constraint pk_bikd primary key(bid) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=100, bname varchar(40), constraint pk_bikd primary key(bid) )' at line 1
+mysql> create table books
+    -> (bid int IDENTITY(100,5),
+    ->  bname varchar(40),
+    ->  constraint pk_bikd primary key(bid)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTITY(100,5),
+ bname varchar(40),
+ constraint pk_bikd primary key(bid)
+)' at line 2
+mysql> create table books
+    -> (bid int IDENTITY(100,5) primary key,
+    ->  bname varchar(40)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTITY(100,5) primary key,
+ bname varchar(40)
+)' at line 2
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch2             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| prn029             |
+| rutu               |
+| sakila             |
+| sys                |
+| tejas              |
+| vehicle            |
+| world              |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> use batch2;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_batch2 |
++------------------+
+| bonus            |
+| customer         |
+| departments      |
+| dept             |
+| dummy            |
+| emp              |
+| emp100           |
+| new_emp          |
+| salesman         |
+| salgrade         |
+| transaction      |
+| vehicle          |
++------------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO | experience |
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |    44 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |    44 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |    44 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |    44 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |    43 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |    44 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |    43 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |    42 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |    43 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |    43 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |    42 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |    43 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |    43 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |    43 |
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal > (select sal from emp where ename = 'smith');
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO | experience |
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |    44 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |    44 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |    44 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |    43 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |    44 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |    43 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |    42 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |    43 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |    43 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |    42 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |    43 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |    43 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |    43 |
++-------+--------+-----------+------+------------+---------+---------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where deptno = (select deptno from emp where ename = 'smith');
++-------+-------+---------+------+------------+---------+------+--------+------------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO | experience |
++-------+-------+---------+------+------------+---------+------+--------+------------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  800.00 | NULL |     20 |         44 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |         44 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |         42 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |         42 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |         43 |
++-------+-------+---------+------+------------+---------+------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal < (select sal from emp where ename = 'scott') and
+    -> sal > (select sal from emp where ename = 'adams');
++-------+--------+----------+------+------------+---------+---------+--------+------------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO | experience |
++-------+--------+----------+------+------------+---------+---------+--------+------------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |   44 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |   44 |
+|  7566 | JONES  | MANAGER  | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |   44 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |   43 |
+|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |   44 |
+|  7782 | CLARK  | MANAGER  | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |   43 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |   43 |
+|  7934 | MILLER | CLERK    | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |   43 |
++-------+--------+----------+------+------------+---------+---------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal > (select sal from emp where ename = 'blakes') or
+    -> sal > (select sal from emp where ename = 'wards');
+Empty set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal > (select sal from emp where ename = 'blakes') or
+    -> sal > (select sal from emp where ename = 'ward');
++-------+--------+-----------+------+------------+---------+--------+--------+------------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO | experience |
++-------+--------+-----------+------+------------+---------+--------+--------+------------+
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 | 300.00 |     30 |   44 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |   NULL |     20 |   44 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |   NULL |     30 |   44 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |   NULL |     10 |   43 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |   NULL |     20 |   42 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |   NULL |     10 |   43 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |   0.00 |     30 |   43 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |   NULL |     20 |   43 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |   NULL |     10 |   43 |
++-------+--------+-----------+------+------------+---------+--------+--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal>(select avg(sal) from emp where deptno = 10);
++-------+-------+-----------+------+------------+---------+------+--------+------------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO | experience |
++-------+-------+-----------+------+------------+---------+------+--------+------------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+44 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+42 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+43 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+43 |
++-------+-------+-----------+------+------------+---------+------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where deptno = (select deptno from dept where dname = 'research');
++-------+-------+---------+------+------------+---------+------+--------+------------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO | experience |
++-------+-------+---------+------+------------+---------+------+--------+------------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  800.00 | NULL |     20 |         44 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |         44 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |         42 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |         42 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |         43 |
++-------+-------+---------+------+------------+---------+------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal), min(sal) from emp where job = 'Manager';
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'batch2.emp.DEPTNO'; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql> select deptno, sum(sal), min(sal) from emp group by deptno
+    -> where job = 'manager';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where job = 'manager'' at line 2
+mysql>
+mysql> select deptno, sum(sal), min(sal) from emp
+    -> where job = 'manager'
+    -> group by deptno
+    -> ;
++--------+----------+----------+
+| deptno | sum(sal) | min(sal) |
++--------+----------+----------+
+|     20 |  2975.00 |  2975.00 |
+|     30 |  2850.00 |  2850.00 |
+|     10 |  2450.00 |  2450.00 |
++--------+----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> create table category(cid int primary key auto_increment, cname varchar (15)unique not null, description varchar(30));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into category (cname,description) values ( chips,very crunchy),
+    -> ( chocolate,very chocolaty),
+    -> (snacks,yummy),
+    -> (cold drinks,thanda thanda cool cool);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'crunchy),
+( chocolate,very chocolaty),
+(snacks,yummy),
+(cold drinks,thanda thand' at line 1
+mysql> insert into category (cname,description) values ( 'chips','very crunchy'),
+    -> ('chocolate,very chocolaty'),
+    -> ('snacks','yummy'),
+    -> ('cold drinks','thanda thanda cool cool');
+ERROR 1136 (21S01): Column count doesn't match value count at row 2
+mysql> INSERT INTO category (cname, description) VALUES
+    -> ('chips', 'very crunchy'),
+    -> ('chocolate', 'very chocolaty'),
+    -> ('snacks', 'yummy'),
+    -> ('cold drinks', 'thanda thanda cool cool');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Product (
+    ->     pid INT PRIMARY KEY,
+    ->     pname VARCHAR(20),
+    ->     price FLOAT(6, 2) DEFAULT 20.00,
+    ->     qty INT CHECK(qty > 0),
+    ->     cid INT,
+    ->     sid INT,
+    ->     CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    ->     CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman(sid)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman`(`sId`))
+mysql> CREATE TABLE salesman (
+    ->     sid INT PRIMARY KEY,
+    ->     sname VARCHAR(15) UNIQUE NOT NULL,
+    ->     city VARCHAR(15)
+    -> );
+ERROR 1050 (42S01): Table 'salesman' already exists
+mysql> CREATE TABLE salesman (
+    ->     sid INT PRIMARY KEY,
+    ->     sname VARCHAR(15) UNIQUE NOT NULL,
+    ->     city VARCHAR(15)
+    ->     sid INT PRIMARY KEY,^C
+mysql> create table salesman1(
+    -> sid int primary key,
+    -> sname varchar(15) unique not null,
+    -> city varchar(15));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman`(`sId`))
+mysql> CREATE TABLE Product1 (
+    ->     pid INT PRIMARY KEY,
+    ->     pname VARCHAR(20),
+    ->     price FLOAT(6, 2) DEFAULT 20.00,
+    ->     qty INT CHECK(qty > 0),
+    ->     cid INT,
+    ->     sid INT,
+    ->     CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    ->     CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman1(sid)
+    -> );
+ERROR 1826 (HY000): Duplicate foreign key constraint name 'fk_cid'
+mysql> CREATE TABLE Product1 (
+    ->     pid INT PRIMARY KEY,
+    ->     pname VARCHAR(20),
+    ->     price FLOAT(6, 2) DEFAULT 20.00,
+    ->     qty INT CHECK(qty > 0),
+    ->     cid INT,
+    ->     sid INT,
+    ->     CONSTRAINT fk_cid1 FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    ->     CONSTRAINT fk_sid1 FOREIGN KEY (sid) REFERENCES salesman1(sid)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman`(`sId`))
+mysql> INSERT INTO Product1 (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`product1`, CONSTRAINT `fk_sid1` FOREIGN KEY (`sid`) REFERENCES `salesman1` (`sid`))
+mysql>

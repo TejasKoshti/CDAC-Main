@@ -1,0 +1,25 @@
+package com.cdac.acts.apple_main;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.cdac.acts.apple.Apple;
+import com.cdac.acts.apple.check.Check;
+import com.cdac.acts.apple.data.Data_Utils;
+
+public class AppleTester {
+
+	public static void main(String[] args) {
+
+		List<Apple> list = Data_Utils.getData();
+		
+		System.out.println("Sort Apple by Color and then Weight");
+		
+		List<Apple> sortedList = list.stream()
+		.sorted(Comparator.comparing(Apple::getTaste).reversed())
+				.thenComparing(Apple::getWeight)
+		.collect(Collectors.toList());
+	}
+
+}

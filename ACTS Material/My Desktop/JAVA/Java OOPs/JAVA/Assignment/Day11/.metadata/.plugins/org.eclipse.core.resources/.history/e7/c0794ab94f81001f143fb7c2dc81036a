@@ -1,0 +1,17 @@
+package com.cdac.acts.account.accountEnum;
+
+public enum AccountType {
+	S("Saving Account"),
+	C("Current Account"),
+	FD("Fixed Deposite");
+	
+	private String msg;
+	
+	AccountType(String msg) {
+		this.msg = msg;
+	}
+	
+	public String getValue() {
+		return this.msg;
+	}
+}

@@ -1,0 +1,42 @@
+package com.acts.pojo;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class DataUtils {
+
+	public static List<Account> getAccountList() {
+		
+		List<Account> list = new ArrayList<>();
+		
+		LocalDate validDop1 = ValidationUtils.validateDob("2000-01-01");
+		LocalDate validDop2 = ValidationUtils.validateDob("2001-01-01");
+		
+		
+
+		Address address1 = new Address("Pashan", "Pune", "411007");
+		Address address2 = new Address("Pimpri", "Pune", "411061");
+		
+		list.add(new Account(124, "Ganesh",24000.0, validDop1,address1));
+		list.add(new Account(123, "Dinesh",24000.0, validDop1, address1));
+		list.add(new Account(126, "Rupesh", 24000.0,validDop2, address1));
+		list.add(new Account(125, "Deepali",24000.0, validDop2,  address2));
+		list.add(new Account(127, "Rupali",24000.0, validDop2, address2));
+		return list;
+		
+	}
+	
+public static Account findByAccNo(List<Account> list, Integer accNo) {
+		
+		for(Account s : list) {
+			if( accNo.equals(s.getAccNo())) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	
+}

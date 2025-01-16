@@ -1,0 +1,13 @@
+package com.cdac.acts.account.comparator;
+
+import java.util.Comparator;
+
+import com.cdac.acts.account.Account;
+
+public class TitleComparator implements Comparator<Account> {
+
+	@Override
+	public int compare(Account a, Account b) {
+		return a.getAccType().getValue().compareTo(b.getAccType().getValue());
+	}
+}

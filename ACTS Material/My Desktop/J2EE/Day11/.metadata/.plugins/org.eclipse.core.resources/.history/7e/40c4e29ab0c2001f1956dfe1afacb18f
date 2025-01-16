@@ -1,0 +1,79 @@
+package fi.resthiberapp.services;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.hibernate.Session;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fi.resthiberapp.dto.CategoryDTO;
+import fi.resthiberapp.entity.Category;
+import fi.resthiberapp.repositories.CategoryRepository;
+
+@Service
+public class CategoryServiceImpl implements CategoryService {
+
+	@Autowired
+	CategoryRepository repository;
+
+	@Override
+	public boolean addNewCategory(CategoryDTO dto) {
+
+		Category entityCategory = new Category();
+		BeanUtils.copyProperties(dto, entityCategory);
+
+		repository.save(entityCategory);
+		return true;
+	}
+
+	@Override
+	public CategoryDTO getCategoryById(int categoryId) {
+
+		Optional<Category> optCat = repository.findById(categoryId);
+		if (optCat.isPresent()) {
+			Category entiCategory = optCat.get();
+			CategoryDTO dto = new CategoryDTO();
+			BeanUtils.copyProperties(entiCategory, dto);
+			return dto;
+		} else
+			return null;
+	}
+
+	@Override
+	public List<CategoryDTO> allCategories() {
+
+		Iterator<Category> iter = repository.findAll().iterator();
+		ArrayList<CategoryDTO> finalList = new ArrayList<>();
+
+		while (iter.hasNext()) {
+			Category ecategory = iter.next();
+			CategoryDTO dto = new CategoryDTO();
+			BeanUtils.copyProperties(ecategory, dto);
+			finalList.add(dto);
+		}
+
+		return finalList;
+	}
+
+	public List<CategoryDTO> getCategoryNameLike(String nameLike) {
+		
+		List<Category> allCategory = repository.getCategoriesWithLike(nameLike);
+		ArrayList<CategoryDTO> finalList = new ArrayList<>();
+		
+		 for(Category ecategory : allCategory) 
+		 {
+			 CategoryDTO dto = new CategoryDTO();
+				BeanUtils.copyProperties(ecategory, dto);
+				finalList.add(dto);
+			} 
+		 }return finalList;
+}
+
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.data_utils.DataUtils"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.Account"/>
+    <fullyQualifiedTypeName name="javax.security.auth.login.AccountNotFoundException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.exception.MinBalanceException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.comparator.DateComparator"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.job_seeker.Main.Main"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.candidate_details.CandidateDetails"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.job_seeker.data_utils.DataUtils"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.job_seeker.exxception.DateNotValidException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.job_seeker.exception.date.DateNotValidException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.candidate_details.validation.Validation"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.candidate_details.degree_enums.Degree"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.job_seeker.JobSeeker"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+</qualifiedTypeNameHistroy>

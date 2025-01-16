@@ -1,0 +1,5 @@
+package fi.SpringBootHiberApp.entity;
+
+public class Users {
+
+}

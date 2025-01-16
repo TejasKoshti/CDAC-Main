@@ -1,0 +1,10 @@
+package fi.springmvc.config;
+
+import org.springframework.web.context.WebApplicationContext;
+
+public class WebInitializer implements WebApplicationContext{
+	
+	public void onStartup(ServletContext servletContext)
+	
+
+}

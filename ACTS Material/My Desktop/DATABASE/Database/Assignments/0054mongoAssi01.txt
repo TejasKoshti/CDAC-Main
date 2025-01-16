@@ -1,0 +1,206 @@
+
+1.display all movies with rating=4
+
+ruru> db.movie.find({rating:4},{name:1});
+
+[
+  { _id: ObjectId('5bf6a38c57b2d4cc676c7a96'), name: 'Andhadhund' },
+  { _id: ObjectId('5ca47e5b2952ebdd7ae2a931'), name: 'padmavat' },
+  { _id: ObjectId('5bf6a36f57b2d4cc676c7a95'), name: 'Andhadhund' }
+]
+
+
+
+2.display all movies with rating=3 and price=200
+
+ruru> db.movie.find({rating:3,price:200},{name:1,_id:0});
+[ { name: '3 idiots' } ]
+
+
+
+3.display all movies with rating>3 and price=540 
+
+ruru> db.movie.find({rating:{$gt:3},price:540},{name:1,_id:0});
+
+
+
+4.display all movies with rating>3 and price>300
+
+ruru> db.movie.find({rating:{$gt:3},price:{$gt:300}},{_id:0,name:1,price:1});
+[
+  { name: 'mission mangal', price: 350 },
+  { name: 'lagaan', price: 350 },
+  { name: 'Andhadhund', price: 400 },
+  { name: 'Kesari', price: 350 },
+  { name: 'sholay', price: 350 }
+]
+
+
+
+5.display all movies with price > 200 and < 400
+
+ruru> db.movie.find({price:{$gt:200},price:{$lt:400}},{_id:0,name:1,price:1});
+[
+  { name: '3 idiots', price: 200 },
+  { name: 'padmavat', price: 250 },
+  { name: 'newton', price: 310 },
+  { name: 'kahani', price: 200 },
+  { name: 'mission mangal', price: 350 },
+  { price: 280 },
+  { name: 'chichore', price: 274 },
+  { name: 'dream girl', price: 250 },
+  { name: 'lagaan', price: 350 },
+  { name: 'Kesari', price: 350 },
+  { name: 'aradhana', price: 260 },
+  { name: 'paa', price: 270 },
+  { name: 'sholay', price: 350 },
+  { name: 'kahani 2', price: 200 },
+  { name: 'Dil dhadakane do', price: 340 }
+]
+
+
+
+
+6.display all movies with price = 200 or 540 or 400
+
+ruru> db.movie.find({price:{$in:[200,540,400]}},{_id:0,name:1,price:1});
+[
+  { name: '3 idiots', price: 200 },
+  { name: 'kahani', price: 200 },
+  { name: 'Andhadhund', price: 400 },
+  { name: 'kahani 2', price: 200 }
+]
+
+
+
+
+7.display all movies with price not = 200 nor 540  nor 400
+
+
+ruru> db.movie.find({price:{$nin:[200,540,400]}},{_id:0,name:1,price:1});
+[
+  { name: 'Andhadhund', price: null },
+  { name: 'padmavat', price: 250 },
+  { name: 'newton', price: 310 },
+  { name: 'mission mangal', price: 350 },
+  { price: 280 },
+  { name: 'chichore', price: 274 },
+  { name: 'dream girl', price: 250 },
+  { name: 'lagaan', price: 350 },
+  { name: 'Kesari', price: 350 },
+  { name: 'aradhana', price: 260 },
+  { name: 'paa', price: 270 },
+  { name: 'sholay', price: 350 },
+  { name: 'uri' },
+  { name: 'Dil dhadakane do', price: 340 }
+]
+
+
+
+
+8.display count of  movies with price not = 200 nor 540  nor 400
+sol: use count method as follows
+     db.movie.find().count()
+
+ruru> db.movie.find({price:{$nin:[200,540,400]}},{_id:0,name:1,price:1}).count();
+
+14
+
+
+
+9.display all movies with rating=4 or price>300
+
+ruru> db.movie.find({rating:4,price:{$gt:300}},{_id:0,name:1,price:1});
+[ { name: 'Andhadhund', price: 400 } ]
+
+
+
+
+
+??  10.display all movies with price not > 200 and < 400
+
+
+11.display all movies with rating is odd
+
+ruru> db.movie.find({rating:{$mod:[2,1]}},{_id:0,name:1,rating:1});
+[
+  { name: '3 idiots', rating: 3 },
+  { name: 'aradhana', rating: 3 },
+  { name: 'uri', rating: 5 },
+  { name: 'kahani 2', rating: 5 },
+  { name: 'Dil dhadakane do', rating: 3 }
+]
+
+
+
+12.display all movies in which amitabh has acted
+
+ruru> db.movie.find({actor:'amitabh'},{_id:0,name:1});
+[ { name: 'aradhana' } ]
+
+
+
+
+13.display all movies in which amitabh has acted display in ascending order of price
+
+ruru> db.movie.find({actor:'amitabh'},{name:1,price:1,_id:0}).sort({price:1})
+[ { name: 'aradhana', price: 260 } ]
+
+
+
+14.display all movies in which amitabh has acted display in descending order of price
+
+ruru> db.movie.find({actor:'amitabh'},{_id:0,name:1,price:1}).sort({price:-1});
+[ { name: 'aradhana', price: 260 } ]
+
+
+
+15.display all movies in which amitabh has acted display only 1st document
+
+ruru> db.movie.find({actor:'amitabh'},{_id:0,name:1}).limit(1);
+[ { name: 'aradhana' } ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

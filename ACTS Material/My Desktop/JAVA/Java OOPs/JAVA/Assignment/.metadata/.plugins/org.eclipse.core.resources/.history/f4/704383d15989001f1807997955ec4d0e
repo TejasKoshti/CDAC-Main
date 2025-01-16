@@ -1,0 +1,19 @@
+package com.cdac.actss;
+
+import com.cdac.acts.enums.TitleEnum;
+
+public class Employee {
+
+		private int empId;
+		private String name;
+		private TitleEnum title;
+		private Date doj;
+		
+		private static int EMP_ID_START = 100;
+		
+
+		
+		
+		
+		
+}

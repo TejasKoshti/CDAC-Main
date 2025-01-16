@@ -1,0 +1,42 @@
+package com.cdac.acts;
+
+public class SinglyList implements List {
+
+	class Node {
+		int data;
+		Node next;
+	}
+	
+	private Node head;
+	private Node tail;
+	
+	public SinglyList() {
+		head = null;
+		tail = null;
+	}
+	
+	@Override
+	public void addAtFront(int element) {
+		Node newNode = new Node();
+		newNode.data = element;
+		newNode.next = head;
+		head = newNode;
+		
+		if (tail == null) {
+			tail = head;
+		}
+	}
+	
+	public void addAtRear(int element) {
+		
+	}
+	public int deleteFirstNode() {
+		return 0;
+	}
+	public boolean isEmpty() {
+		return false;
+	}
+	public void print() {
+		
+	}
+}

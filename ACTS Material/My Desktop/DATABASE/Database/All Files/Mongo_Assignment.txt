@@ -1,0 +1,1815 @@
+Microsoft Windows [Version 10.0.22631.4391]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\6.0\bin>mongo
+'mongo' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MongoDB\Server\6.0\bin>mongosh
+Current Mongosh Log ID: 673af23bfb0224c9840d818f
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3
+Using MongoDB:          6.0.1
+Using Mongosh:          2.3.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-11-18T10:51:48.894+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use cdac
+switched to db cdac
+cdac> show collections
+movie
+cdac> use mydb
+switched to db mydb
+mydb> show collections;
+movie
+mydb> db.movie.find().pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 5,
+    price: 200
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5d89e9adfd4adc2f84279f43'),
+    name: 'chichore',
+    price: 274,
+    rating: 4.3,
+    actor: [ 'sushant', 'shradha kapoor', 'zzz', 'harshal' ]
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  }
+]
+mydb> db.movie.find({rating:4}).pretty();
+[
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  }
+]
+mydb> db.movie.find({rating:4,price:200}).pretty();
+
+mydb> db.movie.find({rating:4,price:250}).pretty();
+[
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  }
+]
+mydb> db.movie.find({rating:$gt 4,price:540}).pretty();
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:26)
+
+> 1 | db.movie.find({rating:$gt 4,price:540}).pretty();
+    |                           ^
+  2 |
+
+mydb> db.movie.find({rating:{$gt:3},price:540}).pretty();
+
+mydb> db.movie.find({rating:{$gt:3},price:{$gt:300}}).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  }
+]
+mydb> db.movie.find({price:{$gt:200},price:{$lt:400}}).pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 5,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5d89e9adfd4adc2f84279f43'),
+    name: 'chichore',
+    price: 274,
+    rating: 4.3,
+    actor: [ 'sushant', 'shradha kapoor', 'zzz', 'harshal' ]
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  }
+]
+mydb> db.movie.find({price:{$in:[200,540,400]}}).pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 5,
+    price: 200
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  }
+]
+mydb> db.movie.find({price:{$nin:[200,540,400]}}).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5d89e9adfd4adc2f84279f43'),
+    name: 'chichore',
+    price: 274,
+    rating: 4.3,
+    actor: [ 'sushant', 'shradha kapoor', 'zzz', 'harshal' ]
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  }
+]
+mydb> db.movie.find({price:{$nin:[200,540,400]}}).count().pretty();
+TypeError: db.movie.find( ... ount().pretty is not a function
+mydb> db.movie.find({price:{$nin:[200,540,400]}}).count();
+14
+mydb> db.movie.find({$in:{rating:4,price:{$gt:300}}}).pretty();
+MongoServerError[BadValue]: unknown top level operator: $in. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+mydb> db.movie.find({$or:[{rating:4},{price:{$gt:300}}]}).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  }
+]
+mydb> db.movie.find({
+...   price: { $not: { $gt: 200, $lt: 400 } }
+... }).pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 5,
+    price: 200
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  }
+]
+mydb> db.movie.find({rating:{$mod:[2,1]}}).pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 5,
+    price: 200
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).sort(rating:1).pretty();
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:44)
+
+> 1 | db.movie.find({actor:'Amitabh'}).sort(rating:1).pretty();
+    |                                             ^
+  2 |
+
+mydb> db.movie.find({actor:'Amitabh'}).sort({rating:1}).pretty();
+[
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).sort({rating:-1}).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).limit(1);
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).limit(5);
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  }
+]
+mydb> db.movie.find({actor:'Amitabh'}).limit(5).pretty();
+[
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  }
+]
+mydb> db.movie.find().sort({rating:-1}).limit(5).pretty();
+[
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  }
+]
+mydb> db.movie.find().sort({rating:1}).limit(3).pretty();
+[
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  }
+]
+mydb> db.movie.find().sort({ rating: 1 }).limit(3).pretty();
+[
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  }
+]
+mydb> db.movie.find(rating:{ $ne: null }).sort({ rating:1}).limit(3).pretty();
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:20)
+
+> 1 | db.movie.find(rating:{ $ne: null }).sort({ rating:1}).limit(3).pretty();
+    |                     ^
+  2 |
+
+mydb> db.movie.find({rating:{ $ne: null }}).sort({ rating:1}).limit(3).pretty();
+[
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  }
+]
+mydb> db.movie.update({name:'kahani 2'},{$set:{rating:5}},{multi:true})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.update({name:'kahani 2'},{$set:{rating:4}},{multi:true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.find().pretty();
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 350,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 4,
+    price: 200
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 200,
+    ac7tors: [ 'bbbb' ],
+    rating: 8,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5d89e9adfd4adc2f84279f43'),
+    name: 'chichore',
+    price: 274,
+    rating: 4.3,
+    actor: [ 'sushant', 'shradha kapoor', 'zzz', 'harshal' ]
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  }
+]
+mydb> db.movie.update({name:'sholay'},{$inc:{price:100}},{multi:true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> { $ne: null }
+
+Microsoft Windows [Version 10.0.22631.4391]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\6.0\bin\mongosh-2.3.3-win32-x64\bin>mongosh
+Current Mongosh Log ID: 673b0c76cadc7df3030d818f
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3
+Using MongoDB:          6.0.1
+Using Mongosh:          2.3.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-11-18T10:51:48.894+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use mydb
+switched to db mydb
+mydb> show collections
+movie
+mydb> db.movie.update({name:'kahani'},{$set:{price:400},$inc:{rating:2}},{multi:true})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.update({name:'kahani'},{$set:{price:500},$inc:{rating:2}},{multi:true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.find({name:'kahani'}).pretty()
+[
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 500,
+    ac7tors: [ 'bbbb' ],
+    rating: 12,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  }
+]
+mydb> db.movie.find({name:'kahani 2'}).pretty()
+[
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 4,
+    price: 200
+  }
+]
+mydb> db.movie.update({name:'/kahani/i'},{$set:{price:500},$inc:{rating:2}},{multi:true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+mydb> db.movie.updateMany(
+...   { name: 'kahani' },                // Query condition to find documents where 'name' is exactly 'kahani'
+...   {
+...     $set: { price: 500 },             // Set the 'price' field to 500
+...     $inc: { rating: 2 }               // Increment the 'rating' field by 2
+...   }
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.find({name:'kahani 2'}).pretty()
+[
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 4,
+    price: 200
+  }
+]
+mydb> db.movie.find().pretty()
+[
+  {
+    _id: ObjectId('5aaa31ee639395f86922a87f'),
+    name: '3 idiots',
+    actor: [ 'Kareena Kapoor', 'amir', 'kareena', 'mahadavan', 'sharman' ],
+    rating: 3,
+    ticket_no: 150,
+    price: 200
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a882'),
+    name: 'aradhana',
+    actor: [ 'amitabh', 'prem', 'rajesh khanna' ],
+    rating: 3,
+    ticket_no: 550,
+    price: 260
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a881'),
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    rating: 6,
+    ticket_no: 550,
+    price: 450,
+    position: [ 2, 2 ]
+  },
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 4,
+    price: 200
+  },
+  {
+    _id: ObjectId('5bf6a36f57b2d4cc676c7a95'),
+    name: 'Andhadhund',
+    price: 400,
+    actor: [ 'Ayushman', 'radhika' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5bf6a38c57b2d4cc676c7a96'),
+    name: 'Andhadhund',
+    price: null,
+    actor: [ 'Tabbu' ],
+    rating: 4
+  },
+  {
+    _id: ObjectId('5c8283789eb55675f0272933'),
+    name: 'uri',
+    rating: 5,
+    actor: [ 'vicky kaushal', 'yami', 'Paresh Rawal' ]
+  },
+  {
+    _id: ObjectId('5aaa3334639395f86922a880'),
+    name: 'lagaan',
+    actor: [ 'amir', 'angraz' ],
+    rating: 6,
+    ticket_no: 410,
+    price: 350,
+    cancellation: {
+      date: Timestamp({ t: 1554356003, i: 1 }),
+      reason: 'user request'
+    },
+    lastModified: ISODate('2019-04-04T05:33:23.022Z')
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 500,
+    ac7tors: [ 'bbbb' ],
+    rating: 14,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  },
+  {
+    _id: ObjectId('5c865923d82c19b8ed996550'),
+    name: 'Dil dhadakane do',
+    rating: 3,
+    price: 340,
+    actor: "['Anil kapoor']"
+  },
+  {
+    _id: ObjectId('5ca47ef82952ebdd7ae2a932'),
+    name: 'newton',
+    ticket_no: 690,
+    actor: [ 'Rajkumar Rao', 'Pankaj Tripathi' ],
+    price: 310,
+    lastmodified: ISODate('2019-09-28T14:47:49.204Z')
+  },
+  {
+    _id: ObjectId('5ca453ef2952ebdd7ae2a92f'),
+    name: 'Kesari',
+    actor: [ 'Akshay Kumar', 'Pariniti chopra' ],
+    rating: 6,
+    price: 350,
+    ticket_no: 270,
+    rdate: ISODate('2019-01-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('5ca456072952ebdd7ae2a930'),
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    rating: 2,
+    price: 270,
+    ticket_no: 210,
+    rdate: ISODate('2019-01-23T00:00:00.000Z'),
+    others: { director: 'R Balki', songs: 'Amit trivedi' }
+  },
+  {
+    _id: ObjectId('5ca47e5b2952ebdd7ae2a931'),
+    name: 'padmavat',
+    rating: 4,
+    price: 250,
+    ticket_no: 300,
+    actor: [
+      'Deepika',
+      'shahid kapoor',
+      'ranveer singh',
+      'aditi Rao',
+      'aaaaa'
+    ],
+    cancellation: { date: Timestamp({ t: 1567175239, i: 1 }) }
+  },
+  {
+    _id: ObjectId('5d6935a3470e2bef2a82cdfa'),
+    name: 'mission mangal',
+    price: 350,
+    actor: [ 'Sonakshi', 'Vidya Balan' ],
+    rating: 6
+  },
+  {
+    _id: ObjectId('5d89e9adfd4adc2f84279f43'),
+    name: 'chichore',
+    price: 274,
+    rating: 4.3,
+    actor: [ 'sushant', 'shradha kapoor', 'zzz', 'harshal' ]
+  },
+  { _id: ObjectId('5d8f6eec620d2353221b91dd'), price: 280 },
+  {
+    _id: ObjectId('5d8f51ce065d3e2aa902aa22'),
+    name: 'dream girl',
+    actor: [ 'ayushman', 'nushrat bharucha' ],
+    price: 250,
+    rating: null
+  }
+]
+mydb> db.movie.updateMany(
+...   { name: /kahani/i },                  // Query condition: case-insensitive match for 'kahani' in the name field
+...   {
+...     $set: { price: 400 },                // Set price to 400 for all matching documents
+...     $inc: { rating: 2 }                  // Increment the rating by 2 for all matching documents
+...   }
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+mydb> db.movie.find({name:/kahani/i}).pretty()
+[
+  {
+    _id: ObjectId('5aab6da4639395f86922a883'),
+    name: 'kahani 2',
+    ticket_no: 820,
+    actor: [
+      'vidya',  'Arjun',
+      'Jonny',  'nawaz',
+      'prasad', 'Shreyas',
+      'Jonny',  'yash'
+    ],
+    rating: 6,
+    price: 400
+  },
+  {
+    _id: ObjectId('5aaa31a2639395f86922a87e'),
+    name: 'kahani',
+    actor: [ 'aaaa', 'bbbb', 'karan', 'karri', 'vidya' ],
+    ticket_no: 420,
+    price: 400,
+    ac7tors: [ 'bbbb' ],
+    rating: 16,
+    lastmodified: ISODate('2019-04-07T11:25:40.634Z')
+  }
+]
+mydb> db.movie.updateMany({},{$inc:{price:-40}},{multi:true})
+MongoServerError: Cannot apply $inc to a value of non-numeric type. {_id: ObjectId('5bf6a38c57b2d4cc676c7a96')} has the field 'price' of non-numeric type null
+mydb> db.movie.updateMany({},$inc:{price:-40},{multi:true})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.movie.updateMany({},$inc:{price:-40},{multi:true})
+    |                            ^
+  2 |
+
+mydb> db.movie.updateMany({$inc:{price:-40}},{multi:true})
+MongoInvalidArgumentError: Update document requires atomic operators
+mydb> db.movie.updateMany({},$inc:{price:-40})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.movie.updateMany({},$inc:{price:-40})
+    |                            ^
+  2 |
+
+mydb> db.movie.updateMany({},{$inc:{price:-40}})
+MongoServerError: Cannot apply $inc to a value of non-numeric type. {_id: ObjectId('5bf6a38c57b2d4cc676c7a96')} has the field 'price' of non-numeric type null
+mydb> db.movie.updateMany({},{$inc:{price:-40}});
+MongoServerError: Cannot apply $inc to a value of non-numeric type. {_id: ObjectId('5bf6a38c57b2d4cc676c7a96')} has the field 'price' of non-numeric type null
+mydb> db.movie.updateMany(
+...   {},                           // Empty filter to match all documents
+...   { $inc: { price: -40 } }       // Decrease the 'price' by Rs. 40 for all matched documents
+... );
+MongoServerError: Cannot apply $inc to a value of non-numeric type. {_id: ObjectId('5bf6a38c57b2d4cc676c7a96')} has the field 'price' of non-numeric type null
+mydb> db.movie.updateMany(
+...   { price: { $eq: null } },  // Match documents where price is null
+...   { $set: { price: 0 } }     // Set price to 0 if null
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+mydb>
+
+mydb> db.movie.updateMany(
+...   {},                           // Empty filter to match all documents
+...   { $inc: { price: -40 } }      // Decrease the price by Rs. 40 for all documents
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 18,
+  modifiedCount: 18,
+  upsertedCount: 0
+}
+mydb> db.movie.updateMany({},{$inc:{price:1.1*price}});
+ReferenceError: price is not defined
+mydb> db.movie.updateMany({},{$inc:{price:1.10}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 18,
+  modifiedCount: 18,
+  upsertedCount: 0
+}
+mydb> db.movie.find({name:/^\d/},{name:1,_id:0})
+[ { name: '3 idiots' } ]
+mydb>
+
+mydb> db.movie.find({name:/^\d.*s$/},{name:1,_id:0})
+[ { name: '3 idiots' } ]
+mydb> db.movie.find({name:/^[a-zA-Z]/},{name:1,_id:0})
+[
+  { name: 'aradhana' },
+  { name: 'sholay' },
+  { name: 'kahani 2' },
+  { name: 'Andhadhund' },
+  { name: 'Andhadhund' },
+  { name: 'uri' },
+  { name: 'lagaan' },
+  { name: 'kahani' },
+  { name: 'Dil dhadakane do' },
+  { name: 'newton' },
+  { name: 'Kesari' },
+  { name: 'paa' },
+  { name: 'padmavat' },
+  { name: 'mission mangal' },
+  { name: 'chichore' },
+  { name: 'dream girl' }
+]
+mydb> db.movie.update({name:'Kesari'},{$set:{rating:2}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.update({actor:'Amitabh'},{$inc:{price:20}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.find({actor:'Amitabh'},{name:1,actor:1,_id:0})
+[
+  {
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ]
+  },
+  { name: 'paa', actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ] }
+]
+mydb> db.movie.find({actor:'Amitabh'},{name:1,actor:1,price:1,_id:0})
+[
+  {
+    name: 'sholay',
+    actor: [
+      'Dharamendra',
+      'Amitabh',
+      'Sachin Pilgaokar',
+      'Dharamendra',
+      'Dharamendra',
+      'Mr. Khote',
+      'jaya bacchan',
+      'sanjiv kapoor'
+    ],
+    price: 271.1
+  },
+  {
+    name: 'paa',
+    actor: [ 'Amitabh', 'vidya balan', 'Abhishek' ],
+    price: 231.1
+  }
+]
+mydb> db.movie.updateOne(
+...   { name: "Kesari" },       // Match the movie with name "Kesari"
+...   { $unset: { rating: "" } } // Remove the "rating" field
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.updateOne( { name: '3 idiots'},{$inc:{price:50}},{$set:{rating:7}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.movie.updateOne(
+...   { name: "sholay" },        // Match the document (for example, with name 'sholay')
+...   { $pop: { actor: -1 } }    // Remove the first element from the 'actor' array
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+

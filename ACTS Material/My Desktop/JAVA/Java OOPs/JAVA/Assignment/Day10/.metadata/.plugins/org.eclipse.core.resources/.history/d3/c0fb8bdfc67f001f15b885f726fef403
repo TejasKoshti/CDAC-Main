@@ -1,0 +1,88 @@
+package com.cdac.acts.fruit.main;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.ListIterator;
+
+import com.cdac.acts.fruit.Fruit;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//Collection I/F -> List I/F -> ArrayList CC(Concrete Class)
+		ArrayList<Fruit> fruitList = new ArrayList<Fruit>(); 
+		int count = 0;
+		
+		while (true) {
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("1 -> add");
+			System.out.println("2 -> remove");
+			System.out.println("3 -> display using advance for loop");
+			System.out.println("4 -> display using for each loop");
+			System.out.println("5 -> display using forward iterator");
+
+		
+			System.out.println("enter choice");
+			int choice = sc.nextInt();
+			sc.nextLine();
+			switch (choice) {
+			
+			case 1:
+			{
+				System.out.println("Enter Fruit Name");
+				String name = sc.nextLine();
+		
+				System.out.println("Enter Color");
+				String color = sc.nextLine();
+		
+				System.out.println("Enter Price");
+				double price = sc.nextDouble();
+				
+				System.out.println("Enter Quantity");
+				int quantity = sc.nextInt();
+				fruitList.add(count, new Fruit(name, color, price, quantity));
+				count++;
+				System.out.println("added successfully");
+//				System.out.println(count);
+//				System.out.println(fruitList.size());
+			}break;
+			
+			case 2:
+			{
+				System.out.println("Enter Fruit Name from list to remove");
+				String name = sc.nextLine();
+				for (int i = 0; i < count; i++) {
+					if (name.equals(fruitList.get(i).getName())) {
+//						System.out.println(fruitList.get(i));
+//						System.out.println("i" +i);
+						fruitList.remove(i);
+					}
+				}
+				count --;
+				System.out.println("remove successfully "+ name);
+//				System.out.println(count);
+//				System.out.println(fruitList.size());
+			} break;
+			
+			case 3:
+			{
+				for(Fruit fruit : fruitList) {
+					System.out.println(fruit);
+				}
+			}break;
+			
+			case 4:
+			{
+				fruitList.forEach(System.out::println);
+			}break;
+			
+			case 5:
+			{
+				ListIterator<Fruit> 
+			}break;
+			}
+		}
+	}
+}

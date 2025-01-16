@@ -1,0 +1,8 @@
+package tejas.set1;
+
+public class Students {
+	private Integer rollNo;
+	private String name;
+	private Cousers
+
+}

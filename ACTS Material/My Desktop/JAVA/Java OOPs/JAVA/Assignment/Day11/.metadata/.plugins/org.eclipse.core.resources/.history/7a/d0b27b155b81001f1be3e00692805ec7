@@ -1,0 +1,35 @@
+package com.cdac.acts.account.validation;
+
+import java.time.LocalDate;
+
+import com.cdac.acts.account.enums.AccountType;
+
+public class Validation {
+	private Validation() {}
+	
+	public static AccountType getValidAccountType(String acc) {
+	
+		AccountType a = null;
+		try {
+			a = AccountType.valueOf(acc);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+		return a;
+	}
+	
+	public static LocalDate getValidDoj(String strDoj) {
+		LocalDate doj = LocalDate.parse(strDoj);
+		
+		LocalDate today = LocalDate.now();
+		LocalDate requiredDate = today.minusDays(1);
+		
+		if (doj.isBefore(requiredDate)) {
+			return doj;
+		}
+		
+		return null;
+	}
+	
+	public static Double getValidBalance()
+}

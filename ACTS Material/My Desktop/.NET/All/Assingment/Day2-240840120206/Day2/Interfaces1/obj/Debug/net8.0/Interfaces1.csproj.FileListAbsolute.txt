@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day2\Interfaces1\bin\Debug\net8.0\Interfaces1.exe
+E:\MS.Net\MyCode\Day2\Interfaces1\bin\Debug\net8.0\Interfaces1.deps.json
+E:\MS.Net\MyCode\Day2\Interfaces1\bin\Debug\net8.0\Interfaces1.runtimeconfig.json
+E:\MS.Net\MyCode\Day2\Interfaces1\bin\Debug\net8.0\Interfaces1.dll
+E:\MS.Net\MyCode\Day2\Interfaces1\bin\Debug\net8.0\Interfaces1.pdb
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.dll
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\refint\Interfaces1.dll
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.pdb
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\Interfaces1.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day2\Interfaces1\obj\Debug\net8.0\ref\Interfaces1.dll

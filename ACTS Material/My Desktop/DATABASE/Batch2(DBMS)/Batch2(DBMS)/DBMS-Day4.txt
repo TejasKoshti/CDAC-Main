@@ -1,0 +1,1677 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select hiredate from emp;
+ERROR 1046 (3D000): No database selected
+mysql> use batch2;
+Database changed
+mysql> select hiredate from emp;
++------------+
+| hiredate   |
++------------+
+| 1980-12-17 |
+| 1981-02-20 |
+| 1981-02-22 |
+| 1981-04-02 |
+| 1981-09-28 |
+| 1981-05-01 |
+| 1981-06-09 |
+| 1982-12-09 |
+| 1981-11-17 |
+| 1981-09-08 |
+| 1983-01-12 |
+| 1981-12-03 |
+| 1981-12-03 |
+| 1982-01-23 |
++------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%y')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%y') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | 80                         |
+| ALLEN  | 1981-02-20 | 81                         |
+| WARD   | 1981-02-22 | 81                         |
+| JONES  | 1981-04-02 | 81                         |
+| MARTIN | 1981-09-28 | 81                         |
+| BLAKE  | 1981-05-01 | 81                         |
+| CLARK  | 1981-06-09 | 81                         |
+| SCOTT  | 1982-12-09 | 82                         |
+| KING   | 1981-11-17 | 81                         |
+| TURNER | 1981-09-08 | 81                         |
+| ADAMS  | 1983-01-12 | 83                         |
+| JAMES  | 1981-12-03 | 81                         |
+| FORD   | 1981-12-03 | 81                         |
+| MILLER | 1982-01-23 | 82                         |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%Y')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%Y') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | 1980                       |
+| ALLEN  | 1981-02-20 | 1981                       |
+| WARD   | 1981-02-22 | 1981                       |
+| JONES  | 1981-04-02 | 1981                       |
+| MARTIN | 1981-09-28 | 1981                       |
+| BLAKE  | 1981-05-01 | 1981                       |
+| CLARK  | 1981-06-09 | 1981                       |
+| SCOTT  | 1982-12-09 | 1982                       |
+| KING   | 1981-11-17 | 1981                       |
+| TURNER | 1981-09-08 | 1981                       |
+| ADAMS  | 1983-01-12 | 1983                       |
+| JAMES  | 1981-12-03 | 1981                       |
+| FORD   | 1981-12-03 | 1981                       |
+| MILLER | 1982-01-23 | 1982                       |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'yyyy-mm-dd')
+    -> from emp;
++--------+------------+------------------------------------+
+| ename  | hiredate   | date_format(hiredate,'yyyy-mm-dd') |
++--------+------------+------------------------------------+
+| SMITH  | 1980-12-17 | yyyy-mm-dd                         |
+| ALLEN  | 1981-02-20 | yyyy-mm-dd                         |
+| WARD   | 1981-02-22 | yyyy-mm-dd                         |
+| JONES  | 1981-04-02 | yyyy-mm-dd                         |
+| MARTIN | 1981-09-28 | yyyy-mm-dd                         |
+| BLAKE  | 1981-05-01 | yyyy-mm-dd                         |
+| CLARK  | 1981-06-09 | yyyy-mm-dd                         |
+| SCOTT  | 1982-12-09 | yyyy-mm-dd                         |
+| KING   | 1981-11-17 | yyyy-mm-dd                         |
+| TURNER | 1981-09-08 | yyyy-mm-dd                         |
+| ADAMS  | 1983-01-12 | yyyy-mm-dd                         |
+| JAMES  | 1981-12-03 | yyyy-mm-dd                         |
+| FORD   | 1981-12-03 | yyyy-mm-dd                         |
+| MILLER | 1982-01-23 | yyyy-mm-dd                         |
++--------+------------+------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%yyyy-mm-dd')
+    -> from emp;
++--------+------------+-------------------------------------+
+| ename  | hiredate   | date_format(hiredate,'%yyyy-mm-dd') |
++--------+------------+-------------------------------------+
+| SMITH  | 1980-12-17 | 80yyy-mm-dd                         |
+| ALLEN  | 1981-02-20 | 81yyy-mm-dd                         |
+| WARD   | 1981-02-22 | 81yyy-mm-dd                         |
+| JONES  | 1981-04-02 | 81yyy-mm-dd                         |
+| MARTIN | 1981-09-28 | 81yyy-mm-dd                         |
+| BLAKE  | 1981-05-01 | 81yyy-mm-dd                         |
+| CLARK  | 1981-06-09 | 81yyy-mm-dd                         |
+| SCOTT  | 1982-12-09 | 82yyy-mm-dd                         |
+| KING   | 1981-11-17 | 81yyy-mm-dd                         |
+| TURNER | 1981-09-08 | 81yyy-mm-dd                         |
+| ADAMS  | 1983-01-12 | 83yyy-mm-dd                         |
+| JAMES  | 1981-12-03 | 81yyy-mm-dd                         |
+| FORD   | 1981-12-03 | 81yyy-mm-dd                         |
+| MILLER | 1982-01-23 | 82yyy-mm-dd                         |
++--------+------------+-------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select hiredate from emp;
++------------+
+| hiredate   |
++------------+
+| 1980-12-17 |
+| 1981-02-20 |
+| 1981-02-22 |
+| 1981-04-02 |
+| 1981-09-28 |
+| 1981-05-01 |
+| 1981-06-09 |
+| 1982-12-09 |
+| 1981-11-17 |
+| 1981-09-08 |
+| 1983-01-12 |
+| 1981-12-03 |
+| 1981-12-03 |
+| 1982-01-23 |
++------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate)
+    -> from emp;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'date_format'
+mysql> select ename ,hiredate , date_format(hiredate,'%m')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%m') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | 12                         |
+| ALLEN  | 1981-02-20 | 02                         |
+| WARD   | 1981-02-22 | 02                         |
+| JONES  | 1981-04-02 | 04                         |
+| MARTIN | 1981-09-28 | 09                         |
+| BLAKE  | 1981-05-01 | 05                         |
+| CLARK  | 1981-06-09 | 06                         |
+| SCOTT  | 1982-12-09 | 12                         |
+| KING   | 1981-11-17 | 11                         |
+| TURNER | 1981-09-08 | 09                         |
+| ADAMS  | 1983-01-12 | 01                         |
+| JAMES  | 1981-12-03 | 12                         |
+| FORD   | 1981-12-03 | 12                         |
+| MILLER | 1982-01-23 | 01                         |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%d')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%d') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | 17                         |
+| ALLEN  | 1981-02-20 | 20                         |
+| WARD   | 1981-02-22 | 22                         |
+| JONES  | 1981-04-02 | 02                         |
+| MARTIN | 1981-09-28 | 28                         |
+| BLAKE  | 1981-05-01 | 01                         |
+| CLARK  | 1981-06-09 | 09                         |
+| SCOTT  | 1982-12-09 | 09                         |
+| KING   | 1981-11-17 | 17                         |
+| TURNER | 1981-09-08 | 08                         |
+| ADAMS  | 1983-01-12 | 12                         |
+| JAMES  | 1981-12-03 | 03                         |
+| FORD   | 1981-12-03 | 03                         |
+| MILLER | 1982-01-23 | 23                         |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%M')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%M') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | December                   |
+| ALLEN  | 1981-02-20 | February                   |
+| WARD   | 1981-02-22 | February                   |
+| JONES  | 1981-04-02 | April                      |
+| MARTIN | 1981-09-28 | September                  |
+| BLAKE  | 1981-05-01 | May                        |
+| CLARK  | 1981-06-09 | June                       |
+| SCOTT  | 1982-12-09 | December                   |
+| KING   | 1981-11-17 | November                   |
+| TURNER | 1981-09-08 | September                  |
+| ADAMS  | 1983-01-12 | January                    |
+| JAMES  | 1981-12-03 | December                   |
+| FORD   | 1981-12-03 | December                   |
+| MILLER | 1982-01-23 | January                    |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%D')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%D') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | 17th                       |
+| ALLEN  | 1981-02-20 | 20th                       |
+| WARD   | 1981-02-22 | 22nd                       |
+| JONES  | 1981-04-02 | 2nd                        |
+| MARTIN | 1981-09-28 | 28th                       |
+| BLAKE  | 1981-05-01 | 1st                        |
+| CLARK  | 1981-06-09 | 9th                        |
+| SCOTT  | 1982-12-09 | 9th                        |
+| KING   | 1981-11-17 | 17th                       |
+| TURNER | 1981-09-08 | 8th                        |
+| ADAMS  | 1983-01-12 | 12th                       |
+| JAMES  | 1981-12-03 | 3rd                        |
+| FORD   | 1981-12-03 | 3rd                        |
+| MILLER | 1982-01-23 | 23rd                       |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%D %B')
+    -> from emp;
++--------+------------+-------------------------------+
+| ename  | hiredate   | date_format(hiredate,'%D %B') |
++--------+------------+-------------------------------+
+| SMITH  | 1980-12-17 | 17th B                        |
+| ALLEN  | 1981-02-20 | 20th B                        |
+| WARD   | 1981-02-22 | 22nd B                        |
+| JONES  | 1981-04-02 | 2nd B                         |
+| MARTIN | 1981-09-28 | 28th B                        |
+| BLAKE  | 1981-05-01 | 1st B                         |
+| CLARK  | 1981-06-09 | 9th B                         |
+| SCOTT  | 1982-12-09 | 9th B                         |
+| KING   | 1981-11-17 | 17th B                        |
+| TURNER | 1981-09-08 | 8th B                         |
+| ADAMS  | 1983-01-12 | 12th B                        |
+| JAMES  | 1981-12-03 | 3rd B                         |
+| FORD   | 1981-12-03 | 3rd B                         |
+| MILLER | 1982-01-23 | 23rd B                        |
++--------+------------+-------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%D %b')
+    -> from emp;
++--------+------------+-------------------------------+
+| ename  | hiredate   | date_format(hiredate,'%D %b') |
++--------+------------+-------------------------------+
+| SMITH  | 1980-12-17 | 17th Dec                      |
+| ALLEN  | 1981-02-20 | 20th Feb                      |
+| WARD   | 1981-02-22 | 22nd Feb                      |
+| JONES  | 1981-04-02 | 2nd Apr                       |
+| MARTIN | 1981-09-28 | 28th Sep                      |
+| BLAKE  | 1981-05-01 | 1st May                       |
+| CLARK  | 1981-06-09 | 9th Jun                       |
+| SCOTT  | 1982-12-09 | 9th Dec                       |
+| KING   | 1981-11-17 | 17th Nov                      |
+| TURNER | 1981-09-08 | 8th Sep                       |
+| ADAMS  | 1983-01-12 | 12th Jan                      |
+| JAMES  | 1981-12-03 | 3rd Dec                       |
+| FORD   | 1981-12-03 | 3rd Dec                       |
+| MILLER | 1982-01-23 | 23rd Jan                      |
++--------+------------+-------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,hiredate , date_format(hiredate,'%D %b %Y')
+    -> from emp;
++--------+------------+----------------------------------+
+| ename  | hiredate   | date_format(hiredate,'%D %b %Y') |
++--------+------------+----------------------------------+
+| SMITH  | 1980-12-17 | 17th Dec 1980                    |
+| ALLEN  | 1981-02-20 | 20th Feb 1981                    |
+| WARD   | 1981-02-22 | 22nd Feb 1981                    |
+| JONES  | 1981-04-02 | 2nd Apr 1981                     |
+| MARTIN | 1981-09-28 | 28th Sep 1981                    |
+| BLAKE  | 1981-05-01 | 1st May 1981                     |
+| CLARK  | 1981-06-09 | 9th Jun 1981                     |
+| SCOTT  | 1982-12-09 | 9th Dec 1982                     |
+| KING   | 1981-11-17 | 17th Nov 1981                    |
+| TURNER | 1981-09-08 | 8th Sep 1981                     |
+| ADAMS  | 1983-01-12 | 12th Jan 1983                    |
+| JAMES  | 1981-12-03 | 3rd Dec 1981                     |
+| FORD   | 1981-12-03 | 3rd Dec 1981                     |
+| MILLER | 1982-01-23 | 23rd Jan 1982                    |
++--------+------------+----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal%3=0;
++-------+--------+----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+----------+------+------------+---------+------+--------+
+|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7788 | SCOTT  | ANALYST  | 7566 | 1982-12-09 | 3300.00 | NULL |     20 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500.00 | 0.00 |     30 |
+|  7902 | FORD   | ANALYST  | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
++-------+--------+----------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,rpad(ename,9,"*")
+    -> from emp
+    -> ;
++--------+-------------------+
+| ename  | rpad(ename,9,"*") |
++--------+-------------------+
+| SMITH  | SMITH****         |
+| ALLEN  | ALLEN****         |
+| WARD   | WARD*****         |
+| JONES  | JONES****         |
+| MARTIN | MARTIN***         |
+| BLAKE  | BLAKE****         |
+| CLARK  | CLARK****         |
+| SCOTT  | SCOTT****         |
+| KING   | KING*****         |
+| TURNER | TURNER***         |
+| ADAMS  | ADAMS****         |
+| JAMES  | JAMES****         |
+| FORD   | FORD*****         |
+| MILLER | MILLER***         |
++--------+-------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(rpad(ename,9,"*"),sal)
+    -> from emp;
++--------+-------------------------------+
+| ename  | concat(rpad(ename,9,"*"),sal) |
++--------+-------------------------------+
+| SMITH  | SMITH****880.00               |
+| ALLEN  | ALLEN****1760.00              |
+| WARD   | WARD*****1250.00              |
+| JONES  | JONES****2975.00              |
+| MARTIN | MARTIN***1375.00              |
+| BLAKE  | BLAKE****2850.00              |
+| CLARK  | CLARK****2450.00              |
+| SCOTT  | SCOTT****3300.00              |
+| KING   | KING*****5000.00              |
+| TURNER | TURNER***1500.00              |
+| ADAMS  | ADAMS****1210.00              |
+| JAMES  | JAMES****950.00               |
+| FORD   | FORD*****3000.00              |
+| MILLER | MILLER***1430.00              |
++--------+-------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(rpad(ename,9,"*"),round(sal))
+    -> from emp;
++--------+--------------------------------------+
+| ename  | concat(rpad(ename,9,"*"),round(sal)) |
++--------+--------------------------------------+
+| SMITH  | SMITH****880                         |
+| ALLEN  | ALLEN****1760                        |
+| WARD   | WARD*****1250                        |
+| JONES  | JONES****2975                        |
+| MARTIN | MARTIN***1375                        |
+| BLAKE  | BLAKE****2850                        |
+| CLARK  | CLARK****2450                        |
+| SCOTT  | SCOTT****3300                        |
+| KING   | KING*****5000                        |
+| TURNER | TURNER***1500                        |
+| ADAMS  | ADAMS****1210                        |
+| JAMES  | JAMES****950                         |
+| FORD   | FORD*****3000                        |
+| MILLER | MILLER***1430                        |
++--------+--------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(rpad(ename,9,"*"),floor(sal))
+    -> from emp;
++--------+--------------------------------------+
+| ename  | concat(rpad(ename,9,"*"),floor(sal)) |
++--------+--------------------------------------+
+| SMITH  | SMITH****880                         |
+| ALLEN  | ALLEN****1760                        |
+| WARD   | WARD*****1250                        |
+| JONES  | JONES****2975                        |
+| MARTIN | MARTIN***1375                        |
+| BLAKE  | BLAKE****2850                        |
+| CLARK  | CLARK****2450                        |
+| SCOTT  | SCOTT****3300                        |
+| KING   | KING*****5000                        |
+| TURNER | TURNER***1500                        |
+| ADAMS  | ADAMS****1210                        |
+| JAMES  | JAMES****950                         |
+| FORD   | FORD*****3000                        |
+| MILLER | MILLER***1430                        |
++--------+--------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(rpad(ename,9,"*"),ceil(sal))
+    -> from emp;
++--------+-------------------------------------+
+| ename  | concat(rpad(ename,9,"*"),ceil(sal)) |
++--------+-------------------------------------+
+| SMITH  | SMITH****880                        |
+| ALLEN  | ALLEN****1760                       |
+| WARD   | WARD*****1250                       |
+| JONES  | JONES****2975                       |
+| MARTIN | MARTIN***1375                       |
+| BLAKE  | BLAKE****2850                       |
+| CLARK  | CLARK****2450                       |
+| SCOTT  | SCOTT****3300                       |
+| KING   | KING*****5000                       |
+| TURNER | TURNER***1500                       |
+| ADAMS  | ADAMS****1210                       |
+| JAMES  | JAMES****950                        |
+| FORD   | FORD*****3000                       |
+| MILLER | MILLER***1430                       |
++--------+-------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(lower(ename), "@mycompany.com")
+    -> 'email'
+    -> from emp;
++--------+----------------------+
+| ename  | email                |
++--------+----------------------+
+| SMITH  | smith@mycompany.com  |
+| ALLEN  | allen@mycompany.com  |
+| WARD   | ward@mycompany.com   |
+| JONES  | jones@mycompany.com  |
+| MARTIN | martin@mycompany.com |
+| BLAKE  | blake@mycompany.com  |
+| CLARK  | clark@mycompany.com  |
+| SCOTT  | scott@mycompany.com  |
+| KING   | king@mycompany.com   |
+| TURNER | turner@mycompany.com |
+| ADAMS  | adams@mycompany.com  |
+| JAMES  | james@mycompany.com  |
+| FORD   | ford@mycompany.com   |
+| MILLER | miller@mycompany.com |
++--------+----------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(ename,length(ename))
+    -> from emp;
++--------+-----------------------------+
+| ename  | concat(ename,length(ename)) |
++--------+-----------------------------+
+| SMITH  | SMITH5                      |
+| ALLEN  | ALLEN5                      |
+| WARD   | WARD4                       |
+| JONES  | JONES5                      |
+| MARTIN | MARTIN6                     |
+| BLAKE  | BLAKE5                      |
+| CLARK  | CLARK5                      |
+| SCOTT  | SCOTT5                      |
+| KING   | KING4                       |
+| TURNER | TURNER6                     |
+| ADAMS  | ADAMS5                      |
+| JAMES  | JAMES5                      |
+| FORD   | FORD4                       |
+| MILLER | MILLER6                     |
++--------+-----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(ename, " ",length(ename))
+    -> from emp;
++--------+----------------------------------+
+| ename  | concat(ename, " ",length(ename)) |
++--------+----------------------------------+
+| SMITH  | SMITH 5                          |
+| ALLEN  | ALLEN 5                          |
+| WARD   | WARD 4                           |
+| JONES  | JONES 5                          |
+| MARTIN | MARTIN 6                         |
+| BLAKE  | BLAKE 5                          |
+| CLARK  | CLARK 5                          |
+| SCOTT  | SCOTT 5                          |
+| KING   | KING 4                           |
+| TURNER | TURNER 6                         |
+| ADAMS  | ADAMS 5                          |
+| JAMES  | JAMES 5                          |
+| FORD   | FORD 4                           |
+| MILLER | MILLER 6                         |
++--------+----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(substring(ename,1,3), ".",substrin(job,2,2),"@MyCompany")
+    -> "email" from emp;
+ERROR 1305 (42000): FUNCTION batch2.substrin does not exist
+mysql> select ename ,concat(substring(ename,1,3), ".",substring(job,2,2),"@MyCompany")
+    -> "email" from emp;
++--------+------------------+
+| ename  | email            |
++--------+------------------+
+| SMITH  | SMI.LE@MyCompany |
+| ALLEN  | ALL.AL@MyCompany |
+| WARD   | WAR.AL@MyCompany |
+| JONES  | JON.AN@MyCompany |
+| MARTIN | MAR.AL@MyCompany |
+| BLAKE  | BLA.AN@MyCompany |
+| CLARK  | CLA.AN@MyCompany |
+| SCOTT  | SCO.NA@MyCompany |
+| KING   | KIN.RE@MyCompany |
+| TURNER | TUR.AL@MyCompany |
+| ADAMS  | ADA.LE@MyCompany |
+| JAMES  | JAM.LE@MyCompany |
+| FORD   | FOR.NA@MyCompany |
+| MILLER | MIL.LE@MyCompany |
++--------+------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename ,concat(substr(ename,1,1),lower(substr(ename,2,)," ",substr(job,1,1),lower(substr(2,))
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')," ",substr(job,1,1),lower(substr(2,))
+from emp' at line 1
+mysql> select ename ,concat(substr(ename,1,1),lower(substr(ename,2,)," ",substr(job,1,1),lower(substr(2,)))
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')," ",substr(job,1,1),lower(substr(2,)))
+from emp' at line 1
+mysql> select ename ,concat(substr(ename,1,1),lower(substr(ename,2,)," ",substr(job,1,1),lower(substr(2,)))
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')," ",substr(job,1,1),lower(substr(2,)))
+from emp' at line 1
+mysql> select ename, concat(substr(ename,1,1),lower(substr(ename,2))," ",substr(job,1,1), lower(substr(job,2,))  )
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))  )
+from emp' at line 1
+mysql> select ename, concat(substr(ename,1,1),lower(substr(ename,2))," ",substr(job,1,1), lower(substr(job,2))  )
+    -> from emp;
++--------+----------------------------------------------------------------------------------------------+
+| ename  | concat(substr(ename,1,1),lower(substr(ename,2))," ",substr(job,1,1), lower(substr(job,2))) |
++--------+----------------------------------------------------------------------------------------------+
+| SMITH  | Smith Clerk
+  |
+| ALLEN  | Allen Salesman
+  |
+| WARD   | Ward Salesman
+  |
+| JONES  | Jones Manager
+  |
+| MARTIN | Martin Salesman
+  |
+| BLAKE  | Blake Manager
+  |
+| CLARK  | Clark Manager
+  |
+| SCOTT  | Scott Analyst
+  |
+| KING   | King President
+  |
+| TURNER | Turner Salesman
+  |
+| ADAMS  | Adams Clerk
+  |
+| JAMES  | James Clerk
+  |
+| FORD   | Ford Analyst
+  |
+| MILLER | Miller Clerk
+  |
++--------+----------------------------------------------------------------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, concat(substr(ename,1,1),lower(substr(ename,2))," ",substr(job,1,1), lower(substr(job,2))  ) "Name Job"
+    -> from emp;
++--------+-----------------+
+| ename  | Name Job        |
++--------+-----------------+
+| SMITH  | Smith Clerk     |
+| ALLEN  | Allen Salesman  |
+| WARD   | Ward Salesman   |
+| JONES  | Jones Manager   |
+| MARTIN | Martin Salesman |
+| BLAKE  | Blake Manager   |
+| CLARK  | Clark Manager   |
+| SCOTT  | Scott Analyst   |
+| KING   | King President  |
+| TURNER | Turner Salesman |
+| ADAMS  | Adams Clerk     |
+| JAMES  | James Clerk     |
+| FORD   | Ford Analyst    |
+| MILLER | Miller Clerk    |
++--------+-----------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename , concat(substr(lower(ename),1,3), upper(ename,3))
+    -> from emp;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'upper'
+mysql> select ename , concat(lower(substr(ename),1,3), upper(substr(ename,3))) "newName"
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),1,3), upper(substr(ename,3))) "newName"
+from emp' at line 1
+mysql> select ename , concat(lower(substr(ename,1,3)), upper(substr(ename,3))) "newName"
+    -> from emp;
++--------+---------+
+| ename  | newName |
++--------+---------+
+| SMITH  | smiITH  |
+| ALLEN  | allLEN  |
+| WARD   | warRD   |
+| JONES  | jonNES  |
+| MARTIN | marRTIN |
+| BLAKE  | blaAKE  |
+| CLARK  | claARK  |
+| SCOTT  | scoOTT  |
+| KING   | kinNG   |
+| TURNER | turRNER |
+| ADAMS  | adaAMS  |
+| JAMES  | jamMES  |
+| FORD   | forRD   |
+| MILLER | milLLER |
++--------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename , concat(substring(ename,(length(ename)-3))) "newName"
+    -> from emp;
++--------+---------+
+| ename  | newName |
++--------+---------+
+| SMITH  | MITH    |
+| ALLEN  | LLEN    |
+| WARD   | WARD    |
+| JONES  | ONES    |
+| MARTIN | RTIN    |
+| BLAKE  | LAKE    |
+| CLARK  | LARK    |
+| SCOTT  | COTT    |
+| KING   | KING    |
+| TURNER | RNER    |
+| ADAMS  | DAMS    |
+| JAMES  | AMES    |
+| FORD   | FORD    |
+| MILLER | LLER    |
++--------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename , concat(substring(ename,(length(ename)-2))) "newName"
+    -> from emp;
++--------+---------+
+| ename  | newName |
++--------+---------+
+| SMITH  | ITH     |
+| ALLEN  | LEN     |
+| WARD   | ARD     |
+| JONES  | NES     |
+| MARTIN | TIN     |
+| BLAKE  | AKE     |
+| CLARK  | ARK     |
+| SCOTT  | OTT     |
+| KING   | ING     |
+| TURNER | NER     |
+| ADAMS  | AMS     |
+| JAMES  | MES     |
+| FORD   | ORD     |
+| MILLER | LER     |
++--------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select ename , concat(lower(substring(ename,1,3)),lower(substring(job,length(job)-1)) ,"@knowit
+.com") "email-id"
+    -> from emp;
++--------+------------------+
+| ename  | email-id         |
++--------+------------------+
+| SMITH  | smirk@knowit.com |
+| ALLEN  | allan@knowit.com |
+| WARD   | waran@knowit.com |
+| JONES  | joner@knowit.com |
+| MARTIN | maran@knowit.com |
+| BLAKE  | blaer@knowit.com |
+| CLARK  | claer@knowit.com |
+| SCOTT  | scost@knowit.com |
+| KING   | kinnt@knowit.com |
+| TURNER | turan@knowit.com |
+| ADAMS  | adark@knowit.com |
+| JAMES  | jamrk@knowit.com |
+| FORD   | forst@knowit.com |
+| MILLER | milrk@knowit.com |
++--------+------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where hiredate-date.now()=40
+    -> ;
+ERROR 1630 (42000): FUNCTION date.now does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(currdate(),hiredate)/365 )>40;
+ERROR 1305 (42000): FUNCTION batch2.currdate does not exist
+mysql> select currdate();
+ERROR 1305 (42000): FUNCTION batch2.currdate does not exist
+mysql> select currentdate();
+ERROR 1305 (42000): FUNCTION batch2.currentdate does not exist
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2024-11-08 17:50:49 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(date.now,hiredate)/365 )>40;
+ERROR 1054 (42S22): Unknown column 'date.now' in 'where clause'
+mysql> select * from emp
+    -> where floor(datediff(date.now(),hiredate)/365 )>40;
+ERROR 1630 (42000): FUNCTION date.now does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql>  select curdate();
++------------+
+| curdate()  |
++------------+
+| 2024-11-08 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(curdate(),hiredate)/365 )>40;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(curdate(),hiredate)/365 )>45;
+Empty set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(curdate(),hiredate)/365 )>43;
+Empty set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(curdate(),hiredate)/365 )>42;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where floor(datediff(curdate(),hiredate)/365 )>41;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1760.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1375.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> update emp
+    -> set sal=sal+sal*0.1
+    -> where floor(datediff(curdate(),hiredate)/365 )>40;
+Query OK, 14 rows affected (0.01 sec)
+Rows matched: 14  Changed: 14  Warnings: 0
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select *
+    -> case when comm < 500 then 'Ok'
+    -> when comm >= 500 and comm < 1000 then 'good'
+    -> when comm >= 1000 then 'Excellent'
+    -> when comm is null then 'need improvement'
+    -> else 'perform well'
+    -> end 'Remark'
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case when comm < 500 then 'Ok'
+when comm >= 500 and comm < 1000 then 'good'
+when' at line 2
+mysql> select ename, comm,
+    -> case when comm < 500 then 'Ok'
+    -> when comm >= 500 and comm < 1000 then 'good'
+    -> when comm >= 1000 then 'Excellent'
+    -> when comm is null then 'need improvement'
+    -> else 'perform well'
+    -> from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from emp' at line 7
+mysql> select ename, comm,
+    -> case when comm < 500 then 'Ok'
+    -> when comm >= 500 and comm < 1000 then 'good'
+    -> when comm >= 1000 then 'Excellent'
+    -> when comm is null then 'need improvement'
+    -> else 'perform well'
+    -> end 'Remark'
+    -> from emp;
++--------+---------+------------------+
+| ename  | comm    | Remark           |
++--------+---------+------------------+
+| SMITH  |    NULL | need improvement |
+| ALLEN  |  300.00 | Ok               |
+| WARD   |  500.00 | good             |
+| JONES  |    NULL | need improvement |
+| MARTIN | 1400.00 | Excellent        |
+| BLAKE  |    NULL | need improvement |
+| CLARK  |    NULL | need improvement |
+| SCOTT  |    NULL | need improvement |
+| KING   |    NULL | need improvement |
+| TURNER |    0.00 | Ok               |
+| ADAMS  |    NULL | need improvement |
+| JAMES  |    NULL | need improvement |
+| FORD   |    NULL | need improvement |
+| MILLER |    NULL | need improvement |
++--------+---------+------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where salary between 1000 and 3000;
+ERROR 1054 (42S22): Unknown column 'salary' in 'where clause'
+mysql> select * from emp
+    -> where sal between 1000 and 3000;
++-------+--------+----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+----------+------+------------+---------+---------+--------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7782 | CLARK  | MANAGER  | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK    | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK    | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7934 | MILLER | CLERK    | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+----------+------+------------+---------+---------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select ename,lpad(ename,10," "),job,rpad(job,9," ") from emp;
++--------+--------------------+-----------+-----------------+
+| ename  | lpad(ename,10," ") | job       | rpad(job,9," ") |
++--------+--------------------+-----------+-----------------+
+| SMITH  |      SMITH         | CLERK     | CLERK           |
+| ALLEN  |      ALLEN         | SALESMAN  | SALESMAN        |
+| WARD   |       WARD         | SALESMAN  | SALESMAN        |
+| JONES  |      JONES         | MANAGER   | MANAGER         |
+| MARTIN |     MARTIN         | SALESMAN  | SALESMAN        |
+| BLAKE  |      BLAKE         | MANAGER   | MANAGER         |
+| CLARK  |      CLARK         | MANAGER   | MANAGER         |
+| SCOTT  |      SCOTT         | ANALYST   | ANALYST         |
+| KING   |       KING         | PRESIDENT | PRESIDENT       |
+| TURNER |     TURNER         | SALESMAN  | SALESMAN        |
+| ADAMS  |      ADAMS         | CLERK     | CLERK           |
+| JAMES  |      JAMES         | CLERK     | CLERK           |
+| FORD   |       FORD         | ANALYST   | ANALYST         |
+| MILLER |     MILLER         | CLERK     | CLERK           |
++--------+--------------------+-----------+-----------------+
+14 rows in set (0.00 sec)
+
+mysql> select *,concat("Hello ",upper(substr(ename,1,1)), lower(substr(ename,2)), " !" )'greeting'
+    -> from emp
+    -> where comm is not null;
++-------+--------+----------+------+------------+---------+---------+--------+----------------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO | greeting       |
++-------+--------+----------+------+------------+---------+---------+--------+----------------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 | Hello Allen !  |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 | Hello Ward !   |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 | Hello Martin ! |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 | Hello Turner ! |
++-------+--------+----------+------+------------+---------+---------+--------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,concat("Hello ",upper(substr(ename,1,1)), lower(substr(ename,2))," ." ) "Greeting"
+
+    -> from emp;
++--------+----------------+
+| ename  | Greeting       |
++--------+----------------+
+| SMITH  | Hello Smith .  |
+| ALLEN  | Hello Allen .  |
+| WARD   | Hello Ward .   |
+| JONES  | Hello Jones .  |
+| MARTIN | Hello Martin . |
+| BLAKE  | Hello Blake .  |
+| CLARK  | Hello Clark .  |
+| SCOTT  | Hello Scott .  |
+| KING   | Hello King .   |
+| TURNER | Hello Turner . |
+| ADAMS  | Hello Adams .  |
+| JAMES  | Hello James .  |
+| FORD   | Hello Ford .   |
+| MILLER | Hello Miller . |
++--------+----------------+
+14 rows in set (0.00 sec)
+
+mysql> select concat(ename, " is a ",lower(job)) from emp;
++------------------------------------+
+| concat(ename, " is a ",lower(job)) |
++------------------------------------+
+| SMITH is a clerk                   |
+| ALLEN is a salesman                |
+| WARD is a salesman                 |
+| JONES is a manager                 |
+| MARTIN is a salesman               |
+| BLAKE is a manager                 |
+| CLARK is a manager                 |
+| SCOTT is a analyst                 |
+| KING is a president                |
+| TURNER is a salesman               |
+| ADAMS is a clerk                   |
+| JAMES is a clerk                   |
+| FORD is a analyst                  |
+| MILLER is a clerk                  |
++------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> describe emp;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   |     | NULL    |       |
+| ENAME    | varchar(12)  | YES  |     | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  |     | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) from emp;
++-------------------------------------------------------------------------------------------------------+
+| concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) |
++-------------------------------------------------------------------------------------------------------+
+| NULL
+  |
+| 7499, ALLEN, SALESMAN, 7698, 1981-02-20, 1936.00, 300.00,30
+  |
+| 7521, WARD, SALESMAN, 7698, 1981-02-22, 1375.00, 500.00,30
+  |
+| NULL
+  |
+| 7654, MARTIN, SALESMAN, 7698, 1981-09-28, 1512.50, 1400.00,30
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |    select concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) from emp;
+| 7844, TURNER, SALESMAN, 7698, 1981-09-08, 1650.00, 0.00,30
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
++-------------------------------------------------------------------------------------------------------+
+14 rows in set (0.00 sec)
+                                                                                                        |  > select concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) from
+ emp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++-------------------------------------------------------------------------------------------------------+
+| concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) |
++-------------------------------------------------------------------------------------------------------+
+| NULL
+  |
+| 7499, ALLEN, SALESMAN, 7698, 1981-02-20, 1936.00, 300.00,30
+  |
+| 7521, WARD, SALESMAN, 7698, 1981-02-22, 1375.00, 500.00,30
+  |
+| NULL
+  |
+| 7654, MARTIN, SALESMAN, 7698, 1981-09-28, 1512.50, 1400.00,30
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
+| 7844, TURNER, SALESMAN, 7698, 1981-09-08, 1650.00, 0.00,30
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
+| NULL
+  |
++-------------------------------------------------------------------------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  )
+    -> from emp
+    -> where comm is not null;
++-------------------------------------------------------------------------------------------------------+
+| concat(empno, ", ", ename, ", ", job, ", ",mgr, ", ", hiredate, ", ", sal, ", ", comm, ",", deptno  ) |
++-------------------------------------------------------------------------------------------------------+
+| 7499, ALLEN, SALESMAN, 7698, 1981-02-20, 1936.00, 300.00,30
+  |
+| 7521, WARD, SALESMAN, 7698, 1981-02-22, 1375.00, 500.00,30
+  |
+| 7654, MARTIN, SALESMAN, 7698, 1981-09-28, 1512.50, 1400.00,30
+  |
+| 7844, TURNER, SALESMAN, 7698, 1981-09-08, 1650.00, 0.00,30
+  |
++-------------------------------------------------------------------------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select count(job)
+    -> from emp
+    -> where job = 'analysts';
++------------+
+| count(job) |
++------------+
+|          0 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select count(job)
+    -> from emp
+    -> where job = 'analyst';
++------------+
+| count(job) |
++------------+
+|          2 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select emp,sal,min(sal),max(sal),sum(sal)
+    -> from emp;
+ERROR 1054 (42S22): Unknown column 'emp' in 'field list'
+mysql> select ename,sal,min(sal),max(sal),sum(sal)
+    -> from emp
+    -> where sal>1500 and sal<3000;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'batch2.emp.ENAME'; this is incompatible with sql_mode=only_full_group_by
+mysql> select ename,sal,min(sal),max(sal),sum(sal)
+    -> from emp
+    -> where sal>1500 and sal<3000
+    -> group by empno;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'batch2.emp.ENAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql> select min(sal),max(sal),sum(sal)
+    -> from emp
+    -> where sal>1500 and sal<3000;
++----------+----------+----------+
+| min(sal) | max(sal) | sum(sal) |
++----------+----------+----------+
+|  1512.50 |  2695.00 |  9366.50 |
++----------+----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select ename,sal
+    -> from emp
+    -> where deptno=10
+    -> order by sal desc;
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| KING   | 5500.00 |
+| CLARK  | 2695.00 |
+| MILLER | 1573.00 |
++--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select ename, deptno, hiredate
+    -> from emp
+    -> where hiredate between '1981-01-01' and '1983-03-31'
+    -> group by hiredate;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'batch2.emp.ENAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select ename, deptno, hiredate
+    -> from emp
+    -> where hiredate between '1981-01-01' and '1983-03-31'
+    -> order by hiredate;
++--------+--------+------------+
+| ename  | deptno | hiredate   |
++--------+--------+------------+
+| ALLEN  |     30 | 1981-02-20 |
+| WARD   |     30 | 1981-02-22 |
+| JONES  |     20 | 1981-04-02 |
+| BLAKE  |     30 | 1981-05-01 |
+| CLARK  |     10 | 1981-06-09 |
+| TURNER |     30 | 1981-09-08 |
+| MARTIN |     30 | 1981-09-28 |
+| KING   |     10 | 1981-11-17 |
+| JAMES  |     30 | 1981-12-03 |
+| FORD   |     20 | 1981-12-03 |
+| MILLER |     10 | 1982-01-23 |
+| SCOTT  |     20 | 1982-12-09 |
+| ADAMS  |     20 | 1983-01-12 |
++--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select count(comm)
+    -> from emp
+    -> where comm is not null;
++-------------+
+| count(comm) |
++-------------+
+|           4 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal) "total sal"
+    -> from emp;
++-----------+
+| total sal |
++-----------+
+|  32923.00 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal) "total sal"
+    -> from emp
+    -> group by deptno;
++-----------+
+| total sal |
++-----------+
+|  12501.50 |
+|  10653.50 |
+|   9768.00 |
++-----------+
+3 rows in set (0.00 sec)
+
+mysql> select deptno,sum(sal) as "total sal"
+    -> from emp
+    -> group by deptno;
++--------+-----------+
+| deptno | total sal |
++--------+-----------+
+|     20 |  12501.50 |
+|     30 |  10653.50 |
+|     10 |   9768.00 |
++--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select job,sum(sal) as "total sal"
+    -> from emp
+    -> group by job;
++-----------+-----------+
+| job       | total sal |
++-----------+-----------+
+| CLERK     |   4917.00 |
+| SALESMAN  |   6473.50 |
+| MANAGER   |   9102.50 |
+| ANALYST   |   6930.00 |
+| PRESIDENT |   5500.00 |
++-----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select job, sum(sal) as "total sal"
+    -> from emp
+    -> where sum(sal) > 8000;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select job, sum(sal) as "total sal"
+    -> from emp
+    -> where sum(sal) > 8000
+    -> group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql>
+mysql> select job, sum(sal) as "total sal"
+    -> from emp
+    -> group by job
+    -> having sum(sal) >8000;
++---------+-----------+
+| job     | total sal |
++---------+-----------+
+| MANAGER |   9102.50 |
++---------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select count(job)
+    -> ;
+ERROR 1054 (42S22): Unknown column 'job' in 'field list'
+mysql>
+mysql> select job,deptno,count(job)
+    -> from emp
+    -> where deptno in (10,20);
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'batch2.emp.JOB'; this is incompatible with sql_mode=only_full_group_by
+mysql> select count(job) as "Clecrk count from 10 & 20 department"
+    -> from emp
+    -> where deptno in (10,20);
++--------------------------------------+
+| Clecrk count from 10 & 20 department |
++--------------------------------------+
+|                                    8 |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * emp from emp
+    -> where sal%3=0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp from emp
+where sal%3=0' at line 1
+mysql> select * from emp
+    -> where sal%3=0;
++-------+--------+----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+----------+------+------------+---------+------+--------+
+|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 3135.00 | NULL |     30 |
+|  7788 | SCOTT  | ANALYST  | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1650.00 | 0.00 |     30 |
+|  7902 | FORD   | ANALYST  | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+--------+----------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where job in ('clerk','analyst') and sal>=1000 and deptno in (20,30);
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1331.00 | NULL |     20 |
+|  7900 | JAMES | CLERK   | 7698 | 1981-12-03 | 1045.00 | NULL |     30 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where deptno in (10,30) and date_format(hiredata,'Y') = '1982';
+ERROR 1054 (42S22): Unknown column 'hiredata' in 'where clause'
+mysql> where deptno in (10,30) and date_format(hiredate,'Y') = '1982';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno in (10,30) and date_format(hiredate,'Y') = '1982'' at line 1
+mysql> select * from emp
+    -> where deptno in (10,30) and regexp_like(hiredate,'^1982-');
++-------+--------+-------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB   | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+-------+------+------------+---------+------+--------+
+|  7934 | MILLER | CLERK | 7782 | 1982-01-23 | 1573.00 | NULL |     10 |
++-------+--------+-------+------+------------+---------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> select ename, deptno, hiredate
+    -> ;
+ERROR 1054 (42S22): Unknown column 'ename' in 'field list'
+mysql>
+mysql> select ename, deptno, hiredate
+    -> from emp
+    -> where hiredate between '1981-01-01' and '1983-03-31'
+    -> order by hiredate;
++--------+--------+------------+
+| ename  | deptno | hiredate   |
++--------+--------+------------+
+| ALLEN  |     30 | 1981-02-20 |
+| WARD   |     30 | 1981-02-22 |
+| JONES  |     20 | 1981-04-02 |
+| BLAKE  |     30 | 1981-05-01 |
+| CLARK  |     10 | 1981-06-09 |
+| TURNER |     30 | 1981-09-08 |
+| MARTIN |     30 | 1981-09-28 |
+| KING   |     10 | 1981-11-17 |
+| JAMES  |     30 | 1981-12-03 |
+| FORD   |     20 | 1981-12-03 |
+| MILLER |     10 | 1982-01-23 |
+| SCOTT  |     20 | 1982-12-09 |
+| ADAMS  |     20 | 1983-01-12 |
++--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where deptno in (20,30) and comm is not null;
++-------+--------+----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+----------+------+------------+---------+---------+--------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
++-------+--------+----------+------+------------+---------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select job, max(sal) from emp
+    -> where job in ('manager','clerk','salesman') and deptno in (10,20)
+    -> order by max(sal);
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'batch2.emp.JOB'; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql> select job, max(sal) as "max_salary" from emp
+    -> where job in ('manager','clerk','salesman') and deptno in (10,20)
+    -> group by job
+    -> order by max_salary desc;
++---------+------------+
+| job     | max_salary |
++---------+------------+
+| MANAGER |    3272.50 |
+| CLERK   |    1573.00 |
++---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select ename, deptno, hiredate
+    -> from emp
+    -> where hiredate between '1981-01-01' and '1983-03-31'
+    -> order by hiredate;
++--------+--------+------------+
+| ename  | deptno | hiredate   |
++--------+--------+------------+
+| ALLEN  |     30 | 1981-02-20 |
+| WARD   |     30 | 1981-02-22 |
+| JONES  |     20 | 1981-04-02 |
+| BLAKE  |     30 | 1981-05-01 |
+| CLARK  |     10 | 1981-06-09 |
+| TURNER |     30 | 1981-09-08 |
+| MARTIN |     30 | 1981-09-28 |
+| KING   |     10 | 1981-11-17 |
+| JAMES  |     30 | 1981-12-03 |
+| FORD   |     20 | 1981-12-03 |
+| MILLER |     10 | 1982-01-23 |
+| SCOTT  |     20 | 1982-12-09 |
+| ADAMS  |     20 | 1983-01-12 |
++--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select ename,hiredate, date_format(hiredate,'%y'),date_format(hiredate,'%Y')
+    -> from emp;
++--------+------------+----------------------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%y') | date_format(hiredate,'%Y') |
++--------+------------+----------------------------+----------------------------+
+| SMITH  | 1980-12-17 | 80                         | 1980                       |
+| ALLEN  | 1981-02-20 | 81                         | 1981                       |
+| WARD   | 1981-02-22 | 81                         | 1981                       |
+| JONES  | 1981-04-02 | 81                         | 1981                       |
+| MARTIN | 1981-09-28 | 81                         | 1981                       |
+| BLAKE  | 1981-05-01 | 81                         | 1981                       |
+| CLARK  | 1981-06-09 | 81                         | 1981                       |
+| SCOTT  | 1982-12-09 | 82                         | 1982                       |
+| KING   | 1981-11-17 | 81                         | 1981                       |
+| TURNER | 1981-09-08 | 81                         | 1981                       |
+| ADAMS  | 1983-01-12 | 83                         | 1983                       |
+| JAMES  | 1981-12-03 | 81                         | 1981                       |
+| FORD   | 1981-12-03 | 81                         | 1981                       |
+| MILLER | 1982-01-23 | 82                         | 1982                       |
++--------+------------+----------------------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename,hiredate, date_format(hiredate,'%m'),date_format(hiredate,'%M')
+    -> from emp;
++--------+------------+----------------------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%m') | date_format(hiredate,'%M') |
++--------+------------+----------------------------+----------------------------+
+| SMITH  | 1980-12-17 | 12                         | December                   |
+| ALLEN  | 1981-02-20 | 02                         | February                   |
+| WARD   | 1981-02-22 | 02                         | February                   |
+| JONES  | 1981-04-02 | 04                         | April                      |
+| MARTIN | 1981-09-28 | 09                         | September                  |
+| BLAKE  | 1981-05-01 | 05                         | May                        |
+| CLARK  | 1981-06-09 | 06                         | June                       |
+| SCOTT  | 1982-12-09 | 12                         | December                   |
+| KING   | 1981-11-17 | 11                         | November                   |
+| TURNER | 1981-09-08 | 09                         | September                  |
+| ADAMS  | 1983-01-12 | 01                         | January                    |
+| JAMES  | 1981-12-03 | 12                         | December                   |
+| FORD   | 1981-12-03 | 12                         | December                   |
+| MILLER | 1982-01-23 | 01                         | January                    |
++--------+------------+----------------------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename,hiredate, date_format(hiredate,'%d'),date_format(hiredate,'%D')
+    -> from emp;
++--------+------------+----------------------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%d') | date_format(hiredate,'%D') |
++--------+------------+----------------------------+----------------------------+
+| SMITH  | 1980-12-17 | 17                         | 17th                       |
+| ALLEN  | 1981-02-20 | 20                         | 20th                       |
+| WARD   | 1981-02-22 | 22                         | 22nd                       |
+| JONES  | 1981-04-02 | 02                         | 2nd                        |
+| MARTIN | 1981-09-28 | 28                         | 28th                       |
+| BLAKE  | 1981-05-01 | 01                         | 1st                        |
+| CLARK  | 1981-06-09 | 09                         | 9th                        |
+| SCOTT  | 1982-12-09 | 09                         | 9th                        |
+| KING   | 1981-11-17 | 17                         | 17th                       |
+| TURNER | 1981-09-08 | 08                         | 8th                        |
+| ADAMS  | 1983-01-12 | 12                         | 12th                       |
+| JAMES  | 1981-12-03 | 03                         | 3rd                        |
+| FORD   | 1981-12-03 | 03                         | 3rd                        |
+| MILLER | 1982-01-23 | 23                         | 23rd                       |
++--------+------------+----------------------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename,hiredate, date_format(hiredate,'%b')
+    -> from emp;
++--------+------------+----------------------------+
+| ename  | hiredate   | date_format(hiredate,'%b') |
++--------+------------+----------------------------+
+| SMITH  | 1980-12-17 | Dec                        |
+| ALLEN  | 1981-02-20 | Feb                        |
+| WARD   | 1981-02-22 | Feb                        |
+| JONES  | 1981-04-02 | Apr                        |
+| MARTIN | 1981-09-28 | Sep                        |
+| BLAKE  | 1981-05-01 | May                        |
+| CLARK  | 1981-06-09 | Jun                        |
+| SCOTT  | 1982-12-09 | Dec                        |
+| KING   | 1981-11-17 | Nov                        |
+| TURNER | 1981-09-08 | Sep                        |
+| ADAMS  | 1983-01-12 | Jan                        |
+| JAMES  | 1981-12-03 | Dec                        |
+| FORD   | 1981-12-03 | Dec                        |
+| MILLER | 1982-01-23 | Jan                        |
++--------+------------+----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename,hiredate, concat(date_format(hiredate,'%D')," ",date_format(hiredate,'%b')," ",date_format(hiredate,'%Y') )
+    -> ;
+ERROR 1054 (42S22): Unknown column 'ename' in 'field list'
+mysql>
+mysql> select ename,hiredate, concat(date_format(hiredate,'%D')," ",date_format(hiredate,'%b')," ",date_format(hiredate,'%Y') ) as "newFormat"
+    -> from emp;
++--------+------------+---------------+
+| ename  | hiredate   | newFormat     |
++--------+------------+---------------+
+| SMITH  | 1980-12-17 | 17th Dec 1980 |
+| ALLEN  | 1981-02-20 | 20th Feb 1981 |
+| WARD   | 1981-02-22 | 22nd Feb 1981 |
+| JONES  | 1981-04-02 | 2nd Apr 1981  |
+| MARTIN | 1981-09-28 | 28th Sep 1981 |
+| BLAKE  | 1981-05-01 | 1st May 1981  |
+| CLARK  | 1981-06-09 | 9th Jun 1981  |
+| SCOTT  | 1982-12-09 | 9th Dec 1982  |
+| KING   | 1981-11-17 | 17th Nov 1981 |
+| TURNER | 1981-09-08 | 8th Sep 1981  |
+| ADAMS  | 1983-01-12 | 12th Jan 1983 |
+| JAMES  | 1981-12-03 | 3rd Dec 1981  |
+| FORD   | 1981-12-03 | 3rd Dec 1981  |
+| MILLER | 1982-01-23 | 23rd Jan 1982 |
++--------+------------+---------------+
+14 rows in set (0.00 sec)
+

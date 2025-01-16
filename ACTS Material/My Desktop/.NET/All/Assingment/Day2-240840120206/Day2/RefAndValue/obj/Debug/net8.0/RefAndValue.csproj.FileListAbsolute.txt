@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day2\RefAndValue\bin\Debug\net8.0\RefAndValue.exe
+E:\MS.Net\MyCode\Day2\RefAndValue\bin\Debug\net8.0\RefAndValue.deps.json
+E:\MS.Net\MyCode\Day2\RefAndValue\bin\Debug\net8.0\RefAndValue.runtimeconfig.json
+E:\MS.Net\MyCode\Day2\RefAndValue\bin\Debug\net8.0\RefAndValue.dll
+E:\MS.Net\MyCode\Day2\RefAndValue\bin\Debug\net8.0\RefAndValue.pdb
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.dll
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\refint\RefAndValue.dll
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.pdb
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\RefAndValue.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day2\RefAndValue\obj\Debug\net8.0\ref\RefAndValue.dll

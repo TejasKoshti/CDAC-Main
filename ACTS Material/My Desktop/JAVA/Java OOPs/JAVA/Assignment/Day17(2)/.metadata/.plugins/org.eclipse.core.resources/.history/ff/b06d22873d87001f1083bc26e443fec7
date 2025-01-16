@@ -1,0 +1,20 @@
+package com.cdac.acts.book.tester;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.cdac.acts.book.Book;
+import com.cdac.acts.book.enums.BookType;
+import com.cdac.acts.book.io.FileInputOutput;
+
+public class BookTester {
+	public static void main(String[] args) {
+		Book b =new Book("978-100", "Java 8 IN ACTION", "Raoul-Gabriel", BookType.valueOf("TECH"),
+				LocalDate.parse("2010-04-24"), 800.00);
+		System.out.println(b);
+		FileInputOutput.writeToFile(b);
+		
+		List<Book> bookList = FileInputOutput.readFromFile();
+		System.out.println(bookList);
+	}
+}

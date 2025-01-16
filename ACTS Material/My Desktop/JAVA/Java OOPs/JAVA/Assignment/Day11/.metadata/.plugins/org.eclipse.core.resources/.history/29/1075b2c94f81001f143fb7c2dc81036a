@@ -1,0 +1,12 @@
+package com.cdac.acts.account;
+
+import java.time.LocalDate;
+
+public class Account {
+
+	private Integer accNo;
+	private String name;
+	private LocalDate doj;
+	private Double accBalance;
+	private AccountType accType;
+}

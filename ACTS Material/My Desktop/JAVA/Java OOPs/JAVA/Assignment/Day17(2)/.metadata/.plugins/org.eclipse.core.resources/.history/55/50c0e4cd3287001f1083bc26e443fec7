@@ -1,0 +1,10 @@
+package com.cdac.acts.book;
+
+public class Book {
+	private String isbn;
+	private String title;
+	private String author;
+	private BookType bookType;
+	private LocalDate publishDate;
+	private transient Double price;
+}

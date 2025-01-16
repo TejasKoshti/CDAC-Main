@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\bin\Debug\net8.0\IndicesAndRanges.exe
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\bin\Debug\net8.0\IndicesAndRanges.deps.json
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\bin\Debug\net8.0\IndicesAndRanges.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\bin\Debug\net8.0\IndicesAndRanges.dll
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\bin\Debug\net8.0\IndicesAndRanges.pdb
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.dll
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\refint\IndicesAndRanges.dll
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.pdb
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\IndicesAndRanges.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\IndicesAndRanges\obj\Debug\net8.0\ref\IndicesAndRanges.dll

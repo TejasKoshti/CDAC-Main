@@ -1,0 +1,18 @@
+package com.cdac.acts.account.validation;
+
+import com.cdac.acts.account.enums.AccountType;
+
+public class Validation {
+	private Validation() {}
+	
+	public static void getValidAccountType(String acc) {
+	
+		AccountType a = null;
+		try {
+			a = AccountType.valueOf(acc) 
+		}
+		
+	}
+	
+	
+}

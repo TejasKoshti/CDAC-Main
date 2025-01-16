@@ -1,0 +1,5 @@
+package fi.MicroUsersService.entity;
+
+public class Users {
+
+}

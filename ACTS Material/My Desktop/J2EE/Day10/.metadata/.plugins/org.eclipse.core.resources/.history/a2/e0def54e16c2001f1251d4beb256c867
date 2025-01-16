@@ -1,0 +1,5 @@
+package fi.fristBootmvc.controllers;
+
+public class UsersController {
+
+}

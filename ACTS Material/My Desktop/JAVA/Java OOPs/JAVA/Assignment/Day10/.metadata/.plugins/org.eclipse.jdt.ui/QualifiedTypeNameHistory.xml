@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.minimum_balance_Exception.MinimumBalanceException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.fixed_deposite.FixedDeposite"/>
+    <fullyQualifiedTypeName name="ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Spliterator"/>
+    <fullyQualifiedTypeName name="java.awt.Checkbox"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.address.Address"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.date_utils.MyDate"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="MyUnCheckedException"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,49 @@
+package com.cdac.acts.operations;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.cdac.acts.printer.Printer;
+
+public class Operation {
+	private Operation() {
+	}
+
+	public static void addToFile(Printer p, FileOutputStream fos) {
+		try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+//			System.out.println(id);
+//			oos.writeInt(id);
+			oos.writeObject(p);
+		} catch (EOFException eof) {
+			System.out.println("Writern Succesfully");
+		} catch (IOException ioe) {
+			System.err.println(ioe.getMessage());
+		}
+	}
+
+	public static Map<Integer, Printer> getFromFile(Map<Integer, Printer> newMap) {
+
+		try (FileInputStream fis = new FileInputStream("printer.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);) {
+
+			while (true) {
+//				int id = ois.readInt();
+//				System.out.println(id);
+				Printer p = (Printer) ois.readObject();
+				System.out.println(p.getSerialNo());
+				newMap.put(p.getSerialNo(), p);	
+			}
+		}  catch (EOFException e) {
+            // End of file reached, normal exit
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Read Failed: " + e.getMessage());
+        }
+		return newMap;
+	}
+}

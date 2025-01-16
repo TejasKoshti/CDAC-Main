@@ -1,0 +1,294 @@
+mysql> show tables;
++-----------------+
+| Tables_in_tejas |
++-----------------+
+| customer        |
+| salesman        |
+| vehicle         |
++-----------------+
+-------------------------------------------------------------------------------------------------------------------
+
+1. Display names of salesmen who work in Pune.   
+->
+mysql> select sname from salesman
+    -> where city = 'pune';
++-------+
+| sname |
++-------+
+| Seema |
+| Rakhi |
++-------+
+
+-------------------------------------------------------------------------------------------------------------------
+ 
+2. Delete customer from Pimpri area.mn m 
+
+mysql> delete from customer
+    -> where location = 'Pimpri';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from customer;
++--------+--------+----------+
+| custid | cname  | location |
++--------+--------+----------+
+|      2 | Ganesh | Pune     |
+|      3 | Kishor | Kothrud  |
+|      4 | Priya  | Aundh    |
++--------+--------+----------+
+
+-------------------------------------------------------------------------------------------------------------------
+3. Add some new customers 
+ 'Geeta' with custid 5 and area as 'Pimpri'. 
+ 'Raj'   with custid 6 and area as 'Aundh'  
+ 'Yash'  with custid 7 and area as 'Aundh'
+
+mysql> insert into customer
+    -> values
+    -> (5, 'Geeta', 'Pimpri'),
+    -> (6, 'Raj', 'Aundh'),
+    -> (7, 'Yash', 'Aundh');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from customer;
++--------+--------+----------+
+| custid | cname  | location |
++--------+--------+----------+
+|      2 | Ganesh | Pune     |
+|      3 | Kishor | Kothrud  |
+|      4 | Priya  | Aundh    |
+|      5 | Geeta  | Pimpri   |
+|      6 | Raj    | Aundh    |
+|      7 | Yash   | Aundh    |
++--------+--------+----------+
+-------------------------------------------------------------------------------------------------------------------
+
+4. Delete customer from area Aundh whose name is Priya. 
+
+mysql> delete from customer
+    -> where cname = 'Priya' AND location = 'Aundh' ;
+Query OK, 1 row affected (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------
+5. Display information of vehicle , Royal Enfild.
+
+mysql> select *
+    -> from vehicle
+    -> where vname = 'Royal Enfield';
++------+---------------+--------+----------+--------+--------------+
+| vid  | vname         | price  | discount | milage | details      |
++------+---------------+--------+----------+--------+--------------+
+|    7 | Royal Enfield | 190000 |        5 |     40 | A royal bike |
++------+---------------+--------+----------+--------+--------------+
+
+
+-------------------------------------------------------------------------------------------------------------------
+6. Display information of all Bikes.
+
+mysql> select * from vehicle;
++------+---------------+--------+----------+--------+-----------------------------------+
+| vid  | vname         | price  | discount | milage | details                           |
++------+---------------+--------+----------+--------+-----------------------------------+
+|    1 | Activa        |  80000 |       10 |     35 | Two wheeler. Sturdy. Milage 30 km |
+|    2 | Santro        |  95000 |       20 |     20 | Product of Hyundai.               |
+|    3 | Yamaha        | 160000 |        5 |     70 | Sturdy and good milage            |
+|    4 | i-10          | 300000 |        8 |     18 | Good small car                    |
+|    5 | WaganR        | 250000 |       10 |     25 | Good milage car                   |
+|    6 | Hero Splendor |  75000 |        9 |     65 | Best bike                         |
+|    7 | Royal Enfield | 190000 |        5 |     40 | A royal bike                      |
++------+---------------+--------+----------+--------+-----------------------------------+
+
+-------------------------------------------------------------------------------------------------------------------
+7. If buying price of the vehicle is 75000 then change it to 80000.
+mysql> update vehicle
+    -> set price = 75000
+    -> where price  = 80000;
+
+mysql> select * from vehicle;
++------+---------------+--------+----------+--------+-----------------------------------+
+| vid  | vname         | price  | discount | milage | details                           |
++------+---------------+--------+----------+--------+-----------------------------------+
+|    1 | Activa        |  75000 |       10 |     35 | Two wheeler. Sturdy. Milage 30 km |
+|    2 | Santro        |  95000 |       20 |     20 | Product of Hyundai.               |
+|    3 | Yamaha        | 160000 |        5 |     70 | Sturdy and good milage            |
+|    4 | i-10          | 300000 |        8 |     18 | Good small car                    |
+|    5 | WaganR        | 250000 |       10 |     25 | Good milage car                   |
+|    6 | Hero Splendor |  75000 |        9 |     65 | Best bike                         |
+|    7 | Royal Enfield | 190000 |        5 |     40 | A royal bike                      |
++------+---------------+--------+----------+--------+-----------------------------------+
+
+-------------------------------------------------------------------------------------------------------------------
+8. Display information of vehicle i-10.
+
+mysql> select * from vehicle
+    -> where vname = 'i-10';
++------+-------+--------+----------+--------+----------------+
+| vid  | vname | price  | discount | milage | details        |
++------+-------+--------+----------+--------+----------------+
+|    4 | i-10  | 300000 |        8 |     18 | Good small car |
++------+-------+--------+----------+--------+----------------+
+
+-------------------------------------------------------------------------------------------------------------------
+9. Display vid, vname, price, details and total price for each vehicle. total price = price - discount
+ 
+mysql> select vid, vname, price , details, (price - (price * discount / 100)) as total_sal
+    -> from vehicle;
++------+---------------+--------+-----------------------------------+-------------+
+| vid  | vname         | price  | details                           | total_sal   |
++------+---------------+--------+-----------------------------------+-------------+
+|    1 | Activa        |  75000 | Two wheeler. Sturdy. Milage 30 km |  67500.0000 |
+|    2 | Santro        |  95000 | Product of Hyundai.               |  76000.0000 |
+|    3 | Yamaha        | 160000 | Sturdy and good milage            | 152000.0000 |
+|    4 | i-10          | 300000 | Good small car                    | 276000.0000 |
+|    5 | WaganR        | 250000 | Good milage car                   | 225000.0000 |
+|    6 | Hero Splendor |  75000 | Best bike                         |  68250.0000 |
+|    7 | Royal Enfield | 190000 | A royal bike                      | 180500.0000 |
++------+---------------+--------+-----------------------------------+-------------+
+-------------------------------------------------------------------------------------------------------------------
+10. Display all vehicles whose price is less than 100000.
+
+mysql> select * from vehicle
+    -> where price < 100000;
++------+---------------+-------+----------+--------+-----------------------------------+
+| vid  | vname         | price | discount | milage | details                           |
++------+---------------+-------+----------+--------+-----------------------------------+
+|    1 | Activa        | 75000 |       10 |     35 | Two wheeler. Sturdy. Milage 30 km |
+|    2 | Santro        | 95000 |       20 |     20 | Product of Hyundai.               |
+|    6 | Hero Splendor | 75000 |        9 |     65 | Best bike                         |
++------+---------------+-------+----------+--------+-----------------------------------+
+-------------------------------------------------------------------------------------------------------------------
+
+11. Display all the information of salesmen having experience more than 5 years.
+
+mysql> select * from salesman
+    -> where experience > 5;
++------+----------+--------+------------+
+| sid  | sname    | city   | experience |
++------+----------+--------+------------+
+|   11 | Seema    | Pune   |          8 |
+|   12 | Shailesh | Nagpur |          7 |
++------+----------+--------+------------+
+
+-------------------------------------------------------------------------------------------------------------------
+12. Create a copy of table salesman as salesman1.
+
+mysql> create table salesman1
+    -> as
+    -> select * from salesman;
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+========================================================================================================================================================================
+13. For the given schema, create the table and solve following queries
+
+employee(eno, ename, basic, incentives)  
+
+eno    ename      basic        incentives
+------------------------------------------
+1      Rajesh     20000         1500
+2      Sarita     25000         1000
+3      Meera      15000         3000
+4      Jitesh     30000         500
+5      Ramesh     12000         3000
+
+
+-------------------------------------------------------------------------------------------------------------------
+ 1. List all employees having basic>15000
+ 
+mysql> select * from Employee
+    -> where basicSal > 10000;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    3 | Meera  |    15000 |       3000 |
+|    4 | Jitesh |    30000 |        500 |
+|    5 | Ramesh |    12000 |       3000 |
++------+--------+----------+------------+
+
+-------------------------------------------------------------------------------------------------------------------
+ 2. Change incentive of Jitesh to 1000.
+
+mysql> update Employee
+    -> set incentives = 1000
+    -> where ename = 'Jitesh';
+
+mysql> select * from Employee;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    3 | Meera  |    15000 |       3000 |
+|    4 | Jitesh |    30000 |       1000 |
+|    5 | Ramesh |    12000 |       3000 |
++------+--------+----------+------------+
+ 
+-------------------------------------------------------------------------------------------------------------------
+ 3. Increase the salary of all employees by 5% who are earning less than 20000 as a basic pay. Update in the table.
+ 
+mysql> UPDATE Employee
+    -> SET basicSal = basicSal * 1.05
+    -> WHERE basicSal < 20000;
+
+mysql> select * from Employee;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    3 | Meera  |    15750 |       3000 |
+|    4 | Jitesh |    30000 |       1000 |
+|    5 | Ramesh |    12600 |       3000 |
++------+--------+----------+------------+
+-------------------------------------------------------------------------------------------------------------------
+ 4. New employee Ajay joins the firm. His eno is 20, basic is 16000 and he is not eligible for incentives. Store this information in table.
+ 
+mysql> insert into Employee (eno, ename, basicSal, incentives)
+    -> values (20, 'Ajay', 16000, 0);
+
+mysql> select * from Employee;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    3 | Meera  |    15750 |       3000 |
+|    4 | Jitesh |    30000 |       1000 |
+|    5 | Ramesh |    12600 |       3000 |
+|   20 | Ajay   |    16000 |          0 |
++------+--------+----------+------------+
+-------------------------------------------------------------------------------------------------------------------
+ 5. Meera leaves the company. Make necessary changes in table.
+ 
+mysql> delete from Employee
+    -> where ename = 'Meera';
+
+mysql> select * from Employee;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    4 | Jitesh |    30000 |       1000 |
+|    5 | Ramesh |    12600 |       3000 |
+|   20 | Ajay   |    16000 |          0 |
++------+--------+----------+------------+
+-------------------------------------------------------------------------------------------------------------------
+ 6. Ramesh is promoted as Head Clerk and now earns salary as 60000. Write a query.    
+
+mysql> Update Employee
+    -> set basicSal = 60000
+    -> where ename = 'Ramesh';
+
+mysql> select * from Employee;
++------+--------+----------+------------+
+| eno  | ename  | basicSal | incentives |
++------+--------+----------+------------+
+|    1 | Rajesh |    20000 |       1500 |
+|    2 | Sarita |    25000 |       1000 |
+|    4 | Jitesh |    30000 |       1000 |
+|    5 | Ramesh |    60000 |       3000 |
+|   20 | Ajay   |    16000 |          0 |
++------+--------+----------+------------+

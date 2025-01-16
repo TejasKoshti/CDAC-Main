@@ -1,0 +1,5 @@
+package fi.MicroUsersService.controllers;
+
+public class UsersController {
+
+}

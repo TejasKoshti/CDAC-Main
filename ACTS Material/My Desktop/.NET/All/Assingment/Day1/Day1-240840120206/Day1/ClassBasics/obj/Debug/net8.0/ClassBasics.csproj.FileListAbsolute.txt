@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day1\ClassBasics\bin\Debug\net8.0\ClassBasics.exe
+E:\MS.Net\MyCode\Day1\ClassBasics\bin\Debug\net8.0\ClassBasics.deps.json
+E:\MS.Net\MyCode\Day1\ClassBasics\bin\Debug\net8.0\ClassBasics.runtimeconfig.json
+E:\MS.Net\MyCode\Day1\ClassBasics\bin\Debug\net8.0\ClassBasics.dll
+E:\MS.Net\MyCode\Day1\ClassBasics\bin\Debug\net8.0\ClassBasics.pdb
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.dll
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\refint\ClassBasics.dll
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.pdb
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ClassBasics.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day1\ClassBasics\obj\Debug\net8.0\ref\ClassBasics.dll

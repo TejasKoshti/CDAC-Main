@@ -1,0 +1,22 @@
+package com.cdac.acts.array_list;
+
+import java.util.ArrayList;
+
+public class Array_List {
+	
+	public static ArrayList getInput() {
+		ArrayList<Double> arrList = new ArrayList<Double>(6);
+		arrList.add(10.10);
+		arrList.add(20.20);
+		arrList.add(30.30);
+		arrList.add(40.40);
+		arrList.add(50.50);
+		return arrList;
+	}
+
+	public static void main(String[] args) {
+		
+		ArrayList<Double> arrList = new ArrayList<Double>(6);
+	}
+
+}

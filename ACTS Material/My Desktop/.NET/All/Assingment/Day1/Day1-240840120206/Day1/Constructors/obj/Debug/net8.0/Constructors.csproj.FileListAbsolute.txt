@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day1\Constructors\bin\Debug\net8.0\Constructors.exe
+E:\MS.Net\MyCode\Day1\Constructors\bin\Debug\net8.0\Constructors.deps.json
+E:\MS.Net\MyCode\Day1\Constructors\bin\Debug\net8.0\Constructors.runtimeconfig.json
+E:\MS.Net\MyCode\Day1\Constructors\bin\Debug\net8.0\Constructors.dll
+E:\MS.Net\MyCode\Day1\Constructors\bin\Debug\net8.0\Constructors.pdb
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.dll
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\refint\Constructors.dll
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.pdb
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\Constructors.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day1\Constructors\obj\Debug\net8.0\ref\Constructors.dll

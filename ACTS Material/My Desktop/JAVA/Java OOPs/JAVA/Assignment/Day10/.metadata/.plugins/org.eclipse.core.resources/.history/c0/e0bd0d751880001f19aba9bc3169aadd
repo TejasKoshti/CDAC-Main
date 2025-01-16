@@ -1,0 +1,10 @@
+//import java.util.ArrayList;
+
+public class ArrayListTester {
+	public static void main(String[] args) {
+		
+		// Collection (i/f) -> List (i/f) -> ArrayList (cc)
+//		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList
+	}
+}

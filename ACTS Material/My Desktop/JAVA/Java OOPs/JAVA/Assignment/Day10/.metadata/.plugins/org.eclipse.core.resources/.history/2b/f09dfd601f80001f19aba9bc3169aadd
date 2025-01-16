@@ -1,0 +1,17 @@
+package reverse_string_using_recusion;
+
+private static String rev(String s) {
+	StringBuilder sb = new StringBuilder();
+//	return helper(s, s.length()-1, sb);
+	return "";
+}
+
+//private static String helper(String s, int end, StringBuilder sb) {
+//	
+//}
+
+public class ReverseStringUsingRecusion {
+	public static void main(String[] args) {
+		System.out.println(rev("abcdef"));
+	}
+}

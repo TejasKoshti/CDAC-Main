@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day1\StaticMembers\bin\Debug\net8.0\StaticMembers.exe
+E:\MS.Net\MyCode\Day1\StaticMembers\bin\Debug\net8.0\StaticMembers.deps.json
+E:\MS.Net\MyCode\Day1\StaticMembers\bin\Debug\net8.0\StaticMembers.runtimeconfig.json
+E:\MS.Net\MyCode\Day1\StaticMembers\bin\Debug\net8.0\StaticMembers.dll
+E:\MS.Net\MyCode\Day1\StaticMembers\bin\Debug\net8.0\StaticMembers.pdb
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.dll
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\refint\StaticMembers.dll
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.pdb
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\StaticMembers.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day1\StaticMembers\obj\Debug\net8.0\ref\StaticMembers.dll

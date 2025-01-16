@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\Collections\bin\Debug\net8.0\Collections.exe
+E:\MS.Net\MyCode\Day3\Collections\bin\Debug\net8.0\Collections.deps.json
+E:\MS.Net\MyCode\Day3\Collections\bin\Debug\net8.0\Collections.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\Collections\bin\Debug\net8.0\Collections.dll
+E:\MS.Net\MyCode\Day3\Collections\bin\Debug\net8.0\Collections.pdb
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.dll
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\refint\Collections.dll
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.pdb
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\Collections.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\Collections\obj\Debug\net8.0\ref\Collections.dll

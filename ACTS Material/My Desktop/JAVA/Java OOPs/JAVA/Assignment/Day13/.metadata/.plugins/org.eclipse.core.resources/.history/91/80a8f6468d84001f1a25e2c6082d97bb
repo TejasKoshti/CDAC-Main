@@ -1,0 +1,114 @@
+package com.cdac.acts.tester;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.cdac.acts.StudentDetails;
+import com.cdac.acts.StudentKey;
+
+public class HashMapTester_SirMethod {
+    public static void main(String[] args) {
+        Map<StudentKey, StudentDetails> studentMap = new HashMap<>();
+        Scanner sc = new Scanner(System.in);
+        
+        int choice = 0;
+        do {
+            // Displaying menu options
+            System.out.println("**************MENU***************");
+            System.out.println("1. Add Student Data");
+            System.out.println("2. Print all students");
+            System.out.println("3. Find student using unique mentioned above {5A, 6B}");
+            System.out.println("4. Remove student using RollNo");
+            System.out.println("5. Exit");
+            choice = sc.nextInt();
+            
+            switch (choice) {
+                case 1: {
+                    System.out.println("Enter The Student Roll No:");
+                    Integer rollNo = sc.nextInt();
+                    sc.nextLine(); // Consume newline
+                    System.out.println("Enter The Student Name:");
+                    String name = sc.nextLine();
+                    System.out.println("Enter The Student Division {1, 2, 3}:");
+                    Integer division = sc.nextInt();
+                    System.out.println("Enter The Student Standard {A, B, C}:");
+                    String standard = sc.next();
+                    
+//                    StudentDetails details = new StudentDetails(rollNo, name, standard, division);
+//                    StudentKey key = new StudentKey(standard, division, rollNo);
+//                    
+                    StudentDetails details = new StudentDetails(rollNo, name, standard, division);
+                    studentMap.put(details.get, details);
+                    
+                    studentMap.put(key, details);
+                    System.out.println("Student Added Successfully ❤️");
+                } break;
+                
+                case 2: {
+                    if (studentMap.isEmpty()) {
+                        System.out.println("No students in the database.");
+                    } else {
+                        System.out.println("All Students:");
+                        for (StudentDetails student : studentMap.values()) {
+                            System.out.println(student);
+                        }
+                    }
+                } break;
+
+                case 3: {
+                	
+                	System.out.println("Enter Standard (eg., A, B, C):");
+                	String standard = sc.next();              	
+                	System.out.println("Enter Division (eg., 1, 2, 3):");
+                	Integer division = sc.nextInt();
+                	System.out.println("Enter Roll No (eg., 120, 100, 101):");
+                	Integer rollNo = sc.nextInt();
+                	 // Create the unique key using the standard and division
+                	StudentKey key = new StudentKey(standard, division, rollNo);
+ 
+                    // Check if the student exists in the map
+                	StudentDetails student = studentMap.get(key);  
+                	
+                	if(student != null){
+                		System.out.println("Student Found: "+student);
+                	}else {
+                		System.out.println("No student found with Standard " + student + " and Division " + division + ".");
+                	}
+                   
+                } break;
+
+                case 4: {
+                	
+                	System.out.println("Enter Standard (eg., A, B, C):");
+                	String standard = sc.next();              	
+                	System.out.println("Enter Division (eg., 1, 2, 3):");
+                	Integer division = sc.nextInt();
+                	System.out.println("Enter Roll No (eg., 120, 100, 101):");
+                	Integer rollNo = sc.nextInt();
+                	 // Create the unique key using the standard and division
+                	StudentKey key = new StudentKey(standard, division, rollNo);
+ 
+                    // Check if the student exists in the map
+                	StudentDetails student = studentMap.remove(key);  
+                	
+                	if(student != null){
+                		System.out.println("Student Remove: "+student);
+                	}else {
+                		System.out.println("No student found with Standard " + student + " and Division " + division + ".");
+                	}
+                	
+                } break;
+                
+                case 5:
+                    System.out.println("Thank you for Visiting 🙏"); 
+                    break;
+                    
+                default:
+                    break;
+            }
+        } while (choice != 5);
+        
+        sc.close();
+    }
+}

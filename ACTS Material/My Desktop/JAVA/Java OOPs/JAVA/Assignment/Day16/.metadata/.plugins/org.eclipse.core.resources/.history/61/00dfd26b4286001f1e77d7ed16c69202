@@ -1,0 +1,42 @@
+package com.cdac.acts;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Stream_String {
+
+	public static void main(String[] args) {
+
+		// print distinct
+		System.out.println("************Distinct Elements**************");
+		List<String> strings = Arrays.asList("Dhar", "Indore", "Dewas", "Ujjain", "Indore", "Ratlam");
+
+		Stream<String> stream = strings.stream();
+
+		List<String> collect = stream.distinct().collect(Collectors.toList());
+		collect.forEach(System.out::println);
+
+		// print all with uppercase
+		System.out.println("************UpperCase Elements**************");
+
+		List<String> list = strings.stream().map(s -> s.toUpperCase()).distinct().collect(Collectors.toList());
+
+		list.forEach(System.out::println);
+
+		System.out.println("************Starts With**************");
+
+		List<String> list1 = strings.stream().filter(s->s.startsWith(String.valueOf('I'))).collect(Collectors.toList());
+
+		list1.forEach(System.out::println);
+		
+		//concat all strings in the list
+		System.out.println("************Concat**************");
+
+		List<String> list2 = strings.stream().filter(s->s.startsWith(String.valueOf('I'))).collect(Collectors.toList());
+
+		list2.forEach(System.out::println);
+	}
+
+}

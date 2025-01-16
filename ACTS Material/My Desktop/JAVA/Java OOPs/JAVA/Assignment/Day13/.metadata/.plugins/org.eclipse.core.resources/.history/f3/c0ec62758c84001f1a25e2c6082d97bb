@@ -1,0 +1,30 @@
+package com.cdac.acts;
+
+import java.util.Objects;
+
+public class StudentDetails_SirMethod {
+	private StudentKey_SirMethod key;
+    private String name;
+	@Override
+	public String toString() {
+		return "StudentDetails_SirMethod [key=" + key + ", name=" + name + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(key, name);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentDetails_SirMethod other = (StudentDetails_SirMethod) obj;
+		return Objects.equals(key, other.key) && Objects.equals(name, other.name);
+	}
+
+   
+    
+}

@@ -1,0 +1,68 @@
+/*
+ *  Create Apple class with weight, color and taste. Use Stream API for below things. Use method ref for println
+Filter by weight
+filter by color
+filter by color and weight
+filter by color, weight and taste
+Sort by weight
+Sort by color
+Remove red apples
+Removed Green apples
+Convert to Set collection
+
+ * */
+
+package com.cdac.acts;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Tester {
+
+	public static void main(String[] args) {
+
+		List<Apple> list = Arrays.asList(new Apple(10, "red", "sweet"), new Apple(3, "red", "sour"),
+				new Apple(7, "green", "sweet"), new Apple(9, "green", "sour"), new Apple(2, "gold", "sweet"));
+
+		System.out.println("Filter by weight");
+
+		list.stream().filter(a -> a.getWeight() > 5).forEach(System.out::println);
+
+		System.out.println("filter by color");
+
+		list.stream().filter(a -> "red".equals(a.getColor())).forEach(System.out::println);
+		
+		System.out.println("filter by color and taste");
+		list.stream().filter(a -> "red".equals(a.getColor())&&"sweet".equals(a.getTaste()) ).forEach(System.out::println);
+		
+		System.out.println("Filter by weight and color");
+
+		list.stream().filter(a -> a.getWeight() > 5 && "red".equals(a.getColor()) ).forEach(System.out::println);
+		
+		System.out.println("Sort by weight ");
+
+		List<Apple> sbw = list.stream()
+							.sorted((o1 , o2) -> o1.getWeight().compareTo(o2.getWeight()))
+							.collect(Collectors.toList());
+		sbw.forEach(System.out::println);
+		
+		System.out.println("Sort by colour ");
+		List<Apple> sbc = list.stream()
+				.sorted((o1 , o2) -> o1.getColor().compareTo(o2.getColor()))
+				.collect(Collectors.toList());
+sbc.forEach(System.out::println);
+		
+							
+							
+		
+		
+		
+
+	
+
+
+	}
+
+}

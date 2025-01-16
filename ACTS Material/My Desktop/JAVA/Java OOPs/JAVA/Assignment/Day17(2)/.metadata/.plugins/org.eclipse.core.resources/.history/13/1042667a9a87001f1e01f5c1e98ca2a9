@@ -1,0 +1,43 @@
+package com.cdac.acts.book.tester;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.cdac.acts.book.Book;
+import com.cdac.acts.book.DataUtils;
+import com.cdac.acts.book.enums.BookType;
+import com.cdac.acts.book.io.FileInputOutput;
+
+public class BookTester {
+	public static void main(String[] args) {
+		/*
+		 * Book b =new Book("978-100", "Java 8 IN ACTION", "Raoul-Gabriel",
+		 * BookType.valueOf("TECH"), LocalDate.parse("2010-04-24"), 800.00);
+		 * FileInputOutput.writeToFile(b);
+		 * 
+		 * b =new Book("978-100", "Java 8 IN ACTION", "Raoul-Gabriel",
+		 * BookType.valueOf("TECH"), LocalDate.parse("2010-04-24"), 800.00);
+		 * FileInputOutput.writeToFile(b);
+		 * 
+		 * List<Book> bookList = FileInputOutput.readFromFile();
+		 *System.out.println(bookList);
+		 */
+		List<Book> list = DataUtils.getBooksList();
+		for (Book b : list) {
+			FileInputOutput.writeToFile(b);
+		}
+		
+		 List<Book> bookList = FileInputOutput.readFromFile();
+		 bookList.forEach(System.out::println);
+		 
+		 
+		/* System.out.println("1 Use Book class from Library application and use DataOuputStream and
+		 DataInputStream to write and read books from binary file.
+		 Write methods to save book in file and save many books in file. Pass book
+		 object and DOS to method for saving book. Resue the method to save
+		 muliple books.*/
+//		 Create methods to read one book and read many books until data is
+//		 available on stream.
+//		 Print the data read from file suing forEach and method reference.
+	}
+}

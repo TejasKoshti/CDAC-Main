@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class MobNumberFormater {
+
+	public static String format(String no) {
+		/*
+		 * if (no.length() < 10 ) { return "invalid mobile number"; }
+		 * 
+		 * StringBuilder sb = new StringBuilder(no);
+		 * 
+		 * if (sb.charAt(0) != '+') { sb.insert(0,"+91-"); } else { if (sb.charAt(3) !=
+		 * '-') { sb.insert(3, '-'); } }
+		 * 
+		 * boolean flag = false; int count =0; int last =0;
+		 * 
+		 * for (int i = 4; i < sb.length() && !flag; i++, count++) { if
+		 * (!Character.isDigit(sb.charAt(i)) ) { if (sb.charAt(0) == '+' || sb.charAt(i)
+		 * == '-') { flag = false; count = -1; last++; } } if (count == 3 && last <2) {
+		 * sb.insert(i,"-"); count = -1; last++; } }
+		 * 
+		 * if (flag) { return "only contain number"; } return sb.toString();
+		 */
+
+		/*
+		 * if (no.length() < 10 && no.length() > 12) { return "invalid number"; }
+		 * 
+		 * if (no.length() == 12) {
+		 * 
+		 * StringBuilder sb = new StringBuilder(no); // sb.insert(7, '-'); //
+		 * sb.insert(11, '-');
+		 * 
+		 * return sb.toString(); }
+		 */
+
+		// convert into 1234567890
+		if (no.length() == 16 || no.length() == 14 || no.length() == 10) {
+			StringBuilder sb = new StringBuilder(no);
+			String temp = "+91-";
+			for (int i = 0; i < 4; i++) {
+				if (sb.charAt(i) != temp.charAt(i)) {
+					return "invalid input";
+				}
+			}
+			sb.delete(0, 4);
+			int tempLength = sb.length();
+
+			for (int i = 0; i < tempLength; i++) {
+				if (sb.charAt(i) == '-' && (i == 3 || i == 6) ) {
+					sb.deleteCharAt(i);
+					tempLength--;
+					i--;
+				}
+			}
+			
+			sb.insert(0, "+91-");
+			sb.insert(3, '-');
+			sb.insert(7, '-');
+			
+			return sb.toString();
+		}
+		return no;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter number ");
+		String n = sc.next();
+		System.out.println(format(n));
+		sc.close();
+	}
+
+}

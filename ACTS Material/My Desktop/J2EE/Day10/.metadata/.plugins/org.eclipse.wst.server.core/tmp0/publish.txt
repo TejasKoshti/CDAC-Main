@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Dec 25 14:11:17 IST 2024
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\dac.STUDENTSDC\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-el\\10.1.34\\tomcat-embed-el-10.1.34.jar=WEB-INF/lib/tomcat-embed-el-10.1.34.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\dac.STUDENTSDC\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-jasper\\11.0.2\\tomcat-embed-jasper-11.0.2.jar=WEB-INF/lib/tomcat-embed-jasper-11.0.2.jar

@@ -1,0 +1,5 @@
+package com.cdac.acts.book.validation;
+
+public class ValidationUtils {
+
+}

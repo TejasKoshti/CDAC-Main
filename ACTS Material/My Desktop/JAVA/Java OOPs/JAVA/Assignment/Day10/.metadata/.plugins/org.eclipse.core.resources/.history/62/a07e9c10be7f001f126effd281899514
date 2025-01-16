@@ -1,0 +1,49 @@
+package com.cdac.acts.fruit.main;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.cdac.acts.fruit.Fruit;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//Collection I/F -> List I/F -> ArrayList CC(Concrete Class)
+		ArrayList<Fruit> fruitList = new ArrayList<Fruit>(); 
+		int count = 0;
+		
+		while (true) {
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("1 -> add");
+		
+			int choice = sc.nextInt();
+			
+			switch (choice) {
+			
+			case 1:
+			{
+				System.out.println("Enter Fruit Name");
+				String name = sc.nextLine();
+		
+				System.out.println("Enter Color");
+				String color = sc.nextLine();
+		
+				System.out.println("Enter Price");
+				double price = sc.nextDouble();
+		
+				System.out.println("Enter Quantity");
+				int quantity = sc.nextInt();
+				fruitList.add(count, new Fruit(name, color, price, quantity));
+				count++;
+				System.out.println("added successfully");
+				System.out.println(count);
+			}break;
+		
+		System.out.println(fruitList);
+		}
+		}
+	}
+
+}

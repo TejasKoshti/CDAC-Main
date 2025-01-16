@@ -1,0 +1,11 @@
+INDEX VERSION 1.134
+C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1446278970.index
+\springmvc\src\main\java
+C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3490526498.index
+\springmvc\src\main\resources
+C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1414183668.index
+\springmvc\src\main\java
+C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\679530387.index
+\SpringMVC1\src\main\resources
+C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3703551421.index
+\com\src\main\resources

@@ -1,0 +1,35 @@
+package com.cdac.acts.account.data_utils;
+
+import java.util.List;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.enums.AccountType;
+import com.cdac.acts.account.validation.Validation;
+
+public class Data {
+
+	private Data() {
+	}
+
+	public static List<Account> getData() {
+		List<Account> list = new ArrayList<Account>();
+
+		AccountType a1 = Validation.getValidAccountType("S");
+		AccountType a2 = Validation.getValidAccountType("C");
+		AccountType a3 = Validation.getValidAccountType("FD");
+
+		LocalDate validDob1 = Validation.validDoj("2000-01-01");
+		LocalDate validDob2 = Validation.validDoj("2001-01-01");
+
+		list.add(new Account("Vaibhav", LocalDate.now(), 80000.0, a1));
+		list.add(new Account("Sujata", LocalDate.now(), 50000.0, a2));
+		list.add(new Account("Prathmesh", LocalDate.now(), 50000.0, a3));
+		list.add(new Account("Rushikesh", LocalDate.now(), 70000.0, a3));
+		list.add(new Account("Vibhav", LocalDate.now(), 20000.0, a1));
+		list.add(new Account("Sanchit", LocalDate.now(), 40000.0, a2));
+
+		return list;
+	}
+}

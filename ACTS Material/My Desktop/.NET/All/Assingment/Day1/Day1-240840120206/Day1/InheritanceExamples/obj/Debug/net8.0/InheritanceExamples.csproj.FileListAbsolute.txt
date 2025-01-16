@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day1\InheritanceExamples\bin\Debug\net8.0\InheritanceExamples.exe
+E:\MS.Net\MyCode\Day1\InheritanceExamples\bin\Debug\net8.0\InheritanceExamples.deps.json
+E:\MS.Net\MyCode\Day1\InheritanceExamples\bin\Debug\net8.0\InheritanceExamples.runtimeconfig.json
+E:\MS.Net\MyCode\Day1\InheritanceExamples\bin\Debug\net8.0\InheritanceExamples.dll
+E:\MS.Net\MyCode\Day1\InheritanceExamples\bin\Debug\net8.0\InheritanceExamples.pdb
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.dll
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\refint\InheritanceExamples.dll
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.pdb
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\InheritanceExamples.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day1\InheritanceExamples\obj\Debug\net8.0\ref\InheritanceExamples.dll

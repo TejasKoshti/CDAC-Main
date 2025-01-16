@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+
+	<form:form action="login" modelAttribute="objUser">
+	UName : <form:input path="userName" />
+		<from:errors path="userName" cssStyle="color:red" />
+		</br>
+	
+	Pwd : <form:input path="password" />
+		<from:errors path="password" cssStyle="color:red" />
+		</br>
+
+		<from:button value="submit">Login</from:button>
+
+	</form:form>
+
+</body>
+</html>

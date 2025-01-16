@@ -1,0 +1,26 @@
+package fi.TicketAPI.DTO;
+
+import java.sql.Date;
+
+import fi.TicketAPI.Entity.Category;
+import fi.TicketAPI.Entity.Status;
+
+public class TicketDTO {
+
+	Integer id;
+	
+	String phoneNo;
+	
+	Category category;
+	
+	String issueDetail;
+	
+	Status status;
+	
+	String resolution;
+
+	Date createdate;
+
+	Date resolvedate;
+
+}

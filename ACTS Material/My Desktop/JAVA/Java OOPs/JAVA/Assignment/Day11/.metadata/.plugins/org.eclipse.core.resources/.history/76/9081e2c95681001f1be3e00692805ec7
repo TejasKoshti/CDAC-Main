@@ -1,0 +1,12 @@
+package com.cdac.acts.account.validation;
+
+public class Validation {
+	private Validation() {}
+	
+	public static void getValidAccountType(String Account) {
+	
+		
+	}
+	
+	
+}

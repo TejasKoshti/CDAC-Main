@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.accountEnum.AccountType"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.data_utils.Data"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.validation.Validation"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.enums.AccountType"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.my_Exception.MiniBalException"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.comparator.NameComparator"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.comparator.DateComparator"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.Account"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.comparator.BalanceComparator"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.account.comparator.TitleComparator"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.comparator.ColorComparator"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.comparator.QuantityComparator"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.comparator.PriceComparator"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.fruits.Fruits"/>
+    <fullyQualifiedTypeName name="com.cdac.acts.fruits.data_entry.DataEntry"/>
+</qualifiedTypeNameHistroy>

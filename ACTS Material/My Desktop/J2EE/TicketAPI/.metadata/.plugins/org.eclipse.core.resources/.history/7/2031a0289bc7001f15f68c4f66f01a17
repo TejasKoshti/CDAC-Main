@@ -1,0 +1,5 @@
+package fi.TicketAPI.Service;
+
+public class ServiceImpl {
+
+}

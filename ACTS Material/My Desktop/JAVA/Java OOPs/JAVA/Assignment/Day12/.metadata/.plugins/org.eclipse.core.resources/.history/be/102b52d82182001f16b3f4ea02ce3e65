@@ -1,0 +1,71 @@
+package tejas.set1;
+
+import java.time.LocalDate;
+
+public class Students {
+	private Integer rollNo;
+	private String name;
+	private Course cousr;
+	private LocalDate dob;
+
+	
+	public Students(Integer rollNo, String name, Course cousr, LocalDate dob) {
+		super();
+		this.rollNo = rollNo;
+		this.name = name;
+		this.cousr = cousr;
+		this.dob = dob;
+	}
+	
+	// ********************************************************
+	public Integer getRollNo() {
+		return rollNo;
+	}
+
+	public void setRollNo(Integer rollNo) {
+		this.rollNo = rollNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Course getCousr() {
+		return cousr;
+	}
+
+	public void setCousr(Course cousr) {
+		this.cousr = cousr;
+	}
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+	// ********************************************************
+
+	@Override
+	public String toString() {
+		return "Students [rollNo=" + rollNo + ", name=" + name + ", cousr=" + cousr + ", dob=" + dob + "]";
+	}
+	@Override
+	public int compareTo(String o) {
+		return this.rollNo.compareTo(o.rollNo);
+		return o.rollNo.compareTo(this.rollNo);
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}

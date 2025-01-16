@@ -1,0 +1,8 @@
+package com.cdac.acts.fruits;
+
+public class Fruits {
+	String name;
+	String color;
+	int quantity;
+	int price;
+}

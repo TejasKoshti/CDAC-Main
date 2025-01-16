@@ -1,0 +1,35 @@
+package com.cdac.acts.fruits;
+
+public class Fruits {
+	String name;
+	String color;
+	Integer quantity;
+	Integer price;
+	
+	public Fruits(String name, String color, Integer quantity, Integer price) {
+		super();
+		this.name = name;
+		this.color = color;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public String getColor() {
+		return color;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	
+	public String toString() {
+		return "Fruits [name=" + name + ", color=" + color + ", quantity=" + quantity + ", price=" + price + "]";
+	}
+	
+	
+}

@@ -1,0 +1,5 @@
+package fi.springmvcjdbc.dao;
+
+public class UsersDAO {
+
+}

@@ -1,0 +1,30 @@
+package com.acts.pojo;
+
+import java.time.LocalDate;
+
+
+public class ValidationUtils {
+
+//	public static Account getValidCourse(Double balances) {
+//		Account courseEnum = null;
+//		try {
+//			courseEnum = balances.valueOf(balances);
+//		} catch (IllegalArgumentException e) {
+//			e.printStackTrace();
+//		}
+//		return courseEnum;
+//	}
+	
+	public static LocalDate validateDob(String strDob) {
+		LocalDate dop = LocalDate.parse(strDob);
+		
+		LocalDate today = LocalDate.now();
+		LocalDate requiredDate = today.minusYears(21);
+		
+		if(dop.isBefore(requiredDate)) {
+			return dop;
+		}
+		return null;
+	}
+	
+}

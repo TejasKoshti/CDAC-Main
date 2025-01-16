@@ -1,0 +1,31 @@
+package com.cdac.acts.main;
+
+import static com.cdac.acts.printer_type.PrinterType.CONTINOUS_INK;
+import static java.time.LocalDate.parse;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import com.cdac.acts.printer.Printer;
+
+public class PrinterTester {
+	public static void main(String[] args) throws IOException {
+		
+		try (FileOutputStream fos = new FileOutputStream("abc.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+		
+		Printer p1 = new Printer("C_123", 1500.0, CONTINOUS_INK, parse("2022-02-09"));
+		p1.writeExternal(oos);
+		} catch (IOException ioe) {
+			System.err.println(ioe.getMessage());
+		}
+		
+		try (FileInputStream fis =new FileInputStream("abc.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);) {
+	      Printer p2 = (Printer) ois.readObject();
+		}
+	}
+}

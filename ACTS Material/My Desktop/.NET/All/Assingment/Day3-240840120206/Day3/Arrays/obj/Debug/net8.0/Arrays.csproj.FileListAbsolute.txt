@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\Arrays\bin\Debug\net8.0\Arrays.exe
+E:\MS.Net\MyCode\Day3\Arrays\bin\Debug\net8.0\Arrays.deps.json
+E:\MS.Net\MyCode\Day3\Arrays\bin\Debug\net8.0\Arrays.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\Arrays\bin\Debug\net8.0\Arrays.dll
+E:\MS.Net\MyCode\Day3\Arrays\bin\Debug\net8.0\Arrays.pdb
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.dll
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\refint\Arrays.dll
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.pdb
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\Arrays.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\Arrays\obj\Debug\net8.0\ref\Arrays.dll

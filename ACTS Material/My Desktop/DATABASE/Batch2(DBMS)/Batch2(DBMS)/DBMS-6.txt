@@ -1,0 +1,408 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 25
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use batch2
+Database changed
+mysql> create table dept100
+    -> (
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near '' at line 2
+mysql> create table dept100 as select * from dept;
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> describe dept100;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| DEPTNO | int         | YES  |     | NULL    |       |
+| DNAME  | varchar(14) | YES  |     | NULL    |       |
+| LOC    | varchar(13) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dept100;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> create table emp100 as select * from emp;
+ERROR 1050 (42S01): Table 'emp100' already exists
+mysql> drop table emp100;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table emp100 as select * from emp;
+Query OK, 14 rows affected (0.01 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp100;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> alter dept100 add constraint pk_dept100 primary key(deptno);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near 'dept100 add constraint pk_dept100 primary key(deptno)' at line 1
+mysql> alter table  dept100 add constraint pk_dept100 primary key(deptno);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe dept100;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| DEPTNO | int         | NO   | PRI | NULL    |       |
+| DNAME  | varchar(14) | YES  |     | NULL    |       |
+| LOC    | varchar(13) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| DEPTNO | int         | YES  |     | NULL    |       |
+| DNAME  | varchar(14) | YES  |     | NULL    |       |
+| LOC    | varchar(13) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp100
+    -> add constraint pk_emp100 primary key(empno);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe emp100;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   | PRI | NULL    |       |
+| ENAME    | varchar(12)  | YES  |     | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  |     | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> create table trainer(
+    -> tid pk,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near 'pk,' at line 2
+mysql> create table trainer(
+    -> tid int ,
+    -> tname varchar(20) is not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near 'is not null' at line 3
+mysql> create table trainer(
+    -> tid int ,
+    -> tname )
+    ->
+    -> create table course(
+    -> cid int ,
+    -> cname varchar(10) unique not null,
+    -> fees decimal
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ')
+
+create table course(
+cid int ,
+cname varchar(10) unique not null,
+fees decima' at line 3
+mysql> create table course(
+    -> cid int ,
+    -> cname varchar(10) unique not null,
+    -> fees decimal
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> describe course;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| cid   | int           | YES  |     | NULL    |       |
+| cname | varchar(10)   | NO   | PRI | NULL    |       |
+| fees  | decimal(10,0) | YES  |     | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table  course
+    -> add constraint pk_course primary key(cid);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe course;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| cid   | int           | NO   | PRI | NULL    |       |
+| cname | varchar(10)   | NO   | UNI | NULL    |       |
+| fees  | decimal(10,0) | YES  |     | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into course
+    -> values
+    -> (c1  ,'Core', 7000), 
+    -> (c2 , 'Linux' , 8000 ),
+    -> (c3 , 'Data Structure', 10000 ),
+    -> (c4 , 'Python', 12000 ),  
+    -> (c5 , 'Dot Net' ,null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ' ,'Core', 7000), 
+(c2 , 'Linux' , 8000 ),
+(c3 , 'Data Structure', 10000 )' at line 3
+mysql> insert into course
+    -> values
+    -> (c1  ,'Core', 7000), 
+    -> (c2 , 'Linux' , 8000 ),
+    -> (c3 , 'Data Structure', 10000 ),
+    -> (c4 , 'Python', 12000 ),  
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ' ,'Core', 7000), 
+(c2 , 'Linux' , 8000 ),
+(c3 , 'Data Structure', 10000 )' at line 3
+mysql> insert into course
+    -> values
+    -> (c1  ,'Core', 7000), 
+    -> (c2 , 'Linux' , 8000 ),
+    -> (c3 , 'DSA', 10000 ),
+    -> (c4 , 'Python', 12000 ),  
+    -> (c5 , 'Dot Net' ,null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ' ,'Core', 7000), 
+(c2 , 'Linux' , 8000 ),
+(c3 , 'DSA', 10000 ),
+(c4 , 'P' at line 3
+mysql> insert into course
+    -> values
+    -> (1  ,'Core', 7000), 
+    -> (2 , 'Linux' , 8000 ),
+    -> (3 , 'DSA', 10000 ),
+    -> (4 , 'Python', 12000 ),  
+    -> (5 , 'Dot Net' ,null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ' ,'Core', 7000), 
+(2 , 'Linux' , 8000 ),
+(3 , 'DSA', 10000 ),
+(4 , 'Pyth' at line 3
+mysql> insert into course
+    -> value
+    -> (1  ,'Core', 7000), 
+    -> (2 , 'Linux' , 8000 ),
+    -> (3 , 'DSA', 10000 ),
+    -> (4 , 'Python', 12000 ),  
+    -> (5 , 'Dot Net' ,null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near ' ,'Core', 7000), 
+(2 , 'Linux' , 8000 ),
+(3 , 'DSA', 10000 ),
+(4 , 'Pyth' at line 3
+mysql> insert into course
+    -> values (1, 'core', 7000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course
+    -> values (1, 'core', 7000),
+    -> ^C
+mysql>
+mysql> insert into course
+    -> values (2, 'Linux', 8000),
+    -> (3, 'DSA', 10000),
+    -> (4, 'Python', 12000),
+    -> (5, 'Dot Net', null);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> create table trainer(
+    -> tid int ,
+    -> tname varchar(15),
+    -> cid int,
+    -> salary int,
+    -> experience(yrs) int
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near '(yrs) int
+)' at line 6
+mysql> create table trainer(
+    -> tid int ,
+    -> tname varchar(15),
+    -> cid int,
+    -> salary int,
+    -> experience_yrs int
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> describe trainer;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| tid            | int         | YES  |     | NULL    |       |
+| tname          | varchar(15) | YES  |     | NULL    |       |
+| cid            | int         | YES  |     | NULL    |       |
+| salary         | int         | YES  |     | NULL    |       |
+| experience_yrs | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table trainer
+    -> modify tname varchar(15) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table trainer
+    -> add constraint fk_trainer foreign key(cid);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near '' at line 2
+mysql> alter table trainer
+    -> add constraint fk_trainer foreign key(cid)
+    -> references course(cid);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe trainer;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| tid            | int         | YES  |     | NULL    |       |
+| tname          | varchar(15) | NO   |     | NULL    |       |
+| cid            | int         | YES  | MUL | NULL    |       |
+| salary         | int         | YES  |     | NULL    |       |
+| experience_yrs | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table trainer add constraint pk_trainer primary key(tid);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe trainer;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| tid            | int         | NO   | PRI | NULL    |       |
+| tname          | varchar(15) | NO   |     | NULL    |       |
+| cid            | int         | YES  | MUL | NULL    |       |
+| salary         | int         | YES  |     | NULL    |       |
+| experience_yrs | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table trainer modify  salary int default = 20000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to yourMySQL server version for the right syntax to use near '= 20000' at line 1
+mysql> alter table trainer modify  salary int default 20000;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe trainer;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| tid            | int         | NO   | PRI | NULL    |       |
+| tname          | varchar(15) | NO   |     | NULL    |       |
+| cid            | int         | YES  | MUL | NULL    |       |
+| salary         | int         | YES  |     | 20000   |       |
+| experience_yrs | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table trainer check
+    -> ^C
+mysql>
+mysql> alter table trainer
+    -> add check(experience_yrs >10);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into
+    -> trainer
+    -> values
+    -> (1, 'Amit', c2, 20000, 12),
+    -> (2, 'Vishal', c2, 50000, 40),
+    -> (3, 'Vaishali', c2, 15000, 5),
+    -> (4, 'Vinit', c2, 30000, 15),
+    -> (5, 'Abhishek', c2, 25000, 9),
+    -> (6, 'Rajat', c2, 30000, 11);
+ERROR 1054 (42S22): Unknown column 'c2' in 'field list'
+mysql> insert into trainer
+    -> values
+    -> (10, 'Amit', 1, 20000, 12),
+    -> (20, 'Vishal', 2, 50000, 40),
+    -> (30, 'Vaishali', 3, 15000, 5),
+    -> (40, 'Vinit', 4, 30000, 15),
+    -> (50, 'Abhishek', 5, 25000, 9),
+    -> (60, 'Rajat', 6, 30000, 11);
+ERROR 3819 (HY000): Check constraint 'trainer_chk_1' is violated.
+mysql> insert into trainer
+    -> values
+    -> (10, 'Amit', 1, 20000, 12),
+    -> (20, 'Vishal', 2, 50000, 40),
+    -> (30, 'Vaishali', 3, 15000, 22),
+    -> (40, 'Vinit', 4, 30000, 15),
+    -> (50, 'Abhishek', 5, 25000, 16),
+    -> (60, 'Rajat', 6, 30000, 11);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`trainer`, CONSTRAINT `fk_trainer` FOREIGN KEY (`cid`) REFERENCES `course` (`cid`))
+mysql> insert into trainer
+    -> values
+    -> (10, 'Amit', 1, 20000, 12),
+    -> (20, 'Vishal', 2, 50000, 40),
+    -> (30, 'Vaishali', 3, 15000, 22),
+    -> (40, 'Vinit', 4, 30000, 15),
+    -> (50, 'Abhishek', 5, 25000, 16),
+    -> (60, 'Rajat', 2, 30000, 11);
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from trainer;
++-----+----------+------+--------+----------------+
+| tid | tname    | cid  | salary | experience_yrs |
++-----+----------+------+--------+----------------+
+|  10 | Amit     |    1 |  20000 |             12 |
+|  20 | Vishal   |    2 |  50000 |             40 |
+|  30 | Vaishali |    3 |  15000 |             22 |
+|  40 | Vinit    |    4 |  30000 |             15 |
+|  50 | Abhishek |    5 |  25000 |             16 |
+|  60 | Rajat    |    2 |  30000 |             11 |
++-----+----------+------+--------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from course
+    -> ;
++-----+---------+-------+
+| cid | cname   | fees  |
++-----+---------+-------+
+|   1 | core    |  7000 |
+|   2 | Linux   |  8000 |
+|   3 | DSA     | 10000 |
+|   4 | Python  | 12000 |
+|   5 | Dot Net |  NULL |
++-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql>

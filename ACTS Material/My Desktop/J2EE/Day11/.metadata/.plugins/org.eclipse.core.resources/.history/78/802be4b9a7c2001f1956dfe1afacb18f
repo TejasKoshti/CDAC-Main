@@ -1,0 +1,13 @@
+package fi.resthiberapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ResthiberappApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ResthiberappApplication.class, args);
+	}
+
+}

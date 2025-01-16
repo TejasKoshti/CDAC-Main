@@ -1,0 +1,53 @@
+package com.cdac.acts.book;
+
+import java.time.LocalDate;
+
+import com.cdac.acts.book.enums.BookType;
+
+public class Book {
+	private String isbn;
+	private String title;
+	private String author;
+	private BookType bookType;
+	private LocalDate publishDate;
+	private Double price;
+
+	public Book(String isbn, String title, String author, BookType bookType, LocalDate publishDate, Double price) {
+		this.isbn = isbn;
+		this.title = title;
+		this.author = author;
+		this.bookType = bookType;
+		this.publishDate = publishDate;
+		this.price = price;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public BookType getBookType() {
+		return bookType;
+	}
+
+	public LocalDate getPublishDate() {
+		return publishDate;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [isbn=" + isbn + ", title=" + title + ", author=" + author + ", bookType=" + bookType
+				+ ", publishDate=" + publishDate + "]";
+	}
+}

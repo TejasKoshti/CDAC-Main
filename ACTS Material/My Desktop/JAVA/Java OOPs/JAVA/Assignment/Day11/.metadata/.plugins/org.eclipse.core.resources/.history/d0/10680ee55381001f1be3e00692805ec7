@@ -1,0 +1,51 @@
+package com.cdac.acts.account;
+
+import java.time.LocalDate;
+
+import com.cdac.acts.account.enums.AccountType;
+
+public class Account {
+
+	private Integer accNo;
+	private String name;
+	private LocalDate doj;
+	private Double accBalance;
+	private AccountType accType;
+	
+	private static int accGenerator = 10001;
+	
+	public Account (String name, LocalDate doj, Double accBalance, AccountType accType) {
+		this.accNo = accGenerator;
+		this.name = name;
+		this.doj = doj;
+		this.accBalance = accBalance;
+		this.accType = accType;
+		accGenerator++;
+	}
+
+	public Integer getAccNo() {
+		return accNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public LocalDate getDoj() {
+		return doj;
+	}
+
+	public Double getAccBalance() {
+		return accBalance;
+	}
+
+	public AccountType getAccType() {
+		return accType;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [accNo: " + accNo + ", name: " + name + ", doj: " + doj + ", accBalance: " + accBalance
+				+ ", accType: " + accType + "]";
+	}
+}

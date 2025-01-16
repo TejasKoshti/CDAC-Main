@@ -1,0 +1,496 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dac                |
+| day9               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| smol               |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use dac;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_dac |
++---------------+
+| bonus         |
+| category      |
+| course        |
+| courses       |
+| customer      |
+| dept          |
+| emp           |
+| emp100        |
+| emp_dept_view |
+| emp_v20       |
+| emp_view      |
+| employee      |
+| faculty       |
+| new_emp_v20   |
+| room          |
+| salesman      |
+| salgrade      |
+| trainer       |
+| transactions  |
+| vehicle       |
++---------------+
+20 rows in set (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists del_proc;
+    -> create procedure del_proc(in mempno int)
+    -> begin
+    ->   delete
+    ->   from emp10
+    ->   where empno=mempno;
+    -> end //
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql>
+mysql> call del_proc(7777);
+ERROR 1146 (42S02): Table 'dac.emp10' doesn't exist
+mysql> select * from emp100;
++-------+--------+-----------+------+------------+----------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL      | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+----------+---------+--------+
+|     0 | NULL   | HR        | 7839 | 2024-11-09 | 80000.00 |  500.00 |     30 |
+|  1001 | ayush  | HR        | 7839 | 2024-11-09 | 80000.00 |  500.00 |     30 |
+|  1002 | NULL   | HR        | 7839 | 2024-11-09 | 80000.00 |  500.00 |     30 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |   800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 |  1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 |  1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 |  2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 |  1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 |  2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 |  2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 |  3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 |  5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 |  1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 |  1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |   950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 |  3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 |  1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+----------+---------+--------+
+17 rows in set (0.01 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists display
+    -> create procedure display2(mno int,in mname varchar(12),msal decimal(7,2))
+    -> begin
+    ->   insert into emp100(empno,ename,sal)
+    ->   values(mno,mname,msal);
+    ->   select empno,ename,sal
+    ->   from emp100;
+    -> end //
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create procedure display2(mno int,in mname varchar(12),msal decimal(7,2))
+begin
+' at line 2
+mysql> delimiter ;^C
+mysql> delimiter //
+mysql> drop procedure if exists display
+    -> create procedure display(mno int,in mname varchar(12),msal decimal(7,2))
+    -> begin
+    ->   insert into emp100(empno,ename,sal)
+    ->   values(mno,mname,msal);
+    ->   select empno,ename,sal
+    ->   from emp100;
+    -> end //
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create procedure display(mno int,in mname varchar(12),msal decimal(7,2))
+begin
+ ' at line 2
+mysql> delimiter ;create ^C
+mysql> create database rashi;
+    -> ;
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
+    -> //
++--------------------+
+| Database           |
++--------------------+
+| dac                |
+| day9               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| rashi              |
+| sakila             |
+| smol               |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> delimiter ;
+mysql> use rashi;
+Database changed
+mysql> CREATE TABLE emp (
+    ->     empno INT PRIMARY KEY,
+    ->     sal DECIMAL(10, 2),
+    ->     comm DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO emp (empno, sal, comm) VALUES
+    -> (101, 5000.00, 200.00),
+    -> (102, 5500.00, 250.00),
+    -> (103, 4500.00, 300.00),
+    -> (104, 6000.00, 150.00),
+    -> (105, 4800.00, 100.00),
+    -> (106, 5200.00, 500.00),
+    -> (107, 5300.00, NULL),      -- Commission can be NULL
+    -> (108, 5700.00, 400.00),
+    -> (109, 4900.00, 350.00),
+    -> (110, 5100.00, 0.00);      -- Commission is zero
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+--------+
+| empno | sal     | comm   |
++-------+---------+--------+
+|   101 | 5000.00 | 200.00 |
+|   102 | 5500.00 | 250.00 |
+|   103 | 4500.00 | 300.00 |
+|   104 | 6000.00 | 150.00 |
+|   105 | 4800.00 | 100.00 |
+|   106 | 5200.00 | 500.00 |
+|   107 | 5300.00 |   NULL |
+|   108 | 5700.00 | 400.00 |
+|   109 | 4900.00 | 350.00 |
+|   110 | 5100.00 |   0.00 |
++-------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql> DELIMITER $$
+mysql>
+mysql> CREATE PROCEDURE CalculateTotalSalary(IN emp_id INT)
+    -> BEGIN
+    ->     -- Declare a variable to hold the total salary
+    ->     DECLARE total_salary DECIMAL(10, 2);
+    ->
+    ->     -- Get the salary and commission for the employee
+    ->     SELECT sal + IFNULL(comm, 0) INTO total_salary
+    ->     FROM emp
+    ->     WHERE empno = emp_id;
+    ->
+    ->     -- Display the total salary
+    ->     SELECT total_salary AS TotalSalary;
+    -> END$$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> caoll calculatetotalsalary(101);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'caoll calculatetotalsalary(101)' at line 1
+mysql> call calculatetotalsalary(101);
++-------------+
+| TotalSalary |
++-------------+
+|     5200.00 |
++-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> alter table emp
+    -> add ename varchar(20);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table emp
+    -> add job varchar(20);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'John Doe', job = 'Manager' WHERE empno = 101;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Jane Smith', job = 'Developer' WHERE empno = 102;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Mike Johnson', job = 'Tester' WHERE empno = 103;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Emily Davis', job = 'HR Specialist' WHERE empno = 104;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'David Brown', job = 'Developer' WHERE empno = 105;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Sophia Wilson', job = 'Manager' WHERE empno = 106;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Oliver Moore', job = 'Developer' WHERE empno = 107;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Ava Taylor', job = 'Sales Manager' WHERE empno = 108;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Lucas Anderson', job = 'Tester' WHERE empno = 109;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE emp SET ename = 'Mia Thomas', job = 'Developer' WHERE empno = 110;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+--------+----------------+---------------+
+| empno | sal     | comm   | ename          | job           |
++-------+---------+--------+----------------+---------------+
+|   101 | 5000.00 | 200.00 | John Doe       | Manager       |
+|   102 | 5500.00 | 250.00 | Jane Smith     | Developer     |
+|   103 | 4500.00 | 300.00 | Mike Johnson   | Tester        |
+|   104 | 6000.00 | 150.00 | Emily Davis    | HR Specialist |
+|   105 | 4800.00 | 100.00 | David Brown    | Developer     |
+|   106 | 5200.00 | 500.00 | Sophia Wilson  | Manager       |
+|   107 | 5300.00 |   NULL | Oliver Moore   | Developer     |
+|   108 | 5700.00 | 400.00 | Ava Taylor     | Sales Manager |
+|   109 | 4900.00 | 350.00 | Lucas Anderson | Tester        |
+|   110 | 5100.00 |   0.00 | Mia Thomas     | Developer     |
++-------+---------+--------+----------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE CompareSalaries(IN emp1 INT, IN emp2 INT)
+    -> BEGIN
+    ->     DECLARE sal1 DECIMAL(10, 2);
+    ->     DECLARE sal2 DECIMAL(10, 2);
+    ->     DECLARE ename1 VARCHAR(50);
+    ->     DECLARE ename2 VARCHAR(50);
+    ->     DECLARE job1 VARCHAR(50);
+    ->     DECLARE job2 VARCHAR(50);
+    ->     SELECT sal, ename, job INTO sal1, ename1, job1 FROM emp WHERE empno = emp1;
+    ->     SELECT sal, ename, job INTO sal2, ename2, job2 FROM emp WHERE empno = emp2;
+    ->     IF sal1 > sal2 THEN
+    ->         SELECT ename1 AS Name, sal1 AS Salary, job1 AS Job;
+    ->     ELSEIF sal2 > sal1 THEN
+    ->         SELECT ename2 AS Name, sal2 AS Salary, job2 AS Job;
+    ->     END IF;
+    -> END//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELIMITER ;
+mysql> call comparesalaries(101,103);
++----------+---------+---------+
+| Name     | Salary  | Job     |
++----------+---------+---------+
+| John Doe | 5000.00 | Manager |
++----------+---------+---------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELIMITER $$
+mysql> CREATE PROCEDURE CalculateHike(IN emp_name VARCHAR(20), IN emp_job VARCHAR(20))
+    -> BEGIN
+    ->     DECLARE current_salary DECIMAL(10, 2);
+    ->     DECLARE new_salary DECIMAL(10, 2);
+    ->     DECLARE hike_percentage DECIMAL(5, 2);
+    ->     SELECT sal INTO current_salary
+    ->     FROM emp
+    ->     WHERE ename = emp_name AND job = emp_job;
+    ->         IF emp_job = 'manager' THEN
+    ->             SET hike_percentage = 10;
+    ->         ELSEIF emp_job = 'tester' THEN
+    ->             SET hike_percentage = 7;
+    ->         ELSEIF emp_job = 'developer' THEN
+    ->             SET hike_percentage = 5;
+    ->         ELSE
+    ->             SET hike_percentage = 0;
+    ->         END IF;
+    ->         SET new_salary = current_salary * (1 + (hike_percentage / 100));
+    ->         UPDATE emp
+    ->         SET sal = new_salary
+    ->         WHERE ename = emp_name AND job = emp_job;
+    ->         SELECT ename, job, current_salary, new_salary
+    ->         FROM emp
+    ->         WHERE ename = emp_name AND job = emp_job;
+    ->     END IF;
+    -> END$$
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF;
+END' at line 25
+mysql> DELIMITER ;
+mysql> DELIMITER $$
+mysql> CREATE PROCEDURE CalculateHike(IN emp_name VARCHAR(20), IN emp_job VARCHAR(20))
+    -> BEGIN
+    ->     DECLARE current_salary DECIMAL(10, 2);
+    ->     DECLARE new_salary DECIMAL(10, 2);
+    ->     DECLARE hike_percentage DECIMAL(5, 2);
+    ->     SELECT sal INTO current_salary
+    ->     FROM emp
+    ->     WHERE ename = emp_name AND job = emp_job;
+    ->         IF emp_job = 'manager' THEN
+    ->             SET hike_percentage = 10;
+    ->         ELSEIF emp_job = 'tester' THEN
+    ->             SET hike_percentage = 7;
+    ->         ELSEIF emp_job = 'developer' THEN
+    ->             SET hike_percentage = 5;
+    ->         ELSE
+    ->             SET hike_percentage = 0;
+    ->         END IF;
+    ->         SET new_salary = current_salary * (1 + (hike_percentage / 100));
+    ->         UPDATE emp
+    ->         SET sal = new_salary
+    ->         WHERE ename = emp_name AND job = emp_job;
+    ->         SELECT ename, job, current_salary, new_salary
+    ->         FROM emp
+    ->         WHERE ename = emp_name AND job = emp_job;
+    -> END$$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELIMITER ;
+mysql> call calculatehike(john doe , manager);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'doe , manager)' at line 1
+mysql> call calculatehike('john doe' , 'manager');
++----------+---------+----------------+------------+
+| ename    | job     | current_salary | new_salary |
++----------+---------+----------------+------------+
+| John Doe | Manager |        5000.00 |    5500.00 |
++----------+---------+----------------+------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from emp;
++-------+---------+--------+----------------+---------------+
+| empno | sal     | comm   | ename          | job           |
++-------+---------+--------+----------------+---------------+
+|   101 | 5500.00 | 200.00 | John Doe       | Manager       |
+|   102 | 5500.00 | 250.00 | Jane Smith     | Developer     |
+|   103 | 4500.00 | 300.00 | Mike Johnson   | Tester        |
+|   104 | 6000.00 | 150.00 | Emily Davis    | HR Specialist |
+|   105 | 4800.00 | 100.00 | David Brown    | Developer     |
+|   106 | 5200.00 | 500.00 | Sophia Wilson  | Manager       |
+|   107 | 5300.00 |   NULL | Oliver Moore   | Developer     |
+|   108 | 5700.00 | 400.00 | Ava Taylor     | Sales Manager |
+|   109 | 4900.00 | 350.00 | Lucas Anderson | Tester        |
+|   110 | 5100.00 |   0.00 | Mia Thomas     | Developer     |
++-------+---------+--------+----------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE GetSalaryByEmpno(IN emp_id INT)
+    -> BEGIN
+    ->     DECLARE emp_salary DECIMAL(10, 2);
+    ->     SELECT sal INTO emp_salary
+    ->     FROM emp
+    ->     WHERE empno = emp_id;
+    ->     IF emp_salary IS NOT NULL THEN
+    ->         SELECT emp_salary AS Salary;
+    ->     ELSE
+    ->         SELECT 0 AS Salary;
+    ->     END IF;
+    -> END//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELIMITER ;
+mysql> call getsalarybyempno(109);
++---------+
+| Salary  |
++---------+
+| 4900.00 |
++---------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call getsalarybyempno(201);
++--------+
+| Salary |
++--------+
+|      0 |
++--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> update emp
+    -> set job = salesman where empno = 110;
+ERROR 1054 (42S22): Unknown column 'salesman' in 'field list'
+mysql> update emp
+    -> set job = 'salesman' where empno = 110;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+--------+----------------+---------------+
+| empno | sal     | comm   | ename          | job           |
++-------+---------+--------+----------------+---------------+
+|   101 | 5500.00 | 200.00 | John Doe       | Manager       |
+|   102 | 5500.00 | 250.00 | Jane Smith     | Developer     |
+|   103 | 4500.00 | 300.00 | Mike Johnson   | Tester        |
+|   104 | 6000.00 | 150.00 | Emily Davis    | HR Specialist |
+|   105 | 4800.00 | 100.00 | David Brown    | Developer     |
+|   106 | 5200.00 | 500.00 | Sophia Wilson  | Manager       |
+|   107 | 5300.00 |   NULL | Oliver Moore   | Developer     |
+|   108 | 5700.00 | 400.00 | Ava Taylor     | Sales Manager |
+|   109 | 4900.00 | 350.00 | Lucas Anderson | Tester        |
+|   110 | 5100.00 |   0.00 | Mia Thomas     | salesman      |
++-------+---------+--------+----------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> DELIMITER $$
+mysql> CREATE FUNCTION GenerateSalesmanEmail(emp_id INT)
+    -> RETURNS VARCHAR(100)
+    -> BEGIN
+    ->     DECLARE emp_name VARCHAR(50);
+    ->     DECLARE emp_job VARCHAR(50);
+    ->     DECLARE emp_deptno INT;
+    ->     DECLARE email VARCHAR(100);
+    ->     SELECT ename, job, deptno INTO emp_name, emp_job, emp_deptno
+    ->     FROM emp
+    ->     WHERE empno = emp_id;
+    ->     IF emp_job = 'Salesman' THEN
+    ->         SET email = CONCAT(
+    ->             SUBSTRING(emp_name, 2, 2),
+    ->             UPPER(SUBSTRING(emp_job, -2)),
+    ->             emp_deptno,
+    ->             '@mycompany.com'
+    ->         );
+    ->     END IF;
+    ->     RETURN email;
+    -> END$$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELIMITER ;
+mysql> call generatesalesmanemail(110);
+ERROR 1305 (42000): PROCEDURE rashi.generatesalesmanemail does not exist
+mysql> SELECT GenerateSalesmanEmail(102);
+ERROR 1054 (42S22): Unknown column 'deptno' in 'field list'
+mysql> select generatesalesmanemail(110);
+ERROR 1054 (42S22): Unknown column 'deptno' in 'field list'
+mysql>

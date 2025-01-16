@@ -1,0 +1,22 @@
+package reverse_string_using_recusion;
+
+
+
+public class ReverseStringUsingRecusion {
+	
+	private static String rev(String s) {
+	StringBuilder sb = new StringBuilder();
+	return helper(s, s.length()-1, sb);
+}
+
+private static String helper(String s, int end, StringBuilder sb) {
+	if (end < 0) {
+		return sb.toString();
+	}
+	
+	return helper(s, end = end-1, sb.append(s.charAt(end))));
+}
+	public static void main(String[] args) {
+		System.out.println(rev("abcdef"));
+	}
+}

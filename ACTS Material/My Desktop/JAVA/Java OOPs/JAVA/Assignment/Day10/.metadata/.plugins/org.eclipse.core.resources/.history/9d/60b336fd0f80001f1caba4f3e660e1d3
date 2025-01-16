@@ -1,0 +1,197 @@
+package com.cdac.acts.account.tester;
+
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Scanner;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.current.CurrentAccount;
+import com.cdac.acts.account.fixed_deposite.FixedDeposite;
+import com.cdac.acts.account.saving.SavingAccount;
+import com.cdac.acts.date_utils.MyDate;
+import com.cdac.acts.minimum_balance_Exception.MinimumBalanceException;
+
+public class AccountTester {
+	public static void main(String[] args) throws ParseException, MinimumBalanceException {
+		Account[] aArr = new Account[5];
+		int index = 0;
+		
+		while (true) {
+			
+			System.out.println("1 -> add saving account");
+			System.out.println("2 -> add current account");
+			System.out.println("3 -> add fixed deposit account");
+			System.out.println("4 -> deposit saving account");
+			System.out.println("5 -> withdraw saving account");
+			System.out.println("6 -> deposit current account");
+			System.out.println("7 -> withdraw current account");
+			System.out.println("8 -> deposit fixed deposit account");
+			System.out.println("9 -> display");
+			System.out.println("10-> exit");
+
+			Scanner sc = new Scanner(System.in);
+			System.out.println("enter choice");
+			int choice = sc.nextInt();
+			sc.nextLine();
+			
+			switch (choice) {
+				
+			case 1:
+			{
+				System.out.println("enter name: ");
+				String name = sc.nextLine();
+				
+				System.out.println("enter date: ");
+				String strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				
+				aArr[index] = new SavingAccount(name, date);
+				System.out.println("added saving account added successfully: " + aArr[index].getAccNo());
+				index++;
+			} break;
+			
+			case 2:
+			{
+				String name, strDate;
+				System.out.println("enter name: ");
+				name = sc.nextLine();
+				System.out.println("enter date: ");
+				strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				aArr[index] = new CurrentAccount(name, date);
+				System.out.println("added current account added successfully: " + aArr[index].getAccNo());
+				index++;
+			}break;
+			
+			case 3:
+			{
+				String name, strDate;
+				System.out.println("enter name: ");
+				name = sc.nextLine();
+				System.out.println("enter date: ");
+				strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				aArr[index] = new FixedDeposite(name, date);
+				System.out.println("added fixed deposit account added successfully: " + aArr[index].getAccNo());
+				index++;
+			}break;
+			
+			case 4:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo.equals(aArr[i].getAccNo())) {
+						if (aArr[i] instanceof SavingAccount) {
+							SavingAccount sa = (SavingAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							sa.deposit(amount);
+							System.out.println("amount added successfully: " + sa.getAccNo());
+						}
+					} 
+				}
+			}break;
+			
+			case 5:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo.equals(aArr[i].getAccNo())) {
+						if (aArr[i] instanceof SavingAccount) {
+							SavingAccount sa = (SavingAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							
+							try {
+								sa.withdraw(amount);
+								} catch (MinimumBalanceException e) {
+									System.out.println(e.getMessage());
+								}
+							
+							System.out.println("amount withdraw successfully: " + sa.getAccNo());
+						}
+					} 
+				}
+			} break;
+			
+			case 6:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo.equals(aArr[i].getAccNo())) {
+						if (aArr[i] instanceof CurrentAccount) {
+							CurrentAccount ca = (CurrentAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							ca.deposit(amount);
+							System.out.println("amount added successfully: " + ca.getAccNo());
+						}
+					} 
+				}
+				System.out.println("account not exist");
+			} break;
+			
+			case 7:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo.equals(aArr[i].getAccNo())) {
+						if (aArr[i] instanceof CurrentAccount) {
+							CurrentAccount ca = (CurrentAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							
+							try {
+							ca.withdraw(amount);
+							} catch (MinimumBalanceException e) {
+								System.out.println(e.getMessage());
+							}
+							
+							System.out.println("amount withdraw successfully: " + ca.getAccNo());
+						}
+					} 
+				}
+				System.out.println("account not exist");
+			} break;
+			
+			case 8:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo.equals(aArr[i].getAccNo())) {
+						if (aArr[i] instanceof FixedDeposite) {
+							FixedDeposite fa = (FixedDeposite) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							fa.deposit(amount);
+							System.out.println("amount added successfully: " + fa.getAccNo());
+						}
+					} 
+				}
+				System.out.println("account not exist");
+			} break;
+			
+			
+			case 9:
+			{
+				System.out.println(index);
+				for (int i=0; i<index; i++) {
+					System.out.println(aArr[i]);
+				}	
+			} break;
+			
+			
+			}
+		}
+	}
+}

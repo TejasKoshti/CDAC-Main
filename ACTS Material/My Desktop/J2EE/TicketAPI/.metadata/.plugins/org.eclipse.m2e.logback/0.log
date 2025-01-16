@@ -1,0 +1,251 @@
+2024-12-31 17:43:06,077 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2024-12-31 17:44:13,964 [Worker-5: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fi:TicketAPI:0.0.1-SNAPSHOT @ C:\Users\dac.STUDENTSDC\Downloads\TicketAPI\TicketAPI\pom.xml.
+2024-12-31 17:44:15,173 [Worker-5: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/main/java
+2024-12-31 17:44:15,175 [Worker-5: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 17:44:15,178 [Worker-5: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 17:44:15,181 [Worker-5: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/test/java
+2024-12-31 17:44:15,182 [Worker-5: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/test/resources
+2024-12-31 17:44:16,045 [Worker-5: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 4 sec
+2024-12-31 17:44:17,193 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 17:44:17,217 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 17:44:17,222 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Downloads\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 17:45:02,220 [Worker-3: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fi:TicketAPI:0.0.1-SNAPSHOT @ C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\pom.xml.
+2024-12-31 17:45:02,895 [Worker-3: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/main/java
+2024-12-31 17:45:02,896 [Worker-3: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 17:45:02,898 [Worker-3: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 17:45:02,899 [Worker-3: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/test/java
+2024-12-31 17:45:02,900 [Worker-3: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/test/resources
+2024-12-31 17:45:03,134 [Worker-3: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2024-12-31 17:45:03,692 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 17:45:03,719 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 17:45:03,724 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:38:26,369 [Worker-37: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fi:TicketAPI:0.0.1-SNAPSHOT @ C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\pom.xml.
+2024-12-31 21:38:27,633 [Worker-37: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/main/java
+2024-12-31 21:38:27,634 [Worker-37: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 21:38:27,636 [Worker-37: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/main/resources
+2024-12-31 21:38:27,639 [Worker-37: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TicketAPI/src/test/java
+2024-12-31 21:38:27,639 [Worker-37: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TicketAPI/src/test/resources
+2024-12-31 21:38:27,885 [Worker-37: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2024-12-31 21:38:28,351 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 21:38:28,386 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:38:28,392 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:39:10,303 [Worker-38: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ticketgenerator:ticketgenerate:0.0.1-SNAPSHOT @ C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\pom.xml.
+2024-12-31 21:39:10,814 [Worker-38: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ticketgenerate/src/main/java
+2024-12-31 21:39:10,816 [Worker-38: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ticketgenerate/src/main/resources
+2024-12-31 21:39:10,816 [Worker-38: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ticketgenerate/src/main/resources
+2024-12-31 21:39:10,817 [Worker-38: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ticketgenerate/src/test/java
+2024-12-31 21:39:10,817 [Worker-38: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ticketgenerate/src/test/resources
+2024-12-31 21:39:10,993 [Worker-38: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 1 sec
+2024-12-31 21:39:11,547 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 21:39:11,577 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:39:11,584 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 21:41:40,843 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:41:40,845 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:41:40,853 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:41:45,646 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 21:41:45,658 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:41:45,668 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:45:55,402 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 21:45:55,408 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:45:55,411 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 21:46:45,639 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:46:45,642 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:46:45,656 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:47:27,040 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:47:27,041 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:47:27,043 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:47:42,488 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:47:42,490 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:47:42,502 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:48:41,987 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:48:41,992 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:48:42,003 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 21:50:11,813 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:50:11,817 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 21:50:11,828 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:34:33,299 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:33,300 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:33,303 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:34:48,240 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:48,240 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:48,243 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:34:57,152 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:57,153 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:34:57,156 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:35:26,248 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:35:26,249 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:35:26,252 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:35:36,642 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:35:36,643 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:35:36,645 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:35:54,848 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:35:54,856 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:35:54,862 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:36:07,725 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:36:07,727 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:36:07,745 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:37:37,284 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:37,285 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:37,287 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:37:49,798 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:49,799 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:49,801 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:37:52,809 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:52,810 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:37:52,812 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:38:45,607 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:38:45,610 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:38:45,618 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:38:53,005 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:38:53,006 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:38:53,008 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:39:48,931 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:39:48,932 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:39:48,933 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:40:00,633 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:40:00,633 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:40:00,635 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:40:32,504 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:40:32,506 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:40:32,514 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:46:17,101 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:17,102 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:17,105 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:46:24,870 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:24,870 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:24,876 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:46:34,002 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:34,003 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:46:34,007 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:47:00,606 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:00,607 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:00,612 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:47:48,947 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:48,950 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:48,959 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:47:53,248 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:53,251 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:47:53,257 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:48:38,616 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:48:38,618 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:48:38,631 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:48:58,548 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:48:58,550 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:48:58,554 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:50:21,164 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:50:21,167 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:50:21,175 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:53:11,072 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:11,073 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:11,077 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:53:28,469 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:28,470 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:28,481 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:53:32,653 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:32,658 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:32,668 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:53:34,706 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:34,707 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:53:34,710 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:54:34,181 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:54:34,191 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:54:34,194 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:54:53,936 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:54:53,937 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:54:53,941 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:54:54,032 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:54:54,049 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:54:54,057 [Worker-50: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:56:05,108 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:56:05,123 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:56:05,127 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:56:10,139 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:56:10,150 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:56:10,163 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:56:13,444 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:56:13,448 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:56:13,450 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\ticketgenerate2\ticketgenerate\src\test\resources
+2024-12-31 22:56:58,816 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:56:58,822 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:56:58,831 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:02,530 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:57:02,543 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:02,551 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:06,087 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:06,088 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:06,090 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:17,170 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:57:17,177 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:17,182 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:23,430 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:23,431 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:23,435 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:33,687 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:33,688 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:33,690 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:47,427 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:47,427 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:47,429 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:57:57,154 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:57,155 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:57:57,157 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:58:31,824 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:58:31,825 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:58:31,827 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:59:01,951 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:01,952 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:01,956 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:59:44,932 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:44,932 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:44,934 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:59:58,853 [Worker-56: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fi:TicketAPI:0.0.1-SNAPSHOT @ C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\pom.xml.
+2024-12-31 22:59:59,322 [Worker-56: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/ticketgenerate: com.ticketgenerator:ticketgenerate:0.0.1-SNAPSHOT with classifier  to /ticketgenerate/target/classes
+2024-12-31 22:59:59,683 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:59,684 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:59,690 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 22:59:59,940 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 22:59:59,984 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 22:59:59,987 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:00:13,280 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:00:13,281 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:00:13,283 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:01:01,594 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-31 23:01:01,603 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:01:01,607 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:01:11,704 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:01:11,705 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:01:11,717 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:01:40,824 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:01:40,825 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:01:40,825 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:10:21,859 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:10:21,860 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:10:21,864 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:10:23,731 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:10:23,732 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:10:23,733 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:37:41,757 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:37:41,758 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:37:41,761 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:40:32,838 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:40:32,839 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:40:32,841 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:42:20,023 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:42:20,024 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:42:20,026 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:43:01,443 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:43:01,444 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:43:01,466 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:43:04,202 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:43:04,203 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:43:04,205 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2024-12-31 23:44:00,200 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:44:00,202 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-31 23:44:00,206 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2025-01-01 00:12:19,562 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-01-01 00:12:19,563 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-01-01 00:12:19,564 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2025-01-01 00:30:55,940 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-01-01 00:30:55,942 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-01-01 00:30:55,948 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\dac.STUDENTSDC\Desktop\Tejas\J2EE\TicketAPI\TicketAPI\TicketAPI\src\test\resources
+2025-01-01 00:47:55,182 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

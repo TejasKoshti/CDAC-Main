@@ -1,0 +1,51 @@
+package fi.TicketAPI.Service;
+
+import java.lang.annotation.Annotation;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
+import fi.TicketAPI.DTO.TicketDTO;
+import fi.TicketAPI.Entity.Ticket;
+import fi.TicketAPI.Repo.TicketRepository;
+
+@Service
+public class ServiceImpl implements Service{
+	
+	@Autowired
+	TicketRepository repository;
+
+	@Override
+	public boolean createTicket(TicketDTO dto) {
+		
+		Ticket ticket = new Ticket();
+		BeanUtils.copyProperties(dto, ticket);
+		System.out.println(dto);
+		repository.save(ticket);
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateTicket(Integer ID, TicketDTO dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<TicketDTO> allTickets() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TicketDTO fetchById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

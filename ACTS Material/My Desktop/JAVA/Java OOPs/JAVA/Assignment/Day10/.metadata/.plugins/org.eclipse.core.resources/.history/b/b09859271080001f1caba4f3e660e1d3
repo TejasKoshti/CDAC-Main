@@ -1,0 +1,180 @@
+package com.cdac.acts.tester;
+
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Scanner;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.current.CurrentAccount;
+import com.cdac.acts.account.fixed_deposite.FixedDeposite;
+import com.cdac.acts.account.saving.SavingAccount;
+import com.cdac.acts.date_utils.MyDate;
+import com.cdac.acts.minimum_balance_Exception.MinimumBalanceException;
+
+public class Tester {
+
+	public static void main(String[] args) throws ParseException, MinimumBalanceException {
+		
+		Account[] aArr = new Account[5];
+		int index = 0;
+		
+		while (true) {
+			
+			System.out.println("1 -> add saving account");
+			System.out.println("2 -> add current account");
+			System.out.println("3 -> add fixed deposit account");
+			System.out.println("4 -> deposit saving account");
+			System.out.println("5 -> withdraw saving account");
+			System.out.println("6 -> deposit current account");
+			System.out.println("7 -> withdraw current account");
+			System.out.println("8 -> deposit fixed deposit account");
+			System.out.println("9 -> display");
+			System.out.println("10-> exit");
+
+			Scanner sc = new Scanner(System.in);
+			int choice = sc.nextInt();
+			sc.nextLine();
+			
+			switch (choice) {
+				
+			case 1:
+			{
+				String name, strDate;
+				System.out.println("enter name: ");
+				name = sc.nextLine();
+				System.out.println("enter date: ");
+				strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				aArr[index] = new SavingAccount(name, date);
+				System.out.println("added successfully: " + aArr[index]);
+				index = index+1;
+			} break;
+			
+			case 2:
+			{
+				String name, strDate;
+				System.out.println("enter name: ");
+				name = sc.nextLine();
+				System.out.println("enter date: ");
+				strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				aArr[index++] = new CurrentAccount(name, date);
+			}break;
+			
+			case 3:
+			{
+				String name, strDate;
+				System.out.println("enter name: ");
+				name = sc.nextLine();
+				System.out.println("enter date: ");
+				strDate = sc.nextLine();
+				Date date = MyDate.getDate(strDate);
+				aArr[index++] = new FixedDeposite(name, date);
+			}break;
+			
+			case 4:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<5; i++) {
+					if (aNo == aArr[i].getAccNo()) {
+						if (aArr[i] instanceof SavingAccount) {
+							SavingAccount sa = (SavingAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							sa.deposit(amount);
+						}
+					} 
+				}
+			}break;
+			
+			case 5:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<5; i++) {
+					if (aNo == aArr[i].getAccNo()) {
+						if (aArr[i] instanceof SavingAccount) {
+							SavingAccount sa = (SavingAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							sa.withdraw(amount);
+						}
+					} 
+				}
+			} break;
+			
+			case 6:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo == aArr[i].getAccNo()) {
+						if (aArr[i] instanceof CurrentAccount) {
+							CurrentAccount ca = (CurrentAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							ca.deposit(amount);
+						}
+					} 
+				}
+			} break;
+			
+			case 7:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo == aArr[i].getAccNo()) {
+						if (aArr[i] instanceof CurrentAccount) {
+							CurrentAccount ca = (CurrentAccount) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							ca.withdraw(amount);
+						}
+					} 
+				}
+			} break;
+			
+			case 8:
+			{
+				System.out.println("enter account number: ");
+				String aNo = sc.nextLine();
+				
+				for (int i=0; i<index; i++) {
+					if (aNo == aArr[i].getAccNo()) {
+						if (aArr[i] instanceof FixedDeposite) {
+							FixedDeposite sa = (FixedDeposite) aArr[i];
+							System.out.println("enter amount: ");
+							double amount = sc.nextDouble();
+							sa.deposit(amount);
+						}
+					} 
+				}
+			} break;
+			
+			case 9:
+			{
+				System.out.println("display: ");				
+				for (int i=0; i<index; i++) {
+					System.out.println(aArr[i]);
+				}
+			} break;
+			
+			case 10:
+			{
+				sc.close();
+				System.exit(0);
+			} break;
+			
+			default:
+				System.out.println("invalid input");
+			}
+		}
+	}
+}
+			

@@ -1,0 +1,15 @@
+package com.cdac.acts.fruit.main;
+
+import java.util.ArrayList;
+
+import com.cdac.acts.fruit.Fruit;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//Collection I/F -> List I/F -> ArrayList CC(Concrete Class)
+		ArrayList<Fruit> fruitList = new ArrayList<Fruit>(); 
+	}
+
+}

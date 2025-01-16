@@ -1,0 +1,18 @@
+package com.cdac.acts.account.main;
+
+import java.util.List;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.data_utils.Data;
+
+public class AccountMain {
+
+	public static void main(String[] args) {
+		List<Account> list = Data.getData();
+		
+		for (Account a : list) {
+			System.out.println(a);
+		}
+	}
+
+}

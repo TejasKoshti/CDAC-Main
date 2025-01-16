@@ -1,0 +1,5 @@
+package fi.TicketAPI.Entity;
+
+public enum Category {
+
+}

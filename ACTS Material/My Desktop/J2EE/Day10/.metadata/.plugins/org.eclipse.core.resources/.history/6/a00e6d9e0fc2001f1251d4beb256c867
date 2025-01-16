@@ -1,0 +1,13 @@
+package fi.SpringBootHiberApp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootHiberAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootHiberAppApplication.class, args);
+	}
+
+}

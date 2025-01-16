@@ -1,0 +1,996 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 31
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use batch2;
+Database changed
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.ename = ()
+    -> ^C
+mysql>
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.ename = (
+    -> ^C
+mysql>
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.sal = (
+    -> select sal from emp
+    -> where ename='smith'^C
+mysql>
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.sal = (
+    -> ^C
+mysql>
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.sal > (
+    -> select sal from emp
+    -> where ename="smith");
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| ALLEN  | 1936.00 |
+| WARD   | 1375.00 |
+| JONES  | 3272.50 |
+| MARTIN | 1512.50 |
+| BLAKE  | 3135.00 |
+| CLARK  | 2695.00 |
+| SCOTT  | 3630.00 |
+| KING   | 5500.00 |
+| TURNER | 1650.00 |
+| ADAMS  | 1331.00 |
+| JAMES  | 1045.00 |
+| FORD   | 3300.00 |
+| MILLER | 1573.00 |
++--------+---------+
+13 rows in set (0.00 sec)
+
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> where e.sal > (
+    -> select sal from emp
+    -> where ename="clark");
++-------+---------+
+| ename | sal     |
++-------+---------+
+| JONES | 3272.50 |
+| BLAKE | 3135.00 |
+| SCOTT | 3630.00 |
+| KING  | 5500.00 |
+| FORD  | 3300.00 |
++-------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select e.ename , e.sal
+    -> from emp e
+    -> ^C
+mysql>
+mysql> select * from emp
+    -> where deptno = (select deptno from emp where ename='Smith');
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  968.00 | NULL |     20 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 3272.50 | NULL |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1331.00 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal< (select ename , sal from emp
+    -> where ename='Scott^C
+mysql> select * from emp
+    -> where sal< (select sal from emp
+    -> where ename='Scott')
+    -> and
+    -> sal> (select sal from emp
+    -> where ename='Adams');
++-------+--------+----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+----------+------+------------+---------+---------+--------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER  | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER  | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7902 | FORD   | ANALYST  | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK    | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+----------+------+------------+---------+---------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal in (select sal from emp
+    -> ;^C
+mysql>
+mysql> select * from emp
+    -> where sal >(select sal from emp
+    -> where ename in('Ward','Blake');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> select * from emp
+    -> where sal >(select sal from emp
+    -> where ename in('Ward','Blake'));
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql>
+mysql> select * from emp
+    -> ^C
+mysql>
+mysql> select * from emp
+    -> where sal > any (select sal from emp where ename in ('ward','blake'));
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal > all (select sal from emp where ename in ('ward','blake'));
++-------+-------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 3272.50 | NULL |     20 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5500.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ^C
+mysql> select * from emp
+    -> ^C
+mysql>
+mysql> select  * from emp
+    -> where sal>
+    -> (
+    -> select avg(sal) from emp
+    -> where deptno=10
+    -> );
++-------+-------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 3272.50 | NULL |     20 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5500.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select avg(sal) from emp;
++-------------+
+| avg(sal)    |
++-------------+
+| 2351.642857 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(sal) from emp where deptno =10;
++-------------+
+| avg(sal)    |
++-------------+
+| 3256.000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where job='analyst';
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3630.00 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3300.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select deptno, sum(sal) over(),min(sal) over()
+    -> from emp
+    -> where job='manager';
++--------+-----------------+-----------------+
+| deptno | sum(sal) over() | min(sal) over() |
++--------+-----------------+-----------------+
+|     20 |         9102.50 |         2695.00 |
+|     30 |         9102.50 |         2695.00 |
+|     10 |         9102.50 |         2695.00 |
++--------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE TABLE category (
+    -> cid INT PRIMARY KEY AUTO_INCREMENT,
+    -> cname VARCHAR(15) UNIQUE NOT NULL,
+    -> description VARCHAR(30)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO category (cname, description) VALUES
+    -> ('chips', 'very crunchy'),
+    -> ('chocolate', 'very chocolaty'),
+    -> ('snacks', 'yummy'),
+    -> ('cold drinks', 'thanda thanda cool cool');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from customer;
++--------+--------+----------+
+| custid | cname  | location |
++--------+--------+----------+
+|      2 | Ganesh | Pune     |
+|      3 | Kishor | Kothrud  |
+|      5 | Geeta  | Pimpri   |
+|      6 | Raj    | Aundh    |
+|      7 | Yash   | Aundh    |
++--------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+-------------+-------------------------+
+| cid | cname       | description             |
++-----+-------------+-------------------------+
+|   1 | chips       | very crunchy            |
+|   2 | chocolate   | very chocolaty          |
+|   3 | snacks      | yummy                   |
+|   4 | cold drinks | thanda thanda cool cool |
++-----+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    ->  category
+    -> CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman(sid)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman(sid)
+)' at line 10
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    -> CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman(sid)
+    -> );
+ERROR 1822 (HY000): Failed to add the foreign key constraint. Missing index for constraint 'fk_sid' in the referenced table 'salesman'
+mysql> selct * from salesman;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from salesman' at line 1
+mysql> select * from salesman;
++------+----------+--------+------------+
+| sid  | sname    | city   | experience |
++------+----------+--------+------------+
+|   10 | Rajesh   | mumbai |          5 |
+|   11 | Seema    | pune   |          8 |
+|   12 | Shailesh | Nagpur |          7 |
+|   13 | Rakhi    | Pune   |          2 |
++------+----------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> CREATE TABLE salesman (
+    -> sid INT PRIMARY KEY,
+    -> sname VARCHAR(15) UNIQUE NOT NULL,
+    -> city VARCHAR(15)
+    -> );
+ERROR 1050 (42S01): Table 'salesman' already exists
+mysql> CREATE TABLE salesman1 (
+    -> sid INT PRIMARY KEY,
+    -> sname VARCHAR(15) UNIQUE NOT NULL,
+    -> city VARCHAR(15)
+    -> );
+ERROR 1050 (42S01): Table 'salesman1' already exists
+mysql> select * from salesman1;
++------+----------+--------+------------+
+| sid  | sname    | city   | experience |
++------+----------+--------+------------+
+|   10 | Rajesh   | mumbai |          5 |
+|   11 | Seema    | pune   |          8 |
+|   12 | Shailesh | Nagpur |          7 |
+|   13 | Rakhi    | Pune   |          2 |
++------+----------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> drop salesman1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'salesman1' at line 1
+mysql> drop table salesman1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE salesman1 (
+    -> sid INT PRIMARY KEY,
+    -> sname VARCHAR(15) UNIQUE NOT NULL,
+    -> city VARCHAR(15)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO salesman (sid, sname, city) VALUES
+    -> (11, 'Rahul', 'Pune'),
+    -> (12, 'Kirti', 'Mumbai'),
+    -> (13, 'Prasad', 'Nashik'),
+    -> (14, 'Arnav', 'Amravati');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    -> CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman(sid)
+    -> );
+ERROR 1822 (HY000): Failed to add the foreign key constraint. Missing index for constraint 'fk_sid' in the referenced table 'salesman'
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 9
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    -> CONSTRAINT fk_sid FOREIGN KEY (sid) REFERENCES salesman1(sid)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman1` (`sid`))
+mysql>
+mysql> drop table product;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL,
+    ->
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 10
+mysql> CREATE TABLE Product (
+    -> pid INT PRIMARY KEY,
+    -> pname VARCHAR(20),
+    -> price DECIMAL(6, 2) DEFAULT 20.00,
+    -> qty INT CHECK (qty > 0),
+    -> cid INT,
+    -> sid INT,
+    -> CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE SET NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> alter table Product
+    -> add constraint fk_sid foreign key (sid) References salesman1(sid);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`batch2`.`#sql-3a64_1f`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman1` (`sid`))
+mysql> drop constraint fk_cid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'constraint fk_cid' at line 1
+mysql> alter table product
+    -> drop constraint fk_cid;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Product (pid, pname, price, qty, cid, sid) VALUES
+    -> (123, 'lays', 30.00, 30, 1, 12),
+    -> (111, 'pepsi', 50.00, 40, 4, 11),
+    -> (134, 'nachos', 50.00, 50, 1, 12),
+    -> (124, 'dairy milk', 60.00, 40, 2, 14),
+    -> (125, 'pringles', 60.00, 40, 1, 14),
+    -> (213, 'Sketch Pens', 150.00, 56, NULL, 11),
+    -> (167, 'eraser', 5.00, 90, NULL, NULL);
+ERROR 1062 (23000): Duplicate entry '123' for key 'product.PRIMARY'
+mysql> select * from product;
++-----+-------------+--------+------+------+------+
+| pid | pname       | price  | qty  | cid  | sid  |
++-----+-------------+--------+------+------+------+
+| 111 | pepsi       |  50.00 |   40 |    4 |   11 |
+| 123 | lays        |  30.00 |   30 |    1 |   12 |
+| 124 | dairy milk  |  60.00 |   40 |    2 |   14 |
+| 125 | pringles    |  60.00 |   40 |    1 |   14 |
+| 134 | nachos      |  50.00 |   50 |    1 |   12 |
+| 167 | eraser      |   5.00 |   90 | NULL | NULL |
+| 213 | Sketch Pens | 150.00 |   56 | NULL |   11 |
++-----+-------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+-------------+-------------------------+
+| cid | cname       | description             |
++-----+-------------+-------------------------+
+|   1 | chips       | very crunchy            |
+|   2 | chocolate   | very chocolaty          |
+|   3 | snacks      | yummy                   |
+|   4 | cold drinks | thanda thanda cool cool |
++-----+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from salesman1;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO salesman (sid, sname, city) VALUES
+    -> (11, 'Rahul', 'Pune'),
+    -> (12, 'Kirti', 'Mumbai'),
+    -> (13, 'Prasad', 'Nashik'),
+    -> (14, 'Arnav', 'Amravati');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO salesman1 (sid, sname, city) VALUES
+    -> (11, 'Rahul', 'Pune'),
+    -> (12, 'Kirti', 'Mumbai'),
+    -> (13, 'Prasad', 'Nashik'),
+    -> (14, 'Arnav', 'Amravati');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table product
+    -> add constraint fk_sid foreign key(sid) references salesman1(sid);
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> alter table product
+    -> add constraint fk_cid foreign key(cid) references category(cid);
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> describe product;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| pid   | int          | NO   | PRI | NULL    |       |
+| pname | varchar(20)  | YES  |     | NULL    |       |
+| price | decimal(6,2) | YES  |     | 20.00   |       |
+| qty   | int          | YES  |     | NULL    |       |
+| cid   | int          | YES  | MUL | NULL    |       |
+| sid   | int          | YES  | MUL | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from category ;
++-----+-------------+-------------------------+
+| cid | cname       | description             |
++-----+-------------+-------------------------+
+|   1 | chips       | very crunchy            |
+|   2 | chocolate   | very chocolaty          |
+|   3 | snacks      | yummy                   |
+|   4 | cold drinks | thanda thanda cool cool |
++-----+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select p.pid, p.pname , c.cid,c.cname
+    -> from product p, category c
+    -> where p.pid=c.cid;
+Empty set (0.00 sec)
+
+mysql> select p.pid, p.pname , c.cid,c.cname
+    -> from product p, category c
+    -> where c.cname='chips';
++-----+-------------+-----+-------+
+| pid | pname       | cid | cname |
++-----+-------------+-----+-------+
+| 111 | pepsi       |   1 | chips |
+| 123 | lays        |   1 | chips |
+| 124 | dairy milk  |   1 | chips |
+| 125 | pringles    |   1 | chips |
+| 134 | nachos      |   1 | chips |
+| 167 | eraser      |   1 | chips |
+| 213 | Sketch Pens |   1 | chips |
++-----+-------------+-----+-------+
+7 rows in set (0.00 sec)
+
+mysql> select p.pid, p.pname , c.cid,c.cname
+    -> from product p, category c
+    -> where c.cname='chips' and c.cid=p.cid;
++-----+----------+-----+-------+
+| pid | pname    | cid | cname |
++-----+----------+-----+-------+
+| 123 | lays     |   1 | chips |
+| 125 | pringles |   1 | chips |
+| 134 | nachos   |   1 | chips |
++-----+----------+-----+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from product
+    -> where sname ='kriti';
+ERROR 1054 (42S22): Unknown column 'sname' in 'where clause'
+mysql> select * from product
+    -> ;
++-----+-------------+--------+------+------+------+
+| pid | pname       | price  | qty  | cid  | sid  |
++-----+-------------+--------+------+------+------+
+| 111 | pepsi       |  50.00 |   40 |    4 |   11 |
+| 123 | lays        |  30.00 |   30 |    1 |   12 |
+| 124 | dairy milk  |  60.00 |   40 |    2 |   14 |
+| 125 | pringles    |  60.00 |   40 |    1 |   14 |
+| 134 | nachos      |  50.00 |   50 |    1 |   12 |
+| 167 | eraser      |   5.00 |   90 | NULL | NULL |
+| 213 | Sketch Pens | 150.00 |   56 | NULL |   11 |
++-----+-------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from salesman;
++------+----------+----------+------------+
+| sid  | sname    | city     | experience |
++------+----------+----------+------------+
+|   10 | Rajesh   | mumbai   |          5 |
+|   11 | Seema    | pune     |          8 |
+|   12 | Shailesh | Nagpur   |          7 |
+|   13 | Rakhi    | Pune     |          2 |
+|   11 | Rahul    | Pune     |       NULL |
+|   12 | Kirti    | Mumbai   |       NULL |
+|   13 | Prasad   | Nashik   |       NULL |
+|   14 | Arnav    | Amravati |       NULL |
+|   11 | Rahul    | Pune     |       NULL |
+|   12 | Kirti    | Mumbai   |       NULL |
+|   13 | Prasad   | Nashik   |       NULL |
+|   14 | Arnav    | Amravati |       NULL |
++------+----------+----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from salesman1;
++-----+--------+----------+
+| sid | sname  | city     |
++-----+--------+----------+
+|  11 | Rahul  | Pune     |
+|  12 | Kirti  | Mumbai   |
+|  13 | Prasad | Nashik   |
+|  14 | Arnav  | Amravati |
++-----+--------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select p.pname s.sname
+    -> from salesman1 s, product p
+    -> where s.sname='kriti';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sname
+from salesman1 s, product p
+where s.sname='kriti'' at line 1
+mysql> select p.pname s.sname
+    -> from salesman1 s, product p
+    -> where s.sname='kriti' and p.sid=s.sid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sname
+from salesman1 s, product p
+where s.sname='kriti' and p.sid=s.sid' at line 1
+mysql> select p.pname,s.sname
+    -> from salesman1 s, product p
+    -> where s.sname='kriti' and p.sid=s.sid;
+Empty set (0.00 sec)
+
+mysql> select p.pname s.sname
+    -> from salesman1 s, product p
+    -> where p.sid = (select sid from salesman where sname = 'Kirti');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sname
+from salesman1 s, product p
+where p.sid = (select sid from salesman whe' at line 1
+mysql> select p.pname ,s.sname
+    -> from salesman1 s, product p
+    -> where p.sid = (select sid from salesman where sname = 'Kirti');
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select pname from emp where sid=(select sid from salesman1 where sname="Kirti");
+ERROR 1054 (42S22): Unknown column 'pname' in 'field list'
+mysql> select pname from product where sid=(select sid from salesman1 where sname="Kirti");
++--------+
+| pname  |
++--------+
+| lays   |
+| nachos |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select p.pname,s.sname from product p,salesman1 s where sid=(select sid from salesman1 where sn
+ame="Kirti");
+ERROR 1052 (23000): Column 'sid' in where clause is ambiguous
+mysql> select p.pname,s.sname from product p,salesman1 s where sid=(select sid from salesman1 where sn
+ame="Kirti");
+ERROR 1052 (23000): Column 'sid' in where clause is ambiguous
+mysql> select p.pname,s.sname from product p,salesman1 s where s.sid=(select s1.sid from salesman1 s1
+where s1.sname="Kirti");
++-------------+-------+
+| pname       | sname |
++-------------+-------+
+| pepsi       | Kirti |
+| lays        | Kirti |
+| dairy milk  | Kirti |
+| pringles    | Kirti |
+| nachos      | Kirti |
+| eraser      | Kirti |
+| Sketch Pens | Kirti |
++-------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select p.pname,s.sname from product p,salesman1 s where s.sid=(select sid from salesman1 where
+sname="Kirti");
++-------------+-------+
+| pname       | sname |
++-------------+-------+
+| pepsi       | Kirti |
+| lays        | Kirti |
+| dairy milk  | Kirti |
+| pringles    | Kirti |
+| nachos      | Kirti |
+| eraser      | Kirti |
+| Sketch Pens | Kirti |
++-------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from salesman1 s where s.sid=(
+    -> select sid from product where cid is null);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select * from salesman1 s where s.sid is not (
+    -> select sid from product where catid is not null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+select sid from product where catid is not null)' at line 1
+mysql> select * from salesman1 s where s.sid = (
+    -> select sid from product where catid is null);
+ERROR 1054 (42S22): Unknown column 'catid' in 'where clause'
+mysql> select * from salesman1 s where s.sid = (
+    -> select p.sid from product p where p.catid is null);
+ERROR 1054 (42S22): Unknown column 'p.catid' in 'where clause'
+mysql> select p.sid from product p where p.cid is null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select * from salesman1 s where s.sid = (
+    -> select sid from product where cid is null and sid is not null);
++-----+-------+------+
+| sid | sname | city |
++-----+-------+------+
+|  11 | Rahul | Pune |
++-----+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from salesman1 s where s.sid = (
+    -> select sid from product p , salesman s where p.sid =s.sid and p.cid is null);
+ERROR 1052 (23000): Column 'sid' in field list is ambiguous
+mysql> select * from salesman1 s where s.sid = (
+    -> select s1.sid from product p , salesman s1 where p.sid =s1.sid and p.cid is null);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql>
+mysql> select  * from product where cid=null;
+Empty set (0.00 sec)
+
+mysql> select * from product;
++-----+-------------+--------+------+------+------+
+| pid | pname       | price  | qty  | cid  | sid  |
++-----+-------------+--------+------+------+------+
+| 111 | pepsi       |  50.00 |   40 |    4 |   11 |
+| 123 | lays        |  30.00 |   30 |    1 |   12 |
+| 124 | dairy milk  |  60.00 |   40 |    2 |   14 |
+| 125 | pringles    |  60.00 |   40 |    1 |   14 |
+| 134 | nachos      |  50.00 |   50 |    1 |   12 |
+| 167 | eraser      |   5.00 |   90 | NULL | NULL |
+| 213 | Sketch Pens | 150.00 |   56 | NULL |   11 |
++-----+-------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select  * from product where cid=
+    -> ^C
+mysql> select  * from category;
++-----+-------------+-------------------------+
+| cid | cname       | description             |
++-----+-------------+-------------------------+
+|   1 | chips       | very crunchy            |
+|   2 | chocolate   | very chocolaty          |
+|   3 | snacks      | yummy                   |
+|   4 | cold drinks | thanda thanda cool cool |
++-----+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from product
+    -> where cid is null;
++-----+-------------+--------+------+------+------+
+| pid | pname       | price  | qty  | cid  | sid  |
++-----+-------------+--------+------+------+------+
+| 167 | eraser      |   5.00 |   90 | NULL | NULL |
+| 213 | Sketch Pens | 150.00 |   56 | NULL |   11 |
++-----+-------------+--------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from salesman1
+    -> where city=(select city from salesman1 )
+    -> select * from salesman1
+    -> where city=(select city from salesman1
+    -> where regex_like(sname,'^(p | n)')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from salesman1
+where city=(select city from salesman1
+where regex_lik' at line 3
+mysql> select * from salesman1
+    -> where city=(select city from salesman1
+    -> select * from salesman1
+    -> where city=(select city from salesman1
+    -> where regex_like(sname,'^(p | n)')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from salesman1
+where city=(select city from salesman1
+where regex_like(' at line 3
+mysql> select * from salesman1
+    -> where city=(
+    -> select city from salesman1
+    -> where regex_like(sname,'^(p | n)')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+mysql> select * from salesman1
+    -> where city=(
+    -> select city from salesman1
+    -> where regex_like(sname,'^(p | n)')
+    -> );
+ERROR 1305 (42000): FUNCTION batch2.regex_like does not exist
+mysql> select * from salesman1
+    -> where city=(
+    -> select city from salesman1
+    -> where regexp_like(sname,'^(p | n)')
+    -> );
+Empty set (0.00 sec)
+
+mysql> select * from salesman1
+    -> where city=(
+    -> select city from salesman1
+    -> where regexp_like(city,'^(p | n)')
+    -> );
+Empty set (0.00 sec)
+
+mysql> select * from salesman1
+    -> where city any (
+    -> select city from salesman1
+    -> where regexp_like(city,'^(p | n)')
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'any (
+select city from salesman1
+where regexp_like(city,'^(p | n)')
+)' at line 2
+mysql> )select * from salesman1
+    -> where city any (
+    -> select city from salesman1
+    -> where regexp_like(city,'^p')
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')select * from salesman1
+where city any (
+select city from salesman1
+where regex' at line 1
+mysql>
+mysql> select * from salesman1
+    -> where city any (
+    -> select city from salesman1
+    -> where regexp_like(city,'^p')
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'any (
+select city from salesman1
+where regexp_like(city,'^p')
+)' at line 2
+mysql> select * from salesman1
+    -> where city = (
+    -> select city from salesman1
+    -> where regexp_like(city,'^p')
+    -> );
++-----+-------+------+
+| sid | sname | city |
++-----+-------+------+
+|  11 | Rahul | Pune |
++-----+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from salesman1
+    -> where city = (
+    -> select city from salesman1
+    -> where regexp_like(city,'^(p|n)')
+    -> );
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select * from salesman1
+    -> where city in (
+    -> select city from salesman1
+    -> where regexp_like(city,'^(p|n)')
+    -> );
++-----+--------+--------+
+| sid | sname  | city   |
++-----+--------+--------+
+|  11 | Rahul  | Pune   |
+|  13 | Prasad | Nashik |
++-----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> alter table salesman1
+    -> add column credit_limit int;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * fromsalesman1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fromsalesman1' at line 1
+mysql> select * from salesman1;
++-----+--------+----------+--------------+
+| sid | sname  | city     | credit_limit |
++-----+--------+----------+--------------+
+|  11 | Rahul  | Pune     |         NULL |
+|  12 | Kirti  | Mumbai   |         NULL |
+|  13 | Prasad | Nashik   |         NULL |
+|  14 | Arnav  | Amravati |         NULL |
++-----+--------+----------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select deptno , dname from emp
+    -> ;
+ERROR 1054 (42S22): Unknown column 'dname' in 'field list'
+mysql> select d.deptno , d.dname from emp e, dept d
+    -> where d.deptno=(select deptno from dept where deptno is null);
+Empty set (0.00 sec)
+
+mysql> select d.deptno , d.dname from emp e, dept d
+    -> ^C
+mysql>
+mysql> select d.deptno , d.dname from dept d
+    -> ^C
+mysql>
+mysql> select d.deptno , d.dname from dept d
+    -> ^C
+mysql> select *  from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select *  from  dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select deptno over(partition by deptno), dname , count(*) from emp
+    -> select *  from  dept;^C
+mysql> select deptno over(partition by deptno), dname , count(*) from emp e
+    -> where (select count(*) from dept d where d.deptno = e.deptno);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'over(partition by deptno), dname , count(*) from emp e
+where (select count(*) fr' at line 1
+mysql> select e.deptno over(partition by deptno), e.dname , count(*) from emp e
+    -> where (select count(*) from dept d where d.deptno = e.deptno);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'over(partition by deptno), e.dname , count(*) from emp e
+where (select count(*) ' at line 1
+mysql>
+mysql> update emp set deptno = null where ename='miller';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select d.deptno , d.dname from emp e, dept d
+    -> where d.deptno=(select deptno from dept where deptno is null);
+Empty set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |   NULL |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql>

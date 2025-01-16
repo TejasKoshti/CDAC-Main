@@ -1,0 +1,13 @@
+
+public class Main {
+	public static void performException() {
+		if (true) {
+			throw new MyUnCheckedException("Error..............");
+		}
+		System.out.println("no problem");
+	}
+	
+	public static void main(String[] args) {
+		Main.performException();
+	}
+}

@@ -1,0 +1,51 @@
+package com.cdac.acts.apple_main;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import com.cdac.acts.apple.Apple;
+import com.cdac.acts.apple.data.Data_Utils;
+
+public class AppleTester {
+
+	public static void main(String[] args) {
+
+		List<Apple> list = Data_Utils.getData();
+		
+		System.out.println("Separate Green and Red Apples");
+		Map<Boolean, List<Apple>> apples = list.stream()
+		.collect(Collectors.partitioningBy(a -> a.getColor().equals("Green")));
+		
+		 List<Apple> greenApple = apples.get(true);
+	        List<Apple> redApples = apples.get(false);
+//		.collect(Collector
+//		list1.forEach((condition, lists) -> {
+//			System.out.println("Condition " + condition);
+//			lists.forEach(System.out::println);
+//			System.out.println();
+//		});
+		
+		System.out.println();
+		
+		System.out.println("Sort Apple by Color and then Weight");
+		
+		List<Apple> sortedList = list.stream()
+		.sorted(Comparator.comparing(Apple::getTaste).reversed()
+				.thenComparing(Apple::getWeight))
+		.collect(Collectors.toList());
+		System.out.println(sortedList);
+		
+		System.out.println();
+		
+		System.out.println("List to Set");
+		Set<Apple> set = list.stream()
+				.map(a -> a)
+				.collect(Collectors.toSet());
+		
+		set.forEach(System.out::println);
+	}
+
+}

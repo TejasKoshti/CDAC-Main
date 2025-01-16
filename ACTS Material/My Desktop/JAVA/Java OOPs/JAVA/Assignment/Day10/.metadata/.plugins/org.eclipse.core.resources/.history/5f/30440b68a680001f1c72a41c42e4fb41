@@ -1,0 +1,51 @@
+package com.cdac.acts.tester;
+
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Scanner;
+
+import com.cdac.acts.address.Address;
+import com.cdac.acts.date_utils.MyDate;
+import com.cdac.acts.person.Person;
+
+public class PersonTester {
+	
+	/*
+	 * public static Address getAddress(Scanner sc) {
+	 * System.out.println("Enter line1"); String line1 = sc.nextLine();
+	 * 
+	 * System.out.println("Enter line2"); String line2 = sc.nextLine();
+	 * 
+	 * System.out.println("Enter landmark"); String landmark = sc.nextLine();
+	 * 
+	 * System.out.println("Enter district"); String district = sc.nextLine();
+	 * 
+	 * System.out.println("Enter pin"); String pin = sc.nextLine();
+	 * 
+	 * return new Address(line1, line2, landmark, district, pin); }
+	 */
+	
+	public static void main(String[] args) throws ParseException  {
+		
+		/*
+		 * Scanner sc = new Scanner(System.in); System.out.println("Enter Name"); String
+		 * name = sc.nextLine();
+		 * 
+		 * System.out.println("Enter Date of Birth in dd/MM/yyyy format"); String str =
+		 * sc.nextLine(); Date date = MyDate.getDate(str);
+		 * 
+		 * Address addr = PersonTester.getAddress(sc);
+		 * 
+		 * Person p = new Person(name, date, addr);
+		 * 
+		 * System.out.println(p);
+		 */
+		
+		Address addV = new Address("a", "a", "a" , "a", "a");
+		Address addG = new Address("g", "g", "g" , "g", "g");
+
+		Person pV = new Person("vaibhv", "01/06/2001", addV);
+		Person pG = new Person("gandhi", "0/10/1869", addG);
+
+	}
+}

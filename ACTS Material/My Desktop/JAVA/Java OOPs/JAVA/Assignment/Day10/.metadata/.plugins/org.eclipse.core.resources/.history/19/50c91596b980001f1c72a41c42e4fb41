@@ -1,0 +1,17 @@
+
+public class Main {
+	public static void performException() {
+		if (true) {
+			throw new MyUnCheckedException("Error..............");
+		}
+		System.out.println("no problem");
+	}
+	
+	public static void main(String[] args) {
+		try {
+		Main.performException();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}

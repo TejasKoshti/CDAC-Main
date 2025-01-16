@@ -1,0 +1,44 @@
+package com.cdac.acts.tester;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.cdac.actss.Employee;
+
+
+public class MapTester {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Map<Integer, Employee> map = new HashMap<>();
+		int choice = 0;
+		do {
+			System.out.println("1. Register or add Perm employee"
+					+ "\n2. Register or add Contract employee"
+					+ "\n3. for Printing emp with specific emp id"
+					+ "\n4. print all emp"
+					+ "\n5. Change name of emp with supplying empid"
+					+ "\n6. Print employee with same title"
+					+ "\n0. Exit");
+			choice = sc.nextInt();
+			
+			switch(choice) {
+			
+			case 1:
+				
+				Date date  =  Utu
+			
+			
+			}
+			
+		}while(choice != 0);
+		
+		
+		
+		
+	}
+
+}

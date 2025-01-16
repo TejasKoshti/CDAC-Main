@@ -1,0 +1,5 @@
+package fi.MicroUsersService.dto;
+
+public class UsersDTO {
+
+}

@@ -1,0 +1,9 @@
+package com.cdac.acts.fruits.tester;
+
+public class FruitsTester {
+
+	public static void main(String[] args) {
+		List<Fruits> list = new ArrayList<>();
+	}
+
+}

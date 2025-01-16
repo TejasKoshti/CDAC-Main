@@ -1,0 +1,40 @@
+package fi.MicroUsersService.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fi.MicroUsersService.dto.UsersDTO;
+import fi.MicroUsersService.entity.Users;
+import fi.MicroUsersService.repository.UsersRepository;
+
+@Service
+public class UsersServiceImpl implements UsersService {
+
+	@Autowired
+	UsersRepository usersRepository;
+
+	@Override
+	public UsersDTO getUserDetails(String username) {
+
+		Users entity = usersRepository.findById(username).get();
+		UsersDTO dto = new UsersDTO();
+		BeanUtils.copyProperties(entity, dto);
+		return dto;
+	}
+
+	@Override
+	public List<UsersDTO> allUsers() {
+		List<Users> list = usersRepository.findAll();
+		ArrayList<UsersDTO> finalList = new ArrayList<>();
+		for (Users entity : list) {
+			UsersDTO dto = new UsersDTO();
+			BeanUtils.copyProperties(entity, dto);
+			finalList.add(dto);
+		}
+		return finalList;
+	}
+}

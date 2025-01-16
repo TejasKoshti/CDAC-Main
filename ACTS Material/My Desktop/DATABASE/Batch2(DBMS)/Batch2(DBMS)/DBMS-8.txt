@@ -1,0 +1,385 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 29
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use batch2;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_batch2 |
++------------------+
+| bonus            |
+| customer         |
+| customer1        |
+| dept             |
+| dept10           |
+| dept100          |
+| dummy            |
+| emp              |
+| emp10            |
+| emp100           |
+| employee         |
+| salesman         |
+| salesman1        |
+| salgrade         |
+| transaction      |
+| vehicle          |
++------------------+
+16 rows in set (0.00 sec)
+
+mysql> select empno,ename,deptno,sal,avg(sal),min(sal) over(), max(sal) over()
+    -> from emp;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'batch2.emp.EMPNO'; this is incompatible with sql_mode=only_full_group_by
+mysql> select empno,ename,deptno,sal,avg(sal) over(),min(sal) over(), max(sal) over()
+    -> from emp;
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+| empno | ename  | deptno | sal     | avg(sal) over() | min(sal) over() | max(sal) over() |
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+|  7369 | SMITH  |     20 |  968.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7499 | ALLEN  |     30 | 1936.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7521 | WARD   |     30 | 1375.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7566 | JONES  |     20 | 3272.50 |     2351.642857 |          968.00 |         5500.00 |
+|  7654 | MARTIN |     30 | 1512.50 |     2351.642857 |          968.00 |         5500.00 |
+|  7698 | BLAKE  |     30 | 3135.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7782 | CLARK  |     10 | 2695.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7788 | SCOTT  |     20 | 3630.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7839 | KING   |     10 | 5500.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7844 | TURNER |     30 | 1650.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7876 | ADAMS  |     20 | 1331.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7900 | JAMES  |     30 | 1045.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7902 | FORD   |     20 | 3300.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7934 | MILLER |     10 | 1573.00 |     2351.642857 |          968.00 |         5500.00 |
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+14 rows in set (0.00 sec)
+
+mysql> select empno,ename,deptno,sal,min(sal) over(partition by deptno)
+    -> from emp;
++-------+--------+--------+---------+------------------------------------+
+| empno | ename  | deptno | sal     | min(sal) over(partition by deptno) |
++-------+--------+--------+---------+------------------------------------+
+|  7782 | CLARK  |     10 | 2695.00 |                            1573.00 |
+|  7839 | KING   |     10 | 5500.00 |                            1573.00 |
+|  7934 | MILLER |     10 | 1573.00 |                            1573.00 |
+|  7369 | SMITH  |     20 |  968.00 |                             968.00 |
+|  7566 | JONES  |     20 | 3272.50 |                             968.00 |
+|  7788 | SCOTT  |     20 | 3630.00 |                             968.00 |
+|  7876 | ADAMS  |     20 | 1331.00 |                             968.00 |
+|  7902 | FORD   |     20 | 3300.00 |                             968.00 |
+|  7499 | ALLEN  |     30 | 1936.00 |                            1045.00 |
+|  7521 | WARD   |     30 | 1375.00 |                            1045.00 |
+|  7654 | MARTIN |     30 | 1512.50 |                            1045.00 |
+|  7698 | BLAKE  |     30 | 3135.00 |                            1045.00 |
+|  7844 | TURNER |     30 | 1650.00 |                            1045.00 |
+|  7900 | JAMES  |     30 | 1045.00 |                            1045.00 |
++-------+--------+--------+---------+------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select empno,ename,deptno,sal,min(sal) over(partition by deptno)
+    -> from emp
+    -> group by deptno;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregatedcolumn 'batch2.emp.EMPNO' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select deptno,min(sal) over(partition by deptno)
+    -> from emp;
++--------+------------------------------------+
+| deptno | min(sal) over(partition by deptno) |
++--------+------------------------------------+
+|     10 |                            1573.00 |
+|     10 |                            1573.00 |
+|     10 |                            1573.00 |
+|     20 |                             968.00 |
+|     20 |                             968.00 |
+|     20 |                             968.00 |
+|     20 |                             968.00 |
+|     20 |                             968.00 |
+|     30 |                            1045.00 |
+|     30 |                            1045.00 |
+|     30 |                            1045.00 |
+|     30 |                            1045.00 |
+|     30 |                            1045.00 |
+|     30 |                            1045.00 |
++--------+------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select deptno,min(sal) over(partition by deptno)
+    -> from emp
+    -> group by deptno;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregatedcolumn 'batch2.emp.SAL' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select deptno,min(sal) over()
+    -> from emp
+    -> group by deptno;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregatedcolumn 'batch2.emp.SAL' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select empno,ename,deptno,sal,avg(sal) over(),min(sal) over(), max(sal) over()
+    -> from emp;
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+| empno | ename  | deptno | sal     | avg(sal) over() | min(sal) over() | max(sal) over() |
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+|  7369 | SMITH  |     20 |  968.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7499 | ALLEN  |     30 | 1936.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7521 | WARD   |     30 | 1375.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7566 | JONES  |     20 | 3272.50 |     2351.642857 |          968.00 |         5500.00 |
+|  7654 | MARTIN |     30 | 1512.50 |     2351.642857 |          968.00 |         5500.00 |
+|  7698 | BLAKE  |     30 | 3135.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7782 | CLARK  |     10 | 2695.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7788 | SCOTT  |     20 | 3630.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7839 | KING   |     10 | 5500.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7844 | TURNER |     30 | 1650.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7876 | ADAMS  |     20 | 1331.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7900 | JAMES  |     30 | 1045.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7902 | FORD   |     20 | 3300.00 |     2351.642857 |          968.00 |         5500.00 |
+|  7934 | MILLER |     10 | 1573.00 |     2351.642857 |          968.00 |         5500.00 |
++-------+--------+--------+---------+-----------------+-----------------+-----------------+
+14 rows in set (0.00 sec)
+
+mysql> select  ename, sal, sum(sal)
+    -> from emp
+    -> where sal >1000
+    -> group by job;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregatedcolumn 'batch2.emp.ENAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql> select  ename, sal, sum(sal) over()
+    -> ^C
+mysql> select  ename, sal, sum(sal) over(partition by job)
+    -> from emp;
++--------+---------+---------------------------------+
+| ename  | sal     | sum(sal) over(partition by job) |
++--------+---------+---------------------------------+
+| SCOTT  | 3630.00 |                         6930.00 |
+| FORD   | 3300.00 |                         6930.00 |
+| SMITH  |  968.00 |                         4917.00 |
+| ADAMS  | 1331.00 |                         4917.00 |
+| JAMES  | 1045.00 |                         4917.00 |
+| MILLER | 1573.00 |                         4917.00 |
+| JONES  | 3272.50 |                         9102.50 |
+| BLAKE  | 3135.00 |                         9102.50 |
+| CLARK  | 2695.00 |                         9102.50 |
+| KING   | 5500.00 |                         5500.00 |
+| ALLEN  | 1936.00 |                         6473.50 |
+| WARD   | 1375.00 |                         6473.50 |
+| MARTIN | 1512.50 |                         6473.50 |
+| TURNER | 1650.00 |                         6473.50 |
++--------+---------+---------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  968.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1936.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1375.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3272.50 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1512.50 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3630.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1650.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1331.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1573.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, job, count(*)
+    -> where job='clerk'
+    -> grouping by job;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'grouping by job' at line 3
+mysql> select ename, job, count(*)
+    -> from emp
+    -> where job='clerk'
+    -> group by job;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregatedcolumn 'batch2.emp.ENAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select ename, job, count(*) over(partition by job)
+    -> from emp
+    -> where job='clerk';
++--------+-------+---------------------------------+
+| ename  | job   | count(*) over(partition by job) |
++--------+-------+---------------------------------+
+| SMITH  | CLERK |                               4 |
+| ADAMS  | CLERK |                               4 |
+| JAMES  | CLERK |                               4 |
+| MILLER | CLERK |                               4 |
++--------+-------+---------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename, job, count(*) over(partition by deptno)
+    -> from emp;
++--------+-----------+------------------------------------+
+| ename  | job       | count(*) over(partition by deptno) |
++--------+-----------+------------------------------------+
+| CLARK  | MANAGER   |                                  3 |
+| KING   | PRESIDENT |                                  3 |
+| MILLER | CLERK     |                                  3 |
+| SMITH  | CLERK     |                                  5 |
+| JONES  | MANAGER   |                                  5 |
+| SCOTT  | ANALYST   |                                  5 |
+| ADAMS  | CLERK     |                                  5 |
+| FORD   | ANALYST   |                                  5 |
+| ALLEN  | SALESMAN  |                                  6 |
+| WARD   | SALESMAN  |                                  6 |
+| MARTIN | SALESMAN  |                                  6 |
+| BLAKE  | MANAGER   |                                  6 |
+| TURNER | SALESMAN  |                                  6 |
+| JAMES  | CLERK     |                                  6 |
++--------+-----------+------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, job, count(*) over(partition by deptno)
+    -> where job='clerk'
+    -> ^C
+mysql>
+mysql> select ename, job, count(*) over(partition by deptno)
+    -> from emp
+    -> where job='clerk';
++--------+-------+------------------------------------+
+| ename  | job   | count(*) over(partition by deptno) |
++--------+-------+------------------------------------+
+| MILLER | CLERK |                                  1 |
+| SMITH  | CLERK |                                  2 |
+| ADAMS  | CLERK |                                  2 |
+| JAMES  | CLERK |                                  1 |
++--------+-------+------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename, job,deptno, count(*) over(partition by deptno)
+    -> from emp
+    -> where job='clerk';
++--------+-------+--------+------------------------------------+
+| ename  | job   | deptno | count(*) over(partition by deptno) |
++--------+-------+--------+------------------------------------+
+| MILLER | CLERK |     10 |                                  1 |
+| SMITH  | CLERK |     20 |                                  2 |
+| ADAMS  | CLERK |     20 |                                  2 |
+| JAMES  | CLERK |     30 |                                  1 |
++--------+-------+--------+------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,mgr, count(mgr) over (partition by mgr) from emp;
++--------+------+------------------------------------+
+| ename  | mgr  | count(mgr) over (partition by mgr) |
++--------+------+------------------------------------+
+| KING   | NULL |                                  0 |
+| SCOTT  | 7566 |                                  2 |
+| FORD   | 7566 |                                  2 |
+| ALLEN  | 7698 |                                  5 |
+| WARD   | 7698 |                                  5 |
+| MARTIN | 7698 |                                  5 |
+| TURNER | 7698 |                                  5 |
+| JAMES  | 7698 |                                  5 |
+| MILLER | 7782 |                                  1 |
+| ADAMS  | 7788 |                                  1 |
+| JONES  | 7839 |                                  3 |
+| BLAKE  | 7839 |                                  3 |
+| CLARK  | 7839 |                                  3 |
+| SMITH  | 7902 |                                  1 |
++--------+------+------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select mgr,ename 'mgrname', count(mgr) over (partition by mgr) 'emp_under_mgr' from emp;
++------+---------+---------------+
+| mgr  | mgrname | emp_under_mgr |
++------+---------+---------------+
+| NULL | KING    |             0 |
+| 7566 | SCOTT   |             2 |
+| 7566 | FORD    |             2 |
+| 7698 | ALLEN   |             5 |
+| 7698 | WARD    |             5 |
+| 7698 | MARTIN  |             5 |
+| 7698 | TURNER  |             5 |
+| 7698 | JAMES   |             5 |
+| 7782 | MILLER  |             1 |
+| 7788 | ADAMS   |             1 |
+| 7839 | JONES   |             3 |
+| 7839 | BLAKE   |             3 |
+| 7839 | CLARK   |             3 |
+| 7902 | SMITH   |             1 |
++------+---------+---------------+
+14 rows in set (0.00 sec)
+
+
+mysql> select ename,deptno, sal, count(*) over(partition by deptno)
+    -> from emp where sal>1500;
++--------+--------+---------+------------------------------------+
+| ename  | deptno | sal     | count(*) over(partition by deptno) |
++--------+--------+---------+------------------------------------+
+| CLARK  |     10 | 2695.00 |                                  3 |
+| KING   |     10 | 5500.00 |                                  3 |
+| MILLER |     10 | 1573.00 |                                  3 |
+| JONES  |     20 | 3272.50 |                                  3 |
+| SCOTT  |     20 | 3630.00 |                                  3 |
+| FORD   |     20 | 3300.00 |                                  3 |
+| ALLEN  |     30 | 1936.00 |                                  4 |
+| MARTIN |     30 | 1512.50 |                                  4 |
+| BLAKE  |     30 | 3135.00 |                                  4 |
+| TURNER |     30 | 1650.00 |                                  4 |
++--------+--------+---------+------------------------------------+
+10 rows in set (0.00 sec)
+
+mysql> select
+    -> ename,sal,
+    -> max(sal) over(),
+    -> min(sal) over(),
+    -> (max(sal) over() - min(sal) over()) as "diff_max_min",
+    -> (max(sal) over() -sal) as 'diff_max_emp_sal'
+    -> from emp;
++--------+---------+-----------------+-----------------+--------------+------------------+
+| ename  | sal     | max(sal) over() | min(sal) over() | diff_max_min | diff_max_emp_sal |
++--------+---------+-----------------+-----------------+--------------+------------------+
+| SMITH  |  968.00 |         5500.00 |          968.00 |      4532.00 |          4532.00 |
+| ALLEN  | 1936.00 |         5500.00 |          968.00 |      4532.00 |          3564.00 |
+| WARD   | 1375.00 |         5500.00 |          968.00 |      4532.00 |          4125.00 |
+| JONES  | 3272.50 |         5500.00 |          968.00 |      4532.00 |          2227.50 |
+| MARTIN | 1512.50 |         5500.00 |          968.00 |      4532.00 |          3987.50 |
+| BLAKE  | 3135.00 |         5500.00 |          968.00 |      4532.00 |          2365.00 |
+| CLARK  | 2695.00 |         5500.00 |          968.00 |      4532.00 |          2805.00 |
+| SCOTT  | 3630.00 |         5500.00 |          968.00 |      4532.00 |          1870.00 |
+| KING   | 5500.00 |         5500.00 |          968.00 |      4532.00 |             0.00 |
+| TURNER | 1650.00 |         5500.00 |          968.00 |      4532.00 |          3850.00 |
+| ADAMS  | 1331.00 |         5500.00 |          968.00 |      4532.00 |          4169.00 |
+| JAMES  | 1045.00 |         5500.00 |          968.00 |      4532.00 |          4455.00 |
+| FORD   | 3300.00 |         5500.00 |          968.00 |      4532.00 |          2200.00 |
+| MILLER | 1573.00 |         5500.00 |          968.00 |      4532.00 |          3927.00 |
++--------+---------+-----------------+-----------------+--------------+------------------+
+14 rows in set (0.00 sec)
+
+mysql> select
+    -> ename,sal,
+    -> max(sal) over(),
+    -> min(sal) over(),
+    -> (max(sal) over() - min(sal) over()) as "diff_max_min",
+    -> (max(sal) over() -sal) as 'diff_max_emp_sal'
+    -> from emp
+    -> where deptno=20;
++-------+---------+-----------------+-----------------+--------------+------------------+
+| ename | sal     | max(sal) over() | min(sal) over() | diff_max_min | diff_max_emp_sal |
++-------+---------+-----------------+-----------------+--------------+------------------+
+| SMITH |  968.00 |         3630.00 |          968.00 |      2662.00 |          2662.00 |
+| JONES | 3272.50 |         3630.00 |          968.00 |      2662.00 |           357.50 |
+| SCOTT | 3630.00 |         3630.00 |          968.00 |      2662.00 |             0.00 |
+| ADAMS | 1331.00 |         3630.00 |          968.00 |      2662.00 |          2299.00 |
+| FORD  | 3300.00 |         3630.00 |          968.00 |      2662.00 |           330.00 |
++-------+---------+-----------------+-----------------+--------------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select ename,deptno from emp where deptno=20;
++-------+--------+
+| ename | deptno |
++-------+--------+
+| SMITH |     20 |
+| JONES |     20 |
+| SCOTT |     20 |
+| ADAMS |     20 |
+| FORD  |     20 |
++-------+--------+
+5 rows in set (0.00 sec)
+

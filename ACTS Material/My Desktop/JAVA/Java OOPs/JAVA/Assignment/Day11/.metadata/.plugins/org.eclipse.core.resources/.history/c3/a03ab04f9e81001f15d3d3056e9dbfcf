@@ -1,0 +1,11 @@
+package com.cdac.acts.account.comparator;
+
+import java.util.Comparator;
+
+import com.cdac.acts.account.Account;
+
+public class DateComparator extends Comparator<Account>{
+	public int compare(Account a, Account b) {
+		return a.getDoj().compareTo(a.getDoj());
+	}
+}

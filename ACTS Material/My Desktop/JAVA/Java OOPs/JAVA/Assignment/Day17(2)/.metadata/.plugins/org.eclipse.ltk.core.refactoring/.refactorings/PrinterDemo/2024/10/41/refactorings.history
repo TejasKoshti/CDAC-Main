@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;map&apos; in &apos;com.cdac.acts.data_utils.DataUtils.getData()&apos; to &apos;list&apos;&#x0D;&#x0A;- Original project: &apos;PrinterDemo&apos;&#x0D;&#x0A;- Original element: &apos;com.cdac.acts.data_utils.DataUtils.getData().map&apos;&#x0D;&#x0A;- Renamed element: &apos;map&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;map&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.cdac.acts.data_utils{DataUtils.java[DataUtils~getData@map!878!913!892!894!QList\&lt;QPrinter;&gt;;!0!false" name="list" references="true" stamp="1728574613355" version="1.0"/>
+</session>

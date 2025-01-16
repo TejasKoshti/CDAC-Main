@@ -1,0 +1,54 @@
+package com.cdac.acts.data_utils;
+
+import static java.time.LocalDate.parse;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.cdac.acts.printer.Printer;
+import static com.cdac.acts.printer_type.PrinterType.CONTINOUS_INK;
+import static com.cdac.acts.printer_type.PrinterType.DOT_MATRIX;
+import static com.cdac.acts.printer_type.PrinterType.INKJET;
+import static com.cdac.acts.printer_type.PrinterType.LASER;
+import static com.cdac.acts.printer_type.PrinterType.LED;
+import static com.cdac.acts.printer_type.PrinterType.SOLID_INK;
+
+public class DataUtils {
+
+	private DataUtils() {
+	}
+
+	public static List<Printer> getData() {
+
+		List<Printer> list = new LinkedList<>();
+
+		Printer p1 = new Printer("C_123", 1500.0, CONTINOUS_INK, parse("2022-02-09"));
+		list.add(p1);
+
+		p1 = new Printer("I_124", 2000.0, INKJET, parse("2021-05-15"));
+		list.add(p1);
+		
+//		p1 = new Printer("I_124", 2000.0, INKJET, parse("2021-05-15"));
+//		list.add(p1);
+//		
+//		p1 = new Printer("I_124", 213.0, INKJET, parse("2021-05-15"));
+//		list.add(p1);
+//		
+//		p1 = new Printer("I_124", 2054600.0, INKJET, parse("2021-05-15"));
+//		list.add(p1);
+//
+//		p1 = new Printer("L_125", 2500.0, LASER, parse("2023-01-22"));
+//		list.add(p1);
+//
+//		p1 = new Printer("D_126", 1800.0, DOT_MATRIX, parse("2020-11-30"));
+//		list.add(p1);
+//
+//		p1 = new Printer("L_127", 2200.0, LED, parse("2021-07-25"));
+//		list.add(p1);
+//        
+//        p1 = new Printer("S_128", 1600.0, SOLID_INK, parse("2022-03-10"));
+//		list.add(p1);
+//        	list.add(p1);
+        
+		return list;
+	}
+}

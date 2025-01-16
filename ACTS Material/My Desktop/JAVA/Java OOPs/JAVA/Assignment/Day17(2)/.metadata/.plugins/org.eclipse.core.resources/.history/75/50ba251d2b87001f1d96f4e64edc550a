@@ -1,0 +1,106 @@
+package com.cdac.acts.main;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
+
+import com.cdac.acts.data_utils.DataUtils;
+import com.cdac.acts.operations.Operation;
+import com.cdac.acts.printer.Printer;
+import com.cdac.acts.printer_type.PrinterType;
+
+public class PrinterTester {
+	public static void main(String[] args) {
+		List<Printer> list = DataUtils.getData();
+		Operation.addToFile(list);
+		Map<Integer, Printer> map = Operation.getFromFile();
+
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("1.Add Printer");
+			System.out.println("2. Display");
+			System.out.println("3.Update Printer Price");
+			System.out.println("4.Display printers sorted by Prices"); // (user comparing method of Comparator)
+			System.out.println("6.Filter by printerType"); // ( use filter method of Stram API)
+			System.out.println("7.Remove a book");
+			System.out.println("8. Show printer by PrinterType");// ( use goupingBy of Stream)
+			System.out.println("0.Save in file and Exit");
+
+			System.out.println("enter choice");
+			int choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1: {
+
+				System.out.println("enter modelNo ");
+				String modelNo = sc.nextLine();
+
+				System.out.println("enter price ");
+				Double price = sc.nextDouble();
+				sc.nextLine();
+
+				System.out.println("enter printer type");
+				String type = sc.nextLine();
+
+				System.out.println("enter local date");
+				String date = sc.nextLine();
+				LocalDate manufacturingDate = LocalDate.parse(date);
+
+				list.add(new Printer(modelNo, price, PrinterType.valueOf(type), manufacturingDate));
+
+				map = Operation.getFromFile();
+			}
+				break;
+
+			case 2: {
+				Set<Map.Entry<Integer, Printer>> entries = map.entrySet();
+
+				for (Map.Entry<Integer, Printer> entry : entries) {
+					System.out.println(entry.getValue());
+				}
+			}
+				break;
+
+			case 3: {
+				System.out.println("enter serial No.");
+				Integer s = sc.nextInt();
+
+				if (map.containsKey(s)) {
+					System.out.println("enter price");
+					Double price = sc.nextDouble();
+
+					map.get(s).setPrice(price);
+				}
+			}
+				break;
+
+			case 4: {
+				List<Printer> sortByPriceList = new ArrayList<>();
+
+				Set<Map.Entry<Integer, Printer>> entries = map.entrySet();
+				for (Map.Entry<Integer, Printer> entry : entries) {
+					sortByPriceList.add(entry.getValue());
+				}
+
+				Collections.sort(sortByPriceList, Comparator.comparing((x) -> x.getPrice()));
+				sortByPriceList.forEach(System.out::println);
+			}
+				break;
+
+			}
+		}
+//		Operation.addToFile(list);
+
+//		System.out.println(map);
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;fi.springjdbc.dao.UsersDAOImple&apos; to &apos;UsersDAOImpl&apos;&#x0D;&#x0A;- Original project: &apos;springjdbc(part2)&apos;&#x0D;&#x0A;- Original element: &apos;fi.springjdbc.dao.UsersDAOImple&apos;&#x0D;&#x0A;- Renamed element: &apos;fi.springjdbc.dao.UsersDAOImpl&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UsersDAOImple&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;fi.springjdbc.dao{UsersDAOImple.java[UsersDAOImple" matchStrategy="1" name="UsersDAOImpl" qualified="false" references="true" similarDeclarations="false" stamp="1735645120566" textual="false" version="1.0"/>
+</session>

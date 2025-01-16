@@ -1,0 +1,21 @@
+package punctuation_mark;
+
+public class PunctuationMark {
+	
+	private boolean checkSpace(String s) {
+		for (int i =0; i<s.length(); i++) {
+			char ch = s.charAt(i);
+			if (ch == '!' || ch == ',' || ch == '.' || ch == ':' ||
+					ch == '-' || ch == '?' || ch == ';' ) {
+				if (s.charAt(i+1) == ' ') {
+					return true;
+				} else {
+					break;
+				}
+			}
+		}
+		return false;
+	}
+	public static void main(String[] args) {
+	}
+}

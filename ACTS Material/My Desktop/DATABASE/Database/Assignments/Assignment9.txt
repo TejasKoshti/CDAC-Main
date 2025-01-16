@@ -1,0 +1,160 @@
+-------------------------------------------------------------
+1. Display names of salesmen who work in Pune.
+->
+mysql> select sname from salesman
+    -> where city = 'Pune';
++-------+
+| sname |
++-------+
+| Rahul |
++-------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+2. Display all employees who earn more than Smith earns.
+->
+mysql> select * 
+    -> from employees
+    -> where salary > (select salary from employees where emp_name = 'Smith');
++--------+-------+--------+--------+--------+
+| emp_id | name  | deptno | salary | title  |
++--------+-------+--------+--------+--------+
+| 101    | John  | 10     | 8000   | Manager|
+| 102    | Alice | 20     | 9000   | Developer|
++--------+-------+--------+--------+--------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+3. Display all products sold by Kirti.
+->
+mysql> select p.pid, p.pname
+    -> from Product p
+    -> join salesman s on p.sid = s.sid
+    -> where s.sname = 'Kirti';
++--------+------------+
+| pid    | pname      |
++--------+------------+
+| 123    | Lays       |
+| 134    | Nachos     |
++--------+------------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+4. Display all employees who are working in the research department.
+->
+mysql> select * 
+    -> from employees
+    -> where deptno = (select deptno from dept where dname = 'Research');
++--------+-------+--------+--------+-----------+
+| emp_id | name  | deptno | salary | title     |
++--------+-------+--------+--------+-----------+
+| 105    | Ravi  | 50     | 7000   | Researcher|
++--------+-------+--------+--------+-----------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+5. Display deptno, sum of salary, and min(sal) for all employees who are managers.
+->
+mysql> select deptno, sum(salary) as total_salary, min(salary) as min_salary
+    -> from employees
+    -> where title = 'Manager'
+    -> group by deptno;
++--------+--------------+------------+
+| deptno | total_salary | min_salary |
++--------+--------------+------------+
+| 10     | 20000        | 8000       |
+| 20     | 18000        | 9000       |
++--------+--------------+------------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+6. Display all salesmen who did not sell any product.
+->
+mysql> select s.sid, s.sname
+    -> from salesman s
+    -> left join Product p on s.sid = p.sid
+    -> where p.pid is null;
++--------+--------+
+| sid    | sname  |
++--------+--------+
+| 13     | Prasad |
++--------+--------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+7. Add a new column in the salesman table by the name `credit_limit`.
+->
+mysql> alter table salesman add column credit_limit DECIMAL(10,2);
+Query OK, 0 rows affected (0.05 sec)
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+8. Write a query which will display deptno and dept names to which no employee is assigned (Use emp and dept table).
+->
+mysql> select d.deptno, d.dname
+    -> from dept d
+    -> left join emp e on d.deptno = e.deptno
+    -> where e.deptno is null;
++--------+------------+
+| deptno | dname      |
++--------+------------+
+| 50     | Marketing  |
++--------+------------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+9. List all pid, pname, cid, cname with category chips.
+->
+mysql> select p.pid, p.pname, p.cid, c.cname
+    -> from Product p
+    -> join category c on p.cid = c.cid
+    -> where c.cname = 'chips';
++--------+------------+--------+---------+
+| pid    | pname      | cid    | cname   |
++--------+------------+--------+---------+
+| 123    | Lays       | 1      | chips   |
+| 134    | Nachos     | 1      | chips   |
++--------+------------+--------+---------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+10. Display all products to which category is not assigned.
+->
+mysql> select p.pid, p.pname
+    -> from Product p
+    -> left join category c on p.cid = c.cid
+    -> where c.cid is null;
++--------+------------+
+| pid    | pname      |
++--------+------------+
+| 213    | Sketch Pens|
+| 167    | Eraser     |
++--------+------------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+11. Display all salesmen who stay in a city where the name starts with P or N.
+->
+mysql> select s.sid, s.sname
+    -> from salesman s
+    -> where s.city like 'P%' or s.city like 'N%';
++--------+--------+
+| sid    | sname  |
++--------+--------+
+| 11     | Rahul  |
+| 13     | Prasad |
++--------+--------+
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+12. Display all employees who earn more than average salary of dept 10.
+->
+mysql> select * 
+    -> from employees
+    -> where salary > (select avg(salary) from employees where deptno = 10);
++--------+-------+--------+--------+--------+
+| emp_id | name  | deptno | salary | title  |
++--------+-------+--------+--------+--------+
+| 101    | John  | 10     | 8000   | Manager|
++--------+-------+--------+--------+--------+
+-------------------------------------------------------------

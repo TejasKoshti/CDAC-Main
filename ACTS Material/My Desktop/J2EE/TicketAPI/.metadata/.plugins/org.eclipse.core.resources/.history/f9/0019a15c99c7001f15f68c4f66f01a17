@@ -1,0 +1,48 @@
+package fi.TicketAPI.Entity;
+
+import java.sql.Date;
+
+import entity.Category;
+import entity.Status;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "")
+public class Ticket {
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Integer id;
+
+	@Column(name = "phone-number")
+	String phoneNo;
+
+	@Column(name = "category")
+	@Enumerated(EnumType.STRING)
+	Category category;
+	
+	@Column(name = "issuedetail")
+	String issueDetail;
+
+	@Column(name = "status")
+	@Enumerated(EnumType.STRING)
+	Status status;
+
+	@Column(name = "resolution_detail")
+	String resolution;
+
+	@Column(name = "createtime")
+	Date createdate;
+
+	@Column(name = "resolvedate")
+	Date resolvedate;
+	
+}

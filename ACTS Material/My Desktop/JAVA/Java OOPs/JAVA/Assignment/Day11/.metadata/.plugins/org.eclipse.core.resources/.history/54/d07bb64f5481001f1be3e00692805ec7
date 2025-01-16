@@ -1,0 +1,17 @@
+package com.cdac.acts.account.data_utils;
+
+import java.util.List;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.enums.AccountType;
+
+public class Data {
+	private static List<Account> getData(){
+		List<Account> list = new ArrayList<Account>();
+		
+		list.add(new Account ("Vaibhav", LocalDate.now(), 10000.0, AccountType.valueOf("S")));
+		return list;
+	}
+}

@@ -1,0 +1,48 @@
+package com.cdac.acts.operations;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.cdac.acts.printer.Printer;
+
+public class Operation {
+	private Operation() {
+	}
+
+	public static void addToFile(List<Printer> list) {
+		try (FileOutputStream fos = new FileOutputStream("printer.txt", true);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+			for (Printer p : list) {
+				oos.writeObject(p);
+			}
+		} catch (IOException ioe) {
+			System.err.println("Writing faild " + ioe.getMessage());
+		}
+	}
+
+	public static Map<Integer, Printer> getFromFile() {
+
+		Map<Integer, Printer> map = new HashMap<>();
+
+		try (FileInputStream fis = new FileInputStream("printer.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);) {
+
+			while (true) {
+				Printer p = (Printer) ois.readObject();
+				map.put(p.getSerialNo(), p);
+			}
+		} catch (EOFException e) {
+			System.out.println("data recevied from file");
+		} catch (IOException | ClassNotFoundException e) {
+			System.err.println("Read Failed: " + e.getMessage());
+		}
+		return map;
+	}
+}

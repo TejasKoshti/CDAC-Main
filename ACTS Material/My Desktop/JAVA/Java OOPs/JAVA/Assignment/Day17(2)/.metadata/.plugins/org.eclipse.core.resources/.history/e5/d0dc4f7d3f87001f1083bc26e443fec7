@@ -1,0 +1,64 @@
+package com.cdac.acts.book.io;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.cdac.acts.book.Book;
+import com.cdac.acts.book.enums.BookType;
+
+public class FileInputOutput {
+	private FileInputOutput() {
+	}
+
+	/*
+	 * String isbn; private String title; private String author; private BookType
+	 * bookType; private LocalDate publishDate; private Double price;
+	 */
+	public static void writeToFile(Book obj) {
+		try (DataOutputStream dout = new DataOutputStream(new FileOutputStream("book.txt"s))) {
+			System.out.println(obj.getIsbn());
+			dout.writeUTF(obj.getIsbn());
+			dout.writeUTF(obj.getTitle());
+			dout.writeUTF(obj.getAuthor());
+			dout.writeUTF(obj.getBookType().name());
+			dout.writeUTF(obj.getPublishDate().toString());
+			dout.writeDouble(obj.getPrice());
+		} catch (FileNotFoundException fnfe) {
+			System.err.println(fnfe.getMessage());
+		} catch (IOException ioe) {
+			System.err.println(ioe.getMessage());
+		}
+	}
+
+	public static List<Book> readFromFile() {
+		List<Book> bookList = new LinkedList<>();
+
+		try (DataInputStream dis = new DataInputStream(new FileInputStream("book.txt"))) {
+			while (true) {
+				String isbn = dis.readUTF();
+				String title = dis.readUTF();
+				String author = dis.readUTF();
+				BookType bookType = BookType.valueOf(dis.readUTF());
+				LocalDate publishDate = LocalDate.parse(dis.readUTF());
+				Double price = dis.readDouble();
+				
+				bookList.add(new Book(isbn, title, author, bookType, publishDate, price));
+			}
+		} catch (EOFException eof) {
+			System.out.println("data received");
+		} catch (FileNotFoundException fnfe) {
+			System.err.println(fnfe.getMessage());
+		} catch (IOException ioe) {
+			System.err.println(ioe.getMessage());
+		}
+		return bookList;
+	}
+}

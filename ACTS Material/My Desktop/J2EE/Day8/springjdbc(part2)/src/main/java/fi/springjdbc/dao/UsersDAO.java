@@ -1,0 +1,16 @@
+package fi.springjdbc.dao;
+
+import java.util.Iterator;
+
+import fi.springjdbc.beans.Users;
+
+public interface UsersDAO {
+
+	public boolean registerUser(String username, String password, String name, String email);
+
+	public boolean changePassword(String username, String password);
+
+	public Users getUsersDetails(String Username);
+
+	public Iterator<Users> getAllUsers();
+}

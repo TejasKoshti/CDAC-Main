@@ -1,0 +1,5 @@
+package fi.config;
+
+public class AppConfig {
+
+}

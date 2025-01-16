@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class ArrayListTester {
+	public static void main(String[] args) {
+		
+		// Collection (i/f) -> List (i/f) -> ArrayList (cc)
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(10);
+		list.add(20);
+		list.add(30);
+		list.add(40);
+		list.add(50);
+		list.add(30);
+		System.out.println(l);
+		
+		ArrayList<Integer> l = (ArrayList<Integer>) list.clone();
+		System.out.println(l);
+		l.remove(l);
+		System.out.println("hi "+l);
+		System.out.println(list.indexOf(30));
+
+	}
+}

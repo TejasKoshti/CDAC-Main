@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\ParamsExample\bin\Debug\net8.0\ParamsExample.exe
+E:\MS.Net\MyCode\Day3\ParamsExample\bin\Debug\net8.0\ParamsExample.deps.json
+E:\MS.Net\MyCode\Day3\ParamsExample\bin\Debug\net8.0\ParamsExample.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\ParamsExample\bin\Debug\net8.0\ParamsExample.dll
+E:\MS.Net\MyCode\Day3\ParamsExample\bin\Debug\net8.0\ParamsExample.pdb
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.dll
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\refint\ParamsExample.dll
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.pdb
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ParamsExample.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\ParamsExample\obj\Debug\net8.0\ref\ParamsExample.dll

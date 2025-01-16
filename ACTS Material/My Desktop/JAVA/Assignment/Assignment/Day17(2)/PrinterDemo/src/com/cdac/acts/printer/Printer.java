@@ -1,0 +1,56 @@
+package com.cdac.acts.printer;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import com.cdac.acts.printer_type.PrinterType;
+
+public class Printer implements Serializable {
+
+	private Integer serialNo;
+	private String modelNo;
+	private Double price;
+	private PrinterType p_type;
+	private LocalDate manufacturingDate;
+
+	private static Integer serialNoGenerator = 1001;
+
+	public Printer(String modelNo, Double price, PrinterType p_type, LocalDate manufacturingDate) {
+		this.serialNo = serialNoGenerator;
+		this.modelNo = modelNo;
+		this.price = price;
+		this.p_type = p_type;
+		this.manufacturingDate = manufacturingDate;
+		serialNoGenerator++;
+	}
+
+	public Integer getSerialNo() {
+		return serialNo;
+	}
+
+	public PrinterType getP_type() {
+		return p_type;
+	}
+
+	public String getModelNo() {
+		return modelNo;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public LocalDate getManufacturingDate() {
+		return manufacturingDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Printer [serialNo=" + serialNo + ", modelNo=" + modelNo + ", price=" + price + ", p_type=" + p_type
+				+ ", manufacturingDate=" + manufacturingDate + "]";
+	}
+}

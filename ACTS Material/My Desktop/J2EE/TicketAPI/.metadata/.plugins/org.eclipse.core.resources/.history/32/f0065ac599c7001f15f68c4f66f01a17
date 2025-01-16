@@ -1,0 +1,5 @@
+package fi.TicketAPI.DTO;
+
+public class TicketDTO {
+
+}

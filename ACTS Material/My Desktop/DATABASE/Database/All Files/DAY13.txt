@@ -1,0 +1,48 @@
+SELECT * FROM emp_v20;
+This will only display employees with deptno = 20. The newly inserted employee Raj with deptno = 40 will not be visible in the view.
+
+
+7. Check the Views Created
+To check the views that have been created in your MySQL database, you can use the following command:
+
+sql
+Copy code
+SHOW FULL TABLES WHERE Table_type = 'VIEW';
+This will list all the views in the current database. If you want to see the structure (columns) of a specific view, you can use the DESCRIBE command:
+
+sql
+Copy code
+DESCRIBE new_emp_v20;
+This will show the columns and the types of the view new_emp_v20.
+
+8. Create a View with empno, ename, deptno, and dname
+Now, let's create a new view that combines information from the emp table (for employee details) and the dept table (for department names). This will require a JOIN operation to get the department name (dname) along with the employee details.
+
+SQL for the View:
+sql
+Copy code
+CREATE VIEW emp_dept_view AS
+SELECT e.empno, e.ename, e.deptno, d.dname
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno;
+Explanation:
+CREATE VIEW emp_dept_view AS: Creates the view named emp_dept_view.
+SELECT e.empno, e.ename, e.deptno, d.dname: Selects the employee number (empno), employee name (ename), department number (deptno), and department name (dname).
+FROM emp e: Uses the emp table (aliased as e).
+JOIN dept d ON e.deptno = d.deptno: Joins the emp table with the dept table (aliased as d) using the deptno column to link employees to their respective departments.
+Check if You Can Insert Data into the View
+To insert data into the emp_dept_view, you need to remember that views based on multiple tables (such as the one you just created) can be non-updatable in some cases, because they do not directly correspond to a single table. When a view is based on a join, MySQL typically does not allow you to insert data directly into the view, as it cannot determine how to assign values to the underlying tables (emp and dept) correctly.
+
+Attempt to Insert Data
+If you try to insert data into the emp_dept_view, like this:
+
+sql
+Copy code
+INSERT INTO emp_dept_view (empno, ename, deptno, dname)
+VALUES (1234, 'Mike', 20, 'HR');
+You will get an error, because it's not possible to insert data into a view that joins multiple tables. MySQL won't know whether to insert the new employee into the emp table or the dept table. The error message might be something like:
+
+vbnet
+Copy code
+ERROR 1364 (HY000): Field 'dname' doesn't have a default value
+This is because the view is trying to insert data into a column (dname) that is derived from the dept table, and you cannot directly insert into such a derived column.

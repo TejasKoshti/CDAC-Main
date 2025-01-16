@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day1\objectInitializers\bin\Debug\net8.0\objectInitializers.exe
+E:\MS.Net\MyCode\Day1\objectInitializers\bin\Debug\net8.0\objectInitializers.deps.json
+E:\MS.Net\MyCode\Day1\objectInitializers\bin\Debug\net8.0\objectInitializers.runtimeconfig.json
+E:\MS.Net\MyCode\Day1\objectInitializers\bin\Debug\net8.0\objectInitializers.dll
+E:\MS.Net\MyCode\Day1\objectInitializers\bin\Debug\net8.0\objectInitializers.pdb
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.dll
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\refint\objectInitializers.dll
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.pdb
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\objectInitializers.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day1\objectInitializers\obj\Debug\net8.0\ref\objectInitializers.dll

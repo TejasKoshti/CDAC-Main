@@ -1,0 +1,15 @@
+package fi.TicketAPI.Service;
+
+import java.util.List;
+
+import dto.TicketDto;
+
+public interface Service {
+
+	public boolean createTicket(TicketDto dto);
+	public  boolean updateTicket(Integer ID ,TicketDto dto);
+	public List<TicketDto> allTickets();
+	public TicketDto fetchById(Integer id);
+	
+
+}

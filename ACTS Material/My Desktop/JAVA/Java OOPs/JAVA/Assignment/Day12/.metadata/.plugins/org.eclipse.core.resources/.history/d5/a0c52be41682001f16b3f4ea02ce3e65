@@ -1,0 +1,23 @@
+package tejas.practs.vector;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class Vector_Demo {
+
+	public static void main(String[] args) {
+		
+		List<Integer> list = new Vector<Integer>();
+		
+		list.add(100);
+		list.add(200);
+		list.add(300);
+		list.add(400);
+		
+		List<Integer> vector = new Vector<Integer>();
+		
+		
+		
+	}
+}

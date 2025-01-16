@@ -1,0 +1,43 @@
+package fi.resthiberapp.services;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
+import fi.resthiberapp.dto.CategoryDTO;
+import fi.resthiberapp.entity.Category;
+import org.hibernate.*;
+
+@Service
+public class CategoryServiceImpl implements CategoryService{
+	
+	@Autowired
+	SessionFactory hibernateFactory;
+
+	@Override
+	public boolean addNewCategory(CategoryDTO dto) {
+		
+		Category entityCategory = new Category();
+		BeanUtils.copyProperties(dto, entityCategory);
+	
+		try(Session hibernateSession = hibernateFactory.openSession())
+		{}
+		
+		return true;
+	}
+	
+	
+	
+	public CategoryDTO getCategoryById(int categoryId) {
+		return null;
+	}
+	public List<CategoryDTO> allCategories() {
+		return null;
+	}
+	
+	
+}

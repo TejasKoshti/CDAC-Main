@@ -1,0 +1,18 @@
+package com.cdac.acts.book.validation;
+
+import com.cdac.acts.book.enums.BookType;
+
+public class ValidationUtils {
+	private ValidationUtils() {
+	}
+
+	public static BookType getValidCourse(String bookType) {
+		BookType bookEnum = null;
+		try {
+			bookEnum = BookType.valueOf(bookType);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+		return bookEnum;
+	}
+}

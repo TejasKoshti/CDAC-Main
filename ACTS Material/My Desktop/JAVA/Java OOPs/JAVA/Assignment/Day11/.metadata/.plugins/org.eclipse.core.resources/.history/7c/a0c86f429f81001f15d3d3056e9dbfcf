@@ -1,0 +1,98 @@
+package com.cdac.acts.account.main;
+
+import java.time.LocalDate;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import com.cdac.acts.account.Account;
+import com.cdac.acts.account.comparator.NameComparator;
+import com.cdac.acts.account.data_utils.Data;
+import com.cdac.acts.account.enums.AccountType;
+import com.cdac.acts.account.my_Exception.MiniBalException;
+import com.cdac.acts.account.validation.Validation;
+import com.cdac.acts.account.comparator.BalanceComparator;
+import com.cdac.acts.account.comparator.DateComparator;
+
+public class AccountMain {
+
+	public static void main(String[] args) throws MiniBalException {
+		List<Account> list = Data.getData();
+
+		while (true) {
+
+			System.out.println("0 -> exit");
+			System.out.println("1 -> add account: ");
+			System.out.println("2 -> print account: ");
+			System.out.println("3 -> sort by account DSC: ");
+			System.out.println("4 -> sort by name: ");
+			System.out.println("5 -> sort by date of opening: ");
+			System.out.println("6 -> sort by balance ");
+			System.out.println("7 -> sort by account type ");
+
+			Scanner sc = new Scanner(System.in);
+			System.out.println("enter choice");
+			int choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+
+			case 0: {
+				sc.close();
+				System.exit(0);
+			}
+				break;
+
+			case 1: {
+				System.out.println("enter name: ");
+				String name = sc.nextLine();
+
+				System.out.println("enter date of opening int yyyy-mm-dd");
+				String str = sc.nextLine();
+				LocalDate validDob = Validation.getValidDoj(str);
+
+				System.out.println("enter amount: ");
+				Double a = sc.nextDouble();
+				Double amount = Validation.getValidBalance(a);
+
+				sc.nextLine();
+				System.out.println("enter type of account S/C/FD: ");
+				String type = sc.nextLine();
+				AccountType typeV = Validation.getValidAccountType(type);
+
+				list.add(new Account(name, validDob, amount, typeV));
+			}
+				break;
+
+			case 2: {
+				for (Account a1 : list) {
+					System.out.println(a1);
+				}
+			}
+				break;
+
+			case 3: {
+				Collections.sort(list);
+			}
+				break;
+
+			case 4: {
+				Collections.sort(list, new NameComparator());
+			}
+				break;
+
+			case 5: {
+				Collections.sort(list, new DateComparator());
+			}
+				break;
+				
+			case 6: {
+				Collections.sort(list, new BalanceComparator());
+			}
+				break;
+
+			}
+		}
+	}
+}

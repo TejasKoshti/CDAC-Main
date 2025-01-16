@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\Generics\bin\Debug\net8.0\Generics.exe
+E:\MS.Net\MyCode\Day3\Generics\bin\Debug\net8.0\Generics.deps.json
+E:\MS.Net\MyCode\Day3\Generics\bin\Debug\net8.0\Generics.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\Generics\bin\Debug\net8.0\Generics.dll
+E:\MS.Net\MyCode\Day3\Generics\bin\Debug\net8.0\Generics.pdb
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.dll
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\refint\Generics.dll
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.pdb
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\Generics.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\Generics\obj\Debug\net8.0\ref\Generics.dll

@@ -1,0 +1,29 @@
+
+public class Main {
+	//Load class adn execute static block
+//			Class.forName("A");
+			
+			//Load class run static block , run non-static block and create object
+			private static int f;
+			 public static void main(String[] args) throws ClassNotFoundException {
+				//Class.forName("A");
+				//System.out.println("hi");
+
+//				A a = new A();
+//				Class.forName("A");
+
+//			 C c = new C();
+//				
+//				 float f = 1.08f;
+//				 
+//				 long l = (long) f;
+//				 System.out.println(l);
+//				 
+//				 System.out.println(Main.f);
+//				 
+				 
+				 String a = "   viab   ";
+				 System.out.println(a.trim());
+			 
+			}
+}

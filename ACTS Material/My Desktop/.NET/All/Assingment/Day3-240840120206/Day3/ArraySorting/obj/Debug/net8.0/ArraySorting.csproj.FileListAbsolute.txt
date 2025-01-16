@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\ArraySorting\bin\Debug\net8.0\ArraySorting.exe
+E:\MS.Net\MyCode\Day3\ArraySorting\bin\Debug\net8.0\ArraySorting.deps.json
+E:\MS.Net\MyCode\Day3\ArraySorting\bin\Debug\net8.0\ArraySorting.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\ArraySorting\bin\Debug\net8.0\ArraySorting.dll
+E:\MS.Net\MyCode\Day3\ArraySorting\bin\Debug\net8.0\ArraySorting.pdb
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.dll
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\refint\ArraySorting.dll
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.pdb
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ArraySorting.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\ArraySorting\obj\Debug\net8.0\ref\ArraySorting.dll

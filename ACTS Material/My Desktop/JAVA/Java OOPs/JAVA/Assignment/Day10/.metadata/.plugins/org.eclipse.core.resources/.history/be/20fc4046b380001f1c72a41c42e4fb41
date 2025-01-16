@@ -1,0 +1,26 @@
+class A {
+	public void hi() {
+		System.out.println("A::Hi");
+	}
+}
+
+class B extends A {
+
+	@Override
+	public void hi() {
+		System.out.println("B::Hi");
+	}
+}
+
+public class Inheritance {
+	public static void main(String[] args) {
+		A a = new A();
+		a.hi();
+
+		a = new B();
+		if (a instanceof B) {
+			B b1 = (B) a;
+			b1.hi();
+		}
+	}
+}

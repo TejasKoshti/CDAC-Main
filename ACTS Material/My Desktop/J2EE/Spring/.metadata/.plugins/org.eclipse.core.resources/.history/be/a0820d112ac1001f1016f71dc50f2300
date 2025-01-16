@@ -1,0 +1,31 @@
+#spring.datasource.url=jdbc:mysql://localhost:3306/cdac_acts
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.username=acts
+#spring.datasource.password=Cdac@123
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+#spring.jpa.show-sql=true
+#
+
+
+
+# Database connection details
+db.connection.url=jdbc:mysql://localhost:3306/cdac_acts
+db.connection.username=acts
+db.connection.password=Cdac@123
+db.connection.driverclass=com.mysql.cj.jdbc.Driver
+
+# SQL Queries
+
+# SQL query for registering a new user
+sql.registeruser=insert into users values(?,?,?,?)
+
+# SQL query for changing a user's password
+sql.changepassword=update users set password=? where username=?
+
+# SQL query for retrieving all users
+sql.allusers=select * from users
+
+# SQL query for retrieving a user's details by username
+sql.userdetails=select * from users where username=?
+

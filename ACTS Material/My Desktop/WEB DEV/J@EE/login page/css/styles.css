@@ -1,0 +1,132 @@
+/* Import a Google Font for styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 850px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login-section {
+    background-color: #fff;
+    padding: 40px;
+    width: 50%;
+}
+
+.signup-section {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.signup-section h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.signup-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social-icons a img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: #ff4b2b;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.options a {
+    color: #ff4b2b;
+    text-decoration: none;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ff4b2b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff416c;
+}
+
+.btn-outline {
+    padding: 10px 20px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #ff4b2b;
+}

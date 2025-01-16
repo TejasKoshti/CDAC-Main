@@ -1,0 +1,5 @@
+package fi.fristBootmvc.entity;
+
+public class Users {
+
+}

@@ -1,0 +1,14 @@
+E:\MS.Net\MyCode\Day3\NullableTypes\bin\Debug\net8.0\NullableTypes.exe
+E:\MS.Net\MyCode\Day3\NullableTypes\bin\Debug\net8.0\NullableTypes.deps.json
+E:\MS.Net\MyCode\Day3\NullableTypes\bin\Debug\net8.0\NullableTypes.runtimeconfig.json
+E:\MS.Net\MyCode\Day3\NullableTypes\bin\Debug\net8.0\NullableTypes.dll
+E:\MS.Net\MyCode\Day3\NullableTypes\bin\Debug\net8.0\NullableTypes.pdb
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.GeneratedMSBuildEditorConfig.editorconfig
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.AssemblyInfoInputs.cache
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.AssemblyInfo.cs
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.csproj.CoreCompileInputs.cache
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.dll
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\refint\NullableTypes.dll
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.pdb
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\NullableTypes.genruntimeconfig.cache
+E:\MS.Net\MyCode\Day3\NullableTypes\obj\Debug\net8.0\ref\NullableTypes.dll

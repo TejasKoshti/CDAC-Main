@@ -1,0 +1,13 @@
+package fi.fristBootmvc;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = {"fi.fristBootmvc.controllers"})
+public class FristBootmvcApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FristBootmvcApplication.class, args);
+	}
+
+}

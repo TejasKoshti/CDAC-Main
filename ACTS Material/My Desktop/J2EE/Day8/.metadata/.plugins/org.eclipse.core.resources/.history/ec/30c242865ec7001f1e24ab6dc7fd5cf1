@@ -1,0 +1,5 @@
+package fi.secoundspringapp.beans;
+
+public class Users {
+
+}

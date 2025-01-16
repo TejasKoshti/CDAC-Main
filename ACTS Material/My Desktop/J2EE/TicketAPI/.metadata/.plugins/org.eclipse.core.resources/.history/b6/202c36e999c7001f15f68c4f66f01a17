@@ -1,0 +1,5 @@
+package fi.TicketAPI.Repo;
+
+public class TicketRepository {
+
+}

@@ -1,0 +1,5 @@
+1735220436544	Rename resource 'resthiberapp'
+1735220836927	Delete resource 'RESTService'
+1735220917439	Rename resource 'resthiberappRepo'
+1735221041140	Delete resource 'RESTClient/src/main/webapp/WEB-INF/views/login.jsp'
+1735221042837	Delete resource 'RESTClient/src/main/webapp/WEB-INF/views/welcome.jsp'

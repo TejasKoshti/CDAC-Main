@@ -1,0 +1,71 @@
+package fi.TicketAPI.Service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fi.TicketAPI.DTO.TicketDTO;
+import fi.TicketAPI.Entity.Status;
+import fi.TicketAPI.Entity.Ticket;
+import fi.TicketAPI.Repo.TicketRepository;
+
+@Service
+public class ServiceImpl implements fi.TicketAPI.Service.Service {
+
+	@Autowired
+	TicketRepository repository;
+	
+	@Override
+	public boolean createTicket(TicketDTO dto) {
+		Ticket ticket = new Ticket();
+		BeanUtils.copyProperties(dto, ticket);
+		repository.save(ticket);
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateTicket(Integer ID, TicketDTO dto) {
+
+		Optio
+		return false;
+	}
+
+	@Override
+	public List<TicketDTO> allTickets() {
+		
+		List<Ticket> list  = repository.findAll();
+		System.out.println("list "+list);
+		List<TicketDTO> finalList = new ArrayList<>();
+		
+		for(Ticket t : list ) {
+			if(t.getStatus().equals(Status.OPEN)) {
+				TicketDTO ticketDTO = new TicketDTO();
+				BeanUtils.copyProperties(t, ticketDTO);
+				finalList.add(ticketDTO);
+			}
+		}
+		
+		return finalList;
+	}
+
+	@Override
+	public TicketDTO fetchById(Integer id) {
+		
+		Optional<Ticket> ticket = repository.findById(id);
+		
+		if(ticket.isPresent()) {
+			TicketDTO dto = new TicketDTO();
+			BeanUtils.copyProperties(ticket.get(), dto);
+			return dto;
+		}else {
+		return null;
+		}
+	}
+
+}

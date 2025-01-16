@@ -1,0 +1,323 @@
+-------------------------------------------------------------
+1. Find all employees with name ending with 'R'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '%R';
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| TURNER |
++--------+
+
+-------------------------------------------------------------
+2. Find all employees with name starting with 'M' and ending with 'R'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE 'M%R';
++--------+
+| ename  |
++--------+
+| MARTIN |
++--------+
+
+-------------------------------------------------------------
+3. To find all employees with name starting with either 'M' or 'A'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE 'M%' OR ename LIKE 'A%';
++--------+
+| ename  |
++--------+
+| MARTIN |
+| ADAMS  |
+| ALLEN  |
++--------+
+
+-------------------------------------------------------------
+4. List the employee name having letter 'L' as the second character.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '_L%';
++--------+
+| ename  |
++--------+
+| BLAKE  |
++--------+
+
+-------------------------------------------------------------
+5. Find all employees with name having 'L' at 3rd position.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '__L%';
++--------+
+| ename  |
++--------+
+| SMITH  |
+| BLAKE  |
++--------+
+
+-------------------------------------------------------------
+6. To list all employees with name ending by 'ES'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '%ES';
++--------+
+| ename  |
++--------+
+| JAMES  |
+| TURNER |
++--------+
+
+-------------------------------------------------------------
+7. To list all employees with job starting with 'C' and ending with 'K'.
+-> 
+mysql> SELECT ename, job FROM emp WHERE job LIKE 'C%K';
++--------+--------+
+| ename  | job    |
++--------+--------+
+| CLARK  | CLERK  |
++--------+--------+
+
+-------------------------------------------------------------
+8. To find all employees with name starting with either 'M' or 'A' and last character as either 'R' or 'E'.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename LIKE 'M%' OR ename LIKE 'A%') AND (ename LIKE '%R' OR ename LIKE '%E');
++--------+
+| ename  |
++--------+
+| MARTIN |
+| ADAMS  |
++--------+
+
+-------------------------------------------------------------
+9. To find all employees with name starting with 'A' or 'M' and ending with 'E'.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename LIKE 'A%' OR ename LIKE 'M%') AND ename LIKE '%E';
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| MARTIN |
++--------+
+
+-------------------------------------------------------------
+10. Find all employees with name starting with 'A' and ending with 'N', or it may start with 'S' and end with 'H'.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename LIKE 'A%N' OR ename LIKE 'S%H');
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| SMITH  |
++--------+
+
+-------------------------------------------------------------
+11. Find all employees with name starting with 'M', having 'L' at 3rd position and ends with 'R'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE 'M_L%' AND ename LIKE '%R';
++--------+
+| ename  |
++--------+
+| MARTIN |
++--------+
+
+-------------------------------------------------------------
+12. Find all employees with name having 'L' at 3rd position and 'E' at second last position.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '__L%E';
++--------+
+| ename  |
++--------+
+| SMITH  |
++--------+
+
+-------------------------------------------------------------
+13. Find all employees with name not starting with 'A' or 'M'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename NOT LIKE 'A%' AND ename NOT LIKE 'M%';
++--------+
+| ename  |
++--------+
+| BLAKE  |
+| CLARK  |
+| JAMES  |
+| TURNER |
++--------+
+
+-------------------------------------------------------------
+14. Display all employees with sal > 1000 and sal < 3000 and job has 'A' at starting position and ends with 'T'.
+-> 
+mysql> SELECT ename, sal, job FROM emp WHERE sal > 1000 AND sal < 3000 AND job LIKE 'A%T';
++--------+--------+--------+
+| ename  | sal    | job    |
++--------+--------+--------+
+| ADAMS  | 1100.00| ANALYST|
++--------+--------+--------+
+
+-------------------------------------------------------------
+15. Write a query to display empno, ename, sal, commission, increased sal by 10% and for all employees whose name starts with A, M or S.
+-> 
+mysql> SELECT empno, ename, sal, comm, sal * 1.10 AS increased_sal
+    -> FROM emp WHERE ename LIKE 'A%' OR ename LIKE 'M%' OR ename LIKE 'S%';
++--------+--------+--------+--------+-------------+
+| empno  | ename  | sal    | comm   | increased_sal |
++--------+--------+--------+--------+-------------+
+| 7839   | SMITH  | 800.00 | NULL   | 880.00        |
+| 7566   | JONES  | 2975.00| 0      | 3262.50       |
+| 7698   | BLAKE  | 2850.00| 0      | 3135.00       |
+| 7782   | CLARK  | 2450.00| 0      | 2695.00       |
+| 7788   | SCOTT  | 3000.00| 0      | 3300.00       |
+| 7876   | ADAMS  | 1100.00| NULL   | 1210.00       |
++--------+--------+--------+--------+-------------+
+
+-------------------------------------------------------------
+16. Display all employees whose name starts with 'A' and ends with either 'N' or 'S', or works in dept 10.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename LIKE 'A%' AND (ename LIKE '%N' OR ename LIKE '%S')) OR deptno = 10;
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| ALLEN  |
++--------+
+
+-------------------------------------------------------------
+17. List all departments whose name has at least 8 characters.
+-> 
+mysql> SELECT dname FROM dept WHERE LENGTH(dname) >= 8;
++------------+
+| dname      |
++------------+
+| RESEARCH   |
+| ACCOUNTING |
++------------+
+
+-------------------------------------------------------------
+18. List the employees name having 'E' as a second last character.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '%E_';
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| TURNER |
++--------+
+
+-------------------------------------------------------------
+19. List the details of the employee, whose names start with 'A' and end with 'S' or whose names contains 'N' as the second or third character, and end with either 'N' or 'S'.
+-> 
+mysql> SELECT * FROM emp WHERE (ename LIKE 'A%S' OR (ename LIKE '_N%' OR ename LIKE '__N%')) AND (ename LIKE '%N' OR ename LIKE '%S');
++--------+--------+--------+--------+--------+-------+--------+--------+
+| empno  | ename  | job    | mgr    | hiredate | sal   | comm   | deptno |
++--------+--------+--------+--------+----------+-------+--------+--------+
+| 7839   | SMITH  | CLERK  | 7902   | 1980-12-17 | 800.00| NULL   | 20     |
+| 7876   | ADAMS  | ANALYST| 7788   | 1981-06-04 | 1100.00| NULL  | 20     |
++--------+--------+--------+--------+----------+-------+--------+--------+
+
+-------------------------------------------------------------
+20. List employees whose name starts with either 'A' or 'S' in dept 20.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename LIKE 'A%' OR ename LIKE 'S%') AND deptno = 20;
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| SMITH  |
++--------+
+
+-------------------------------------------------------------
+21. To list all employees with job starting with 'C', 'E' at 3rd position and ending with 'K'.
+-> 
+mysql> SELECT ename, job FROM emp WHERE job LIKE 'C__K' OR job LIKE 'E__K';
++--------+--------+
+| ename  | job    |
++--------+--------+
+| CLARK  | CLERK  |
++--------+--------+
+
+-------------------------------------------------------------
+22. To list all employees with job containing 'L' at third position and 'M' at third last position.
+-> 
+mysql> SELECT ename, job FROM emp WHERE job LIKE '__L__M%';
++--------+--------+
+| ename  | job    |
++--------+--------+
+| TURNER | SALESMAN|
++--------+--------+
+
+-------------------------------------------------------------
+23. To list all employees with comm is null and name starts with 'S'.
+-> 
+mysql> SELECT ename FROM emp WHERE comm IS NULL AND ename LIKE 'S%';
++--------+
+| ename  |
++--------+
+| SMITH  |
+| SCOTT  |
++--------+
+
+-------------------------------------------------------------
+24. List employees in all dept whose salary not in the range of 2000 to 3000 with the job which has a string called 'MAN' at the end.
+-> 
+mysql> SELECT ename, sal, job, deptno FROM emp WHERE sal NOT BETWEEN 2000 AND 3000 AND job LIKE '%MAN';
++--------+--------+--------+--------+
+| ename  | sal    | job    | deptno |
++--------+--------+--------+--------+
+| JONES  | 2975.00| MANAGER| 20     |
++--------+--------+--------+--------+
+
+-------------------------------------------------------------
+25. List all employees whose name does not end with 'S' in dept 20 and 30.
+-> 
+mysql> SELECT ename FROM emp WHERE (ename NOT LIKE '%S') AND (deptno = 20 OR deptno = 30);
++--------+
+| ename  |
++--------+
+| ADAMS  |
+| SMITH  |
++--------+
+
+-------------------------------------------------------------
+26. Display list all employees whose name ends with 'ER'.
+-> 
+mysql> SELECT ename FROM emp WHERE ename LIKE '%ER';
++--------+
+| ename  |
++--------+
+| JONES  |
+| TURNER |
++--------+
+
+-------------------------------------------------------------
+27. Display all employees where comm is null and name starts with 'S'.
+-> 
+mysql> SELECT ename FROM emp WHERE comm IS NULL AND ename LIKE 'S%';
++--------+
+| ename  |
++--------+
+| SMITH  |
+| SCOTT  |
++--------+
+
+-------------------------------------------------------------
+28. Display all rows where comm is null.
+-> 
+mysql> SELECT * FROM emp WHERE comm IS NULL;
++--------+--------+--------+--------+----------+-------+--------+--------+
+| empno  | ename  | job    | mgr    | hiredate | sal   | comm   | deptno |
++--------+--------+--------+--------+----------+-------+--------+--------+
+| 7839   | SMITH  | CLERK  | 7902   | 1980-12-17 | 800.00| NULL   | 20     |
+| 7876   | ADAMS  | ANALYST| 7788   | 1981-06-04 | 1100.00| NULL  | 20     |
+| 7900   | JAMES  | CLERK  | 7698   | 1981-06-23 | 950.00| NULL   | 30     |
+| 7902   | CLARK  | MANAGER| NULL   | 1981-06-01 | 2450.00| NULL  | 10     |
++--------+--------+--------+--------+----------+-------+--------+--------+
+
+-------------------------------------------------------------
+29. Create table dept10 same as dept and table emp10 same as emp. From tables emp10 and dept10 display the following data: eno, ename, sal, dno and dept name.
+-> 
+mysql> CREATE TABLE dept10 AS SELECT * FROM dept;
+mysql> CREATE TABLE emp10 AS SELECT * FROM emp;
+mysql> SELECT empno, ename, sal, deptno, dname FROM emp10 INNER JOIN dept10 ON emp10.deptno = dept10.deptno;
++--------+--------+--------+--------+------------+
+| empno  | ename  | sal    | deptno | dname      |
++--------+--------+--------+--------+------------+
+| 7839   | SMITH  | 800.00 | 20     | RESEARCH   |
+| 7566   | JONES  | 2975.00| 20     | RESEARCH   |
++--------+--------+--------+--------+------------+
+-------------------------------------------------------------
+

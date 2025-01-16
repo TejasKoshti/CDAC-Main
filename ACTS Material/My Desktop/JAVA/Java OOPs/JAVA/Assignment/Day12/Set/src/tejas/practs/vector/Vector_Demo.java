@@ -1,0 +1,30 @@
+package tejas.practs.vector;
+import java.util.List;
+
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class Vector_Demo {
+
+	public static void main(String[] args) {
+		
+		List<Integer> list = new CopyOnWriteArrayList<Integer>();
+		
+		list.add(100);
+		list.add(200);
+		list.add(300);
+		list.add(400);
+		
+		//print array
+		for(int a : list)
+		{
+			System.out.println("1nd loop=" +a);
+			list.add(500);
+		}
+		
+		for(int a : list)
+		{
+			System.out.println("2nd loop=" +a);
+		}
+		
+	}
+}
